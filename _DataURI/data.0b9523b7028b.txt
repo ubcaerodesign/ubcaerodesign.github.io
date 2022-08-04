@@ -1,0 +1,1 @@
+chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/chrome_variables_init.js

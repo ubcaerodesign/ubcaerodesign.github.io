@@ -1,0 +1,1 @@
+chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/katalon/dom_recorder.js
