@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Titillium+Web:wght@600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-lato: "Lato", sans-serif;
+  --font-titillium: "Titillium Web", sans-serif;
+
+  --color-aero-mid-blue: #003565;
+  --color-aero-dark-blue: #11283d;
+  --color-aero-light-blue: #c9d6ea;
+  --color-aero-yellow: #eceb2a;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+

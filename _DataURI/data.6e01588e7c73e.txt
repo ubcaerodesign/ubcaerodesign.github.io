@@ -1,1 +1,0 @@
-chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/katalon/neighbor-xpaths-generator.min.js

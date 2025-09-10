@@ -1,1 +1,0 @@
-chrome-extension://ljdobmomdgdljniojadhoplhkpialdid/katalon/chrome_variables_default.js
