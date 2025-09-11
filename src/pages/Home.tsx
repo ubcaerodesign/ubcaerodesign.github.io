@@ -2,7 +2,7 @@ import { PillButton, SolidButton } from "./../components/Buttons";
 import { MarginWrapper, MissionIcon, Section, SideBySideSection } from "./../components/Sections";
 import Banner from "./../assets/images/UBC AeroDesign Homepage Banner.png";
 import TeamImage from "./../assets/images/UBC AeroDesign 2025 Competition Team.png"
-import PlaneIcon from "./../assets/images/Plane Icon.svg"
+import FlyIcon from "./../assets/images/Fly Icon.svg"
 import LearnIcon from "./../assets/images/Learn Icon.svg"
 import TrophyIcon from "./../assets/images/Trophy Icon.svg"
 
@@ -15,9 +15,10 @@ export default function Home() {
     <section>
 
       {/* Homepage CTA */}
-      <div className="w-full h-[100svh] max-h-[110vh] -mt-22
-                      bg-cover bg-no-repeat bg-[position:26%_50%]
-                      flex items-center" 
+      <div className="w-full h-[100svh] max-h-[110vh] 
+                      flex items-center
+                      -mt-22
+                      bg-cover bg-no-repeat bg-[position:26%_50%]" 
       style={bgStyle}
       >
         <MarginWrapper>
@@ -34,7 +35,7 @@ export default function Home() {
       <MarginWrapper>
         <Section>
           <SideBySideSection title="OUR MISSION" image={TeamImage}>
-            <MissionIcon image={PlaneIcon} title="FLY" text="Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation."/>
+            <MissionIcon image={FlyIcon} title="FLY" text="Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation."/>
             <MissionIcon image={LearnIcon} title="LEARN" text="Education is our bedrock. We're a resource, fostering learning opportunities across diverse engineering fields."/>
             <MissionIcon image={TrophyIcon} title="COMPETE" text="Competition propels us. We strive for top honors, igniting triumphs across our team."/>
           </SideBySideSection>

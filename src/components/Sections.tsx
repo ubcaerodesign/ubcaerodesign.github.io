@@ -31,9 +31,9 @@ interface SideBySideSectionProps {
 
 export function SideBySideSection({title, image, children}: SideBySideSectionProps) {
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-10 my-5 justify-around items-center">
-      <div className="w-full flex flex-col max-w-[600px]">
-        <h2 className="justify-around font-titillium font-bold text-4xl/9 text-aero-dark-blue">{title}</h2>
+    <div className="w-full flex flex-col lg:flex-row justify-around items-center gap-10 my-5">
+      <div className="w-full max-w-[600px] flex flex-col">
+        <h2 className="font-titillium font-bold text-4xl/9 text-aero-dark-blue">{title}</h2>
         {children}
       </div>
       <img src={image} alt={title} className="w-full min-w-[500px] max-w-full lg:max-w-[600px] max-h-[400px] box-border object-cover" />
