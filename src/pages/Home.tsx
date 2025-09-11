@@ -1,6 +1,7 @@
 import { PillButton, SolidButton } from "./../components/Buttons";
 import { MarginWrapper, Section, SideBySideSection } from "./../components/Sections";
 import Banner from "./../assets/images/UBC AeroDesign Homepage Banner.png";
+import HomepageCTA from "./../assets/images/Homepage CTA.png";
 import TeamImage from "./../assets/images/UBC AeroDesign 2025 Competition Team.png"
 import FlyIcon from "./../assets/icons/Fly Icon.svg"
 import LearnIcon from "./../assets/icons/Learn Icon.svg"
@@ -25,19 +26,19 @@ export function MissionIcon({title, image, text}: MissionIconProps) {
 }
 
 export default function Home() {
-  const bgStyle: React.CSSProperties = {
-    backgroundImage: `url(${Banner})`,
-  };
+  const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
+    backgroundImage: `url(${image})`,
+  });
 
   return (
     <section>
 
-      {/* Homepage CTA */}
+      {/* Homepage Banner */}
       <div className="w-full h-[100svh] max-h-[110vh] 
                       flex items-center
                       -mt-22
                       bg-cover bg-no-repeat bg-[position:26%_50%]" 
-      style={bgStyle}
+      style={bgStyle(Banner)} // Needs Improvement
       >
         <MarginWrapper>
           <div className="w-full flex flex-col">
@@ -63,6 +64,22 @@ export default function Home() {
           </div>
         </Section>
       </MarginWrapper>
+
+      {/* Homepage CTA */}
+      <div className="w-full h-[100svh] max-h-[100vh] 
+                      flex items-center
+                      bg-fixed bg-cover bg-center" 
+      style={bgStyle(HomepageCTA)} // Needs Improvement
+      >
+        <MarginWrapper>
+          <div className="w-full flex flex-col justify-center">
+            <h1 className="my-5 font-titillium font-bold text-6xl/11 text-center text-white">READY TO TAKE FLIGHT?</h1>
+            <div className="w-full flex my-2 justify-center">
+              <PillButton destination="/recruitment" value="JOIN US" color="border-aero-yellow text-aero-yellow"/>
+            </div>
+          </div>
+        </MarginWrapper>
+      </div>
     </section>
   );
 }

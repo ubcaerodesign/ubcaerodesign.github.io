@@ -10,7 +10,7 @@ interface ButtonProps {
 
 export function SolidButton({destination, target="", value, color}: ButtonProps) {
   return (
-    <Link to={destination} target={target} className={clsx("rounded-[20px] px-7 py-1.25 text-white text-base/5 font-normal whitespace-nowrap", color)}>
+    <Link to={destination} target={target} className={clsx("px-7 py-1.25 rounded-[20px] text-white text-base/5 font-normal whitespace-nowrap", color)}>
       {value}
     </Link>
   );
