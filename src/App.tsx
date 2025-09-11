@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
@@ -15,10 +16,7 @@ export default function App() {
         <Route path="*" element={<NotFound/>} />
       </Routes>
 
-      {/* HIDDEN */}
-      <footer className="footer hidden"> 
-        <p>© {new Date().getFullYear()} React + Vite + TS on GitHub Pages</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

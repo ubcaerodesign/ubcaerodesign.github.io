@@ -40,21 +40,3 @@ export function SideBySideSection({title, image, children}: SideBySideSectionPro
     </div>
   );
 } 
-
-interface MissionIconProps {
-  image: string;
-  title: string;
-  text: string;
-}
-
-export function MissionIcon({title, image, text}: MissionIconProps) {
-  return (
-    <div className="w-full flex flex-row">
-      <img src={image} alt={title}></img>
-      <div className="w-full flex flex-col p-5">
-        <h3 className="font-bold text-xl/5 text-aero-mid-blue">{title}</h3>
-        <p className="text-base/5 text-aero-dark-blue">{text}</p>
-      </div>
-    </div>
-  );
-}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { SolidButton } from './Buttons';
 import clsx from "clsx";
-import NavLogo from "./../assets/images/UBC AeroDesign 2023 Logo_Dark Blue Horizontal.svg";
+import Logo from "./../assets/images/UBC AeroDesign 2023 Logo_Dark Blue Horizontal.svg";
 
 interface NavLinkProps {
   destination: string;
@@ -28,10 +28,9 @@ export default function NavBar() {
 
   return (
     <div className="w-full max-w-[1200px] ml-auto mr-auto px-11.25 py-2.5 font-lato font-normal"> {/* Margin Wrapper */}
-      
       <div className="flex flex-row items-center justify-between">
         <Link to="/" className="z-200">
-          <img src={NavLogo} alt="Logo" className="max-w-full w-[150px]" />
+          <img src={Logo} alt="Logo" className="max-w-full w-[150px]" />
         </Link>
 
         {/* Desktop menu */}
@@ -42,7 +41,7 @@ export default function NavBar() {
           <NavLink destination="/recruitment" value="RECRUITMENT" />
           <NavLink destination="/sponsor" value="SPONSOR" />
           <NavLink destination="/contact" value="CONTACT" />
-          <SolidButton external="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112" value="SUPPORT US" color="bg-aero-mid-blue" />
+          <SolidButton destination="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112" target="_blank" value="SUPPORT US" color="bg-aero-mid-blue" />
         </div>
 
         {/* Burger */}
@@ -73,7 +72,7 @@ export default function NavBar() {
         <NavLink destination="/recruitment" value="RECRUITMENT" />
         <NavLink destination="/sponsor" value="SPONSOR" />
         <NavLink destination="/contact" value="CONTACT" />
-        <SolidButton external="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112" value="SUPPORT US" color="bg-aero-mid-blue" />
+        <SolidButton destination="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112" target="_blank" value="SUPPORT US" color="bg-aero-mid-blue" />
       </div>
     </div>
   );
