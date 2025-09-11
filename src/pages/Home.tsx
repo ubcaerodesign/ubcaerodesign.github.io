@@ -42,6 +42,26 @@ export function WhyAero({title, text}: WhyAeroProps) {
   );
 }
 
+interface MemberReviewProps {
+  name: string;
+  years: string;
+  major: string;
+  text: string;
+}
+
+export function MemberReview({name, years, major, text}: MemberReviewProps) {
+  return (
+    <div className="w-full max-w-[700px] flex flex-col gap-2 mx-auto p-10 bg-aero-light-blue">
+      <div className="w-full flex flex-col">
+        <h3 className="w-full font-bold text-xl/5 text-aero-dark-blue">{name}</h3>
+        <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{years}</h4>
+        <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{major}</h4>
+      </div>
+      <p className="text-base/5 text-aero-dark-blue">{text}</p>
+    </div>
+  );
+}
+
 export default function Home() {
   const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
     backgroundImage: `url(${image})`,
@@ -88,6 +108,10 @@ export default function Home() {
             <WhyAero title="EVERYONE CONTRIBUTES TO THE FINAL DESIGN" text="New members are recruited on a project-based basis. Everyone joining the team can expect to be assigned anything from broader design work to specific system development from the get-go. The final aircraft is a product of every single member’s efforts." />
             <WhyAero title="YEARLY DESIGN CYCLE" text="We take pride in fostering a fun and supportive team dynamic. Our roster is packed with internal and external team events and activities designed to help members connect." />
           </div>
+        </Section>
+          <MemberReview name="SHAWN" years="2018-2021" major="INTEGRATED ENGINEERING \'21" text="&quotMy advice for students interested in joining the team? Keep being involved, try to learn whenever the opportunity arrives, and as always, have fun with what you're doing. Regardless of the sub team you join, you will be meeting a bunch of wonderful people, who will make it feel like you've been a part of this team for years. But as I mentioned earlier, you have to do your part! You will be learning on the go, whether it is preliminary design, or when it comes to finally constructing the plane. Do your best, and the good things will come to you in the end!&quot" />
+        <Section>
+          
         </Section>
       </MarginWrapper>
 

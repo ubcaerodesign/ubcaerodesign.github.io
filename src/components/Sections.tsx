@@ -16,7 +16,7 @@ interface SectionProps {
 
 export function Section({children}: SectionProps) {
   return (
-    <div className="w-full flex flex-col mb-[175px]">
+    <div className="w-full flex flex-col mb-[150px]">
       {children}
     </div>
   );
