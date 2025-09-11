@@ -5,6 +5,7 @@ import InstagramIcon from "./../assets/icons/Instagram.svg"
 import FacebookIcon from "./../assets/icons/Facebook.svg"
 import LinkedinIcon from "./../assets/icons/Linkedin.svg"
 import DiscordIcon from "./../assets/icons/Discord.svg"
+import { MarginWrapper } from './Sections';
 
 interface FooterLinkProps {
   destination: string;
@@ -32,7 +33,7 @@ export function FooterColumn({children}: FooterColumnProps) {
 
 export default function Footer() {
   return (
-    <div className="w-full max-w-[1200px] ml-auto mr-auto px-11.25 py-2.5 font-lato font-normal"> {/* Margin Wrapper */}
+    <MarginWrapper>
       <div className="w-full flex flex-wrap gap-5 justify-center">
         {/* Logo & Overview */}
         <div className="flex flex-col justify-center">
@@ -98,6 +99,6 @@ export default function Footer() {
           </FooterColumn>
         </div>
       </div>
-    </div>
+    </MarginWrapper>
   );
 }

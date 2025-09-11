@@ -4,7 +4,7 @@ interface MarginWrapperProps {
 
 export function MarginWrapper({children}: MarginWrapperProps) {
   return (
-    <div className="w-full max-w-[1200px] ml-auto mr-auto my-10 px-11.25 py-2.5 font-lato font-normal">
+    <div className="w-full max-w-[1200px] ml-auto mr-auto px-11.25 py-2.5 font-lato font-normal">
       {children}
     </div>
   );
