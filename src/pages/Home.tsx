@@ -33,7 +33,7 @@ interface WhyAeroProps {
 
 export function WhyAero({title, text}: WhyAeroProps) {
   return (
-    <div className="max-w-[350px] min-w-[350px] flex flex-1 flex-col gap-5 px-5 py-2.5 border-[1.75px] border-aero-light-blue">
+    <div className="max-w-[325px] min-w-[325px] flex flex-1 flex-col gap-5 px-5 py-2.5 border-[1.75px] border-aero-light-blue">
       <div className="relative flex items-center min-h-[90px] min-w-[160px] bottom-10 ml-auto mr-auto -mb-12 px-5 py-2.5 bg-aero-light-blue">
         <h3 className="w-full font-bold text-xl/5 text-aero-mid-blue text-center">{title}</h3>
       </div>
@@ -52,13 +52,13 @@ interface MemberReviewProps {
 
 export function MemberReview({name, years, program, text}: MemberReviewProps) {
   return (
-    <div className="w-full max-w-[700px] flex flex-col gap-2 mx-auto my-5 p-10 bg-aero-light-blue">
+    <div className="w-full max-w-[700px] flex flex-col gap-2 mx-auto p-10 bg-aero-light-blue">
       <div className="w-full flex flex-col">
         <h3 className="w-full font-bold text-xl/5 text-aero-dark-blue">{name}</h3>
         <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{years}</h4>
         <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{program}</h4>
       </div>
-      <p className="text-base/5 text-aero-dark-blue">{text}</p>
+      <p className="w-full text-base/5 text-aero-dark-blue">&quot;{text}&quot;</p>
     </div>
   );
 }
@@ -120,7 +120,7 @@ export default function Home() {
         <SectionDivider/>
 
         <Section>
-          <MemberReview name="SHAWN" years="2018-2021" program="INTEGRATED ENGINEERING \'21" text="&quotMy advice for students interested in joining the team? Keep being involved, try to learn whenever the opportunity arrives, and as always, have fun with what you're doing. Regardless of the sub team you join, you will be meeting a bunch of wonderful people, who will make it feel like you've been a part of this team for years. But as I mentioned earlier, you have to do your part! You will be learning on the go, whether it is preliminary design, or when it comes to finally constructing the plane. Do your best, and the good things will come to you in the end!&quot" />
+          <MemberReview name="SHAWN" years="2018-2021" program="INTEGRATED ENGINEERING '21" text="My advice for students interested in joining the team? Keep being involved, try to learn whenever the opportunity arrives, and as always, have fun with what you're doing. Regardless of the sub team you join, you will be meeting a bunch of wonderful people, who will make it feel like you've been a part of this team for years. But as I mentioned earlier, you have to do your part! You will be learning on the go, whether it is preliminary design, or when it comes to finally constructing the plane. Do your best, and the good things will come to you in the end!" />
         </Section>
       </MarginWrapper>
 
