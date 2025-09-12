@@ -25,7 +25,7 @@ interface FooterColumnProps {
 
 export function FooterColumn({children}: FooterColumnProps) {
   return (
-    <div className="flex flex-1 flex-col gap-4 my-3">
+    <div className="flex flex-col gap-4 my-3">
       {children}
     </div>
   );
