@@ -8,17 +8,17 @@ import FlyIcon from "./../assets/icons/Fly Icon.svg"
 import LearnIcon from "./../assets/icons/Learn Icon.svg"
 import TrophyIcon from "./../assets/icons/Trophy Icon.svg"
 
-interface MissionIconProps {
-  image: string;
+interface MissionStatementProps {
+  icon?: string;
   title: string;
   text: string;
 }
 
-export function MissionIcon({title, image, text}: MissionIconProps) {
+export function MissionStatement({title, icon, text}: MissionStatementProps) {
   return (
     <div className="w-full flex flex-row">
-      <img src={image} alt={title}></img>
-      <div className="w-full flex flex-col p-5">
+      {icon && (<img src={icon} alt={title} className="mr-5"></img>)}
+      <div className="w-full flex flex-col py-5">
         <h3 className="font-bold text-xl/5 text-aero-mid-blue">{title}</h3>
         <p className="text-base/5 text-aero-dark-blue">{text}</p>
       </div>
@@ -95,9 +95,9 @@ export default function Home() {
       <MarginWrapper>
         <Section>
           <SideBySideSection title="OUR MISSION" image={TeamImage}>
-            <MissionIcon image={FlyIcon} title="FLY" text="Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation."/>
-            <MissionIcon image={LearnIcon} title="LEARN" text="Education is our bedrock. We're a resource, fostering learning opportunities across diverse engineering fields."/>
-            <MissionIcon image={TrophyIcon} title="COMPETE" text="Competition propels us. We strive for top honors, igniting triumphs across our team."/>
+            <MissionStatement icon={FlyIcon} title="FLY" text="Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation."/>
+            <MissionStatement icon={LearnIcon} title="LEARN" text="Education is our bedrock. We're a resource, fostering learning opportunities across diverse engineering fields."/>
+            <MissionStatement icon={TrophyIcon} title="COMPETE" text="Competition propels us. We strive for top honors, igniting triumphs across our team."/>
           </SideBySideSection>
 
           <div className="w-full flex justify-center items-center">
