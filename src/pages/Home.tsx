@@ -32,7 +32,7 @@ interface WhyAeroProps {
 
 export function WhyAero({title, text}: WhyAeroProps) {
   return (
-    <div className="flex flex-1 flex-col gap-5 px-5 py-2.5 border-[1.75px] border-aero-light-blue">
+    <div className="max-w-[350px] min-w-[350px] flex flex-1 flex-col gap-5 px-5 py-2.5 border-[1.75px] border-aero-light-blue">
       <div className="relative flex items-center min-h-[90px] min-w-[160px] bottom-10 ml-auto mr-auto -mb-12 px-5 py-2.5 bg-aero-light-blue">
         <h3 className="w-full font-bold text-xl/5 text-aero-mid-blue text-center">{title}</h3>
       </div>
@@ -103,7 +103,7 @@ export default function Home() {
         <Section>
           <h2 className="font-titillium font-bold text-4xl/9 text-aero-dark-blue text-center">WHY JOIN US</h2>
           
-          <div className="w-full flex flex-wrap gap-x-5 gap-y-10 my-10">
+          <div className="w-full flex flex-wrap gap-x-5 gap-y-10 my-10 justify-center">
             <WhyAero title="YEARLY DESIGN CYCLE" text="Each year, we create two entirely new aircraft, building upon past experiences and testing new ideas. These yearly design cycles are crucial, providing new members with the chance to gain hands-on experience throughout the entire engineering design process." />
             <WhyAero title="EVERYONE CONTRIBUTES TO THE FINAL DESIGN" text="New members are recruited on a project-based basis. Everyone joining the team can expect to be assigned anything from broader design work to specific system development from the get-go. The final aircraft is a product of every single member’s efforts." />
             <WhyAero title="YEARLY DESIGN CYCLE" text="We take pride in fostering a fun and supportive team dynamic. Our roster is packed with internal and external team events and activities designed to help members connect." />
