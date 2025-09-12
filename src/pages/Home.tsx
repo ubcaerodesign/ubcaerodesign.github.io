@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { PillButton, SolidButton } from "./../components/Buttons";
 import { MarginWrapper, Section, SectionDivider, SideBySideSection } from "./../components/Sections";
 import Banner from "./../assets/images/UBC AeroDesign Homepage Banner.png";
@@ -64,13 +65,22 @@ export function MemberReview({name, years, program, text}: MemberReviewProps) {
 }
 
 export default function Home() {
-  const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
-    backgroundImage: `url(${image})`,
-  });
+  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = "UBC AeroDesign";
   }, []);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0
+    });
+  }, [pathname]);
+
+  const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
+    backgroundImage: `url(${image})`,
+  });
 
   return (
     <div>

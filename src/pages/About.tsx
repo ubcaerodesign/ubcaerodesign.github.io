@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { MarginWrapper, Section, SectionDivider, SideBySideSection } from './../components/Sections';
 import { MissionStatement } from './Home';
 import FlyingPlane from "./../assets/images/25 Adv Plane in Flight.png";
@@ -7,9 +8,18 @@ import TeamPhoto from "./../assets/images/2024 Team Photo.png";
 import TeamBreakdown from "./../assets/images/Team Breakdown.svg";
 
 export default function About() {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     document.title = "About";
   }, []);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0
+    });
+  }, [pathname]);
 
   const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
     backgroundImage: `url(${image})`,
@@ -68,7 +78,7 @@ export default function About() {
 
         <SectionDivider/>
 
-        
+
       </MarginWrapper>
     </div>
   );
