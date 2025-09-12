@@ -4,6 +4,7 @@ import { MissionStatement } from './Home';
 import FlyingPlane from "./../assets/images/25 Adv Plane in Flight.png";
 import Workspace from "./../assets/images/Workspace.png";
 import TeamPhoto from "./../assets/images/2024 Team Photo.png";
+import TeamBreakdown from "./../assets/images/Team Breakdown.svg";
 
 export default function About() {
   useEffect(() => {
@@ -37,9 +38,9 @@ export default function About() {
           </SideBySideSection>
         </Section>
 
-        <SectionDivider />
-
       </MarginWrapper>
+
+      <SectionDivider />
     
       <div className="w-full min-h-[450px]
                       flex items-center
@@ -47,6 +48,28 @@ export default function About() {
       style={bgStyle(TeamPhoto)} // Needs Improvement
       >
       </div>
+
+      <SectionDivider/>
+
+      <MarginWrapper>
+        <Section>
+          <h2 className="w-full font-titillium font-bold text-4xl/9 text-aero-dark-blue text-center">TEAM STRUCTURE</h2>
+          <div className="w-full flex flex-col gap-10">
+            <div className="w-full flex flex-wrap gap-5 justify-center items-center">
+              <h3 className="w-full flex-1 font-bold text-xl/5 text-aero-mid-blue text-center">7 Technical Subteams</h3>
+              <h3 className="w-full flex-1 font-bold text-xl/5 text-aero-mid-blue text-center">3 Divisions</h3>
+              <h3 className="w-full flex-1 font-bold text-xl/5 text-aero-mid-blue text-center">7 Administrative Subteams</h3>
+            </div>
+            <div className="w-full flex justify-center items-center">
+              <img src={TeamBreakdown} alt="Team Breakdown" className="w-full max-w-[1000px] box-border object-cover" />
+            </div>
+          </div>
+        </Section>
+
+        <SectionDivider/>
+
+        
+      </MarginWrapper>
     </div>
   );
 }
