@@ -24,7 +24,7 @@ export function Section({children}: SectionProps) {
 
 export function SectionDivider() {
   return (
-    <div className="h-[150px]"></div>
+    <div className="h-[100px]"></div>
   );
 }
 
