@@ -85,7 +85,7 @@ export default function Home() {
   return (
     <div>
       {/* Homepage Banner */}
-      <div className="w-full h-[100svh] max-h-[110vh] 
+      <div className="w-full h-screen 
                       flex items-center
                       -mt-22
                       bg-cover bg-no-repeat bg-[position:26%_50%]" 
@@ -135,9 +135,9 @@ export default function Home() {
       </MarginWrapper>
 
       {/* Homepage CTA */}
-      <div className="w-full h-[100svh] max-h-[100vh] 
+      <div className="w-full h-screen 
                       flex items-center
-                      bg-fixed bg-cover bg-center" 
+                      lg:bg-fixed bg-cover bg-center" 
       style={bgStyle(HomepageCTA)} // Needs Improvement
       >
         <MarginWrapper>
