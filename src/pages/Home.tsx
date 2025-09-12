@@ -84,12 +84,11 @@ export default function Home() {
 
   return (
     <div>
-      {/* Homepage Banner */}
       <div className="w-full h-screen 
                       flex items-center
                       -mt-22
                       bg-cover bg-no-repeat bg-[position:26%_50%]" 
-      style={bgStyle(Banner)} // Needs Improvement
+      style={bgStyle(Banner)}
       >
         <MarginWrapper>
           <div className="w-full flex flex-col">
@@ -134,11 +133,10 @@ export default function Home() {
         </Section>
       </MarginWrapper>
 
-      {/* Homepage CTA */}
       <div className="w-full h-screen 
                       flex items-center
                       lg:bg-fixed bg-cover bg-center" 
-      style={bgStyle(HomepageCTA)} // Needs Improvement
+      style={bgStyle(HomepageCTA)}
       >
         <MarginWrapper>
           <div className="w-full flex flex-col justify-center">

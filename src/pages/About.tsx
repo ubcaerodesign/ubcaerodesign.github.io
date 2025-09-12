@@ -2,10 +2,13 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MarginWrapper, Section, SectionDivider, SideBySideSection } from './../components/Sections';
 import { MissionStatement } from './Home';
+import { PillButton } from './../components/Buttons';
 import FlyingPlane from "./../assets/images/25 Adv Plane in Flight.png";
 import Workspace from "./../assets/images/Workspace.png";
 import TeamPhoto from "./../assets/images/2024 Team Photo.png";
 import TeamBreakdown from "./../assets/images/Team Breakdown.svg";
+import AboutCTA from "./../assets/images/About CTA.jpeg";
+
 
 export default function About() {
   const { pathname } = useLocation();
@@ -55,7 +58,7 @@ export default function About() {
       <div className="w-full min-h-[450px]
                       flex items-center
                       bg-cover bg-no-repeat bg-[position:50%_50%]" 
-      style={bgStyle(TeamPhoto)} // Needs Improvement
+      style={bgStyle(TeamPhoto)} 
       >
       </div>
 
@@ -76,10 +79,24 @@ export default function About() {
           </div>
         </Section>
 
-        <SectionDivider/>
-
-
       </MarginWrapper>
+
+      <SectionDivider/>
+
+      <div className="w-full h-[50svh] 
+                      flex items-center
+                      lg:bg-fixed bg-cover bg-center" 
+      style={bgStyle(AboutCTA)}
+      >
+        <MarginWrapper>
+          <div className="w-full flex flex-col justify-center">
+            <h1 className="my-5 font-titillium font-bold text-6xl/11 text-center text-white">READY TO JOIN?</h1>
+            <div className="w-full flex my-2 justify-center">
+              <PillButton destination="/recruitment" value="JOIN US" color="border-aero-yellow text-aero-yellow"/>
+            </div>
+          </div>
+        </MarginWrapper>
+      </div>
     </div>
   );
 }
