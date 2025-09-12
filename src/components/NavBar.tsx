@@ -63,7 +63,7 @@ export default function NavBar() {
 
       {/* Mobile menu */}
       <div
-        className={clsx("absolute w-full lg:hidden flex flex-col justify-between items-center gap-3 left-0 -top-2 z-100 ml-auto mr-auto pb-2 pt-20 transition ease-in-out duration-500 bg-white/30",
+        className={clsx("absolute w-full lg:hidden flex flex-col justify-between items-center gap-2 left-0 -top-2 z-100 ml-auto mr-auto pb-2 pt-20 transition ease-in-out duration-500 bg-white/45 backdrop-blur-xs",
           open && "translate-y-0",
           !open && "-translate-y-150")}
       >
