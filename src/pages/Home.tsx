@@ -1,5 +1,5 @@
 import { PillButton, SolidButton } from "./../components/Buttons";
-import { MarginWrapper, Section, SideBySideSection } from "./../components/Sections";
+import { MarginWrapper, Section, SectionDivider, SideBySideSection } from "./../components/Sections";
 import Banner from "./../assets/images/UBC AeroDesign Homepage Banner.png";
 import HomepageCTA from "./../assets/images/Homepage CTA.png";
 import TeamImage from "./../assets/images/UBC AeroDesign 2025 Competition Team.png"
@@ -45,17 +45,17 @@ export function WhyAero({title, text}: WhyAeroProps) {
 interface MemberReviewProps {
   name: string;
   years: string;
-  major: string;
+  program: string;
   text: string;
 }
 
-export function MemberReview({name, years, major, text}: MemberReviewProps) {
+export function MemberReview({name, years, program, text}: MemberReviewProps) {
   return (
-    <div className="w-full max-w-[700px] flex flex-col gap-2 mx-auto p-10 bg-aero-light-blue">
+    <div className="w-full max-w-[700px] flex flex-col gap-2 mx-auto my-5 p-10 bg-aero-light-blue">
       <div className="w-full flex flex-col">
         <h3 className="w-full font-bold text-xl/5 text-aero-dark-blue">{name}</h3>
         <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{years}</h4>
-        <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{major}</h4>
+        <h4 className="w-full font-bold text-sm/5 text-aero-mid-blue">{program}</h4>
       </div>
       <p className="text-base/5 text-aero-dark-blue">{text}</p>
     </div>
@@ -100,6 +100,8 @@ export default function Home() {
           </div>
         </Section>
 
+        <SectionDivider/>
+
         <Section>
           <h2 className="font-titillium font-bold text-4xl/9 text-aero-dark-blue text-center">WHY JOIN US</h2>
           
@@ -109,9 +111,11 @@ export default function Home() {
             <WhyAero title="YEARLY DESIGN CYCLE" text="We take pride in fostering a fun and supportive team dynamic. Our roster is packed with internal and external team events and activities designed to help members connect." />
           </div>
         </Section>
-          <MemberReview name="SHAWN" years="2018-2021" major="INTEGRATED ENGINEERING \'21" text="&quotMy advice for students interested in joining the team? Keep being involved, try to learn whenever the opportunity arrives, and as always, have fun with what you're doing. Regardless of the sub team you join, you will be meeting a bunch of wonderful people, who will make it feel like you've been a part of this team for years. But as I mentioned earlier, you have to do your part! You will be learning on the go, whether it is preliminary design, or when it comes to finally constructing the plane. Do your best, and the good things will come to you in the end!&quot" />
+        
+        <SectionDivider/>
+
         <Section>
-          
+          <MemberReview name="SHAWN" years="2018-2021" program="INTEGRATED ENGINEERING \'21" text="&quotMy advice for students interested in joining the team? Keep being involved, try to learn whenever the opportunity arrives, and as always, have fun with what you're doing. Regardless of the sub team you join, you will be meeting a bunch of wonderful people, who will make it feel like you've been a part of this team for years. But as I mentioned earlier, you have to do your part! You will be learning on the go, whether it is preliminary design, or when it comes to finally constructing the plane. Do your best, and the good things will come to you in the end!&quot" />
         </Section>
       </MarginWrapper>
 

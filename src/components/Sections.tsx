@@ -16,9 +16,15 @@ interface SectionProps {
 
 export function Section({children}: SectionProps) {
   return (
-    <div className="w-full flex flex-col mb-[150px]">
+    <div className="w-full flex flex-col m-10">
       {children}
     </div>
+  );
+}
+
+export function SectionDivider() {
+  return (
+    <div className="h-[150px]"></div>
   );
 }
 
