@@ -68,10 +68,18 @@ export default function About() {
         <Section>
           <h2 className="w-full font-titillium font-bold text-4xl/9 text-aero-dark-blue text-center">TEAM STRUCTURE</h2>
           <div className="w-full flex flex-col gap-10">
-            <div className="w-full flex flex-wrap gap-5 justify-center items-center">
-              <h3 className="w-full flex-1 font-bold text-xl/5 text-aero-mid-blue text-center">7 Technical Subteams</h3>
-              <h3 className="w-full flex-1 font-bold text-xl/5 text-aero-mid-blue text-center">3 Divisions</h3>
-              <h3 className="w-full flex-1 font-bold text-xl/5 text-aero-mid-blue text-center">7 Administrative Subteams</h3>
+            <div className="w-full flex flex-wrap gap-5 justify-center">
+              <div className="w-full min-w-[250px] flex flex-1 flex-col justify-center items-center gap-5 p-5 border-2 border-aero-light-blue rounded-[10px]">
+                <h3 className="font-bold text-2xl/5 text-aero-mid-blue text-center">3 Divisions</h3>
+              </div>
+              <div className="w-full min-w-[250px] flex flex-1 flex-col justify-center items-center gap-5 p-5 border-2 border-aero-light-blue rounded-[10px]">
+                <h3 className="font-bold text-xl/5 text-aero-mid-blue text-center">7 Technical Subteams</h3>
+                <PillButton destination="https://docs.google.com/document/d/1FUBzxTxm-hyBCDLBDqJbq7Z5sG9JoTbtcljWGG7ZKJ0/edit?tab=t.0#heading=h.ga3vjcy76juv" target="_blank" value="TECHNICAL ROLES" color="border-aero-mid-blue text-aero-mid-blue"/>
+              </div>
+              <div className="w-full min-w-[250px] flex flex-1 flex-col justify-center items-center gap-5 p-5 border-2 border-aero-light-blue rounded-[10px]">
+                <h3 className="font-bold text-xl/5 text-aero-mid-blue text-center">7 Administrative Subteams</h3>
+                <PillButton destination="https://docs.google.com/document/d/11nuN9A19SKlHK72HhKCBtdl82eV85YTqr5dZ9A6U-kU/edit?tab=t.0#heading=h.gjdgxs" target="_blank" value="ADMINISTRATIVE ROLES" color="border-aero-mid-blue text-aero-mid-blue"/>
+              </div>
             </div>
             <div className="w-full flex justify-center items-center">
               <img src={TeamBreakdown} alt="Team Breakdown" className="w-full max-w-[1000px] box-border object-cover" />
