@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { PillButton, SolidButton } from "./../components/Buttons";
 import { MarginWrapper, Section, SectionDivider, SideBySideSection } from "./../components/Sections";
 import Banner from "./../assets/images/UBC AeroDesign Homepage Banner.png";
@@ -66,6 +67,10 @@ export default function Home() {
   const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
     backgroundImage: `url(${image})`,
   });
+
+  useEffect(() => {
+    document.title = "UBC AeroDesign";
+  }, []);
 
   return (
     <div>
