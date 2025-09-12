@@ -35,7 +35,7 @@ export default function NavBar() {
         </Link>
 
         {/* Desktop menu */}
-        <div className="hidden lg:flex flex-row justify-between items-center gap-9 z-200">
+        <div className="hidden lg:flex flex-row justify-between items-center gap-5 z-200 ml-2">
           <NavLink destination="/" value="HOME" />
           <NavLink destination="/about" value="ABOUT" />
           <NavLink destination="/what-we-do" value="WHAT WE DO" />
