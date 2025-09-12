@@ -43,7 +43,7 @@ export function SideBySideSection({title, image, children}: SideBySideSectionPro
         {children}
       </div>
       <div className="w-full flex justify-center items-center">
-        <img src={image} alt={title} className="w-full min-w-[500px] max-w-full lg:max-w-[600px] max-h-[400px] box-border object-cover" />
+        <img src={image} alt={title} className="w-full min-w-[250px] max-w-full lg:max-w-[600px] max-h-[400px] box-border object-cover" />
       </div>
     </div>
   );

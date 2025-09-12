@@ -33,7 +33,7 @@ interface WhyAeroProps {
 
 export function WhyAero({title, text}: WhyAeroProps) {
   return (
-    <div className="max-w-[325px] min-w-[325px] flex flex-1 flex-col gap-5 px-5 py-2.5 border-[1.75px] border-aero-light-blue">
+    <div className="max-w-[325px] min-w-[250px] flex flex-1 flex-col gap-5 px-5 py-2.5 border-[1.75px] border-aero-light-blue">
       <div className="relative flex items-center min-h-[90px] min-w-[160px] bottom-10 ml-auto mr-auto -mb-12 px-5 py-2.5 bg-aero-light-blue">
         <h3 className="w-full font-bold text-xl/5 text-aero-mid-blue text-center">{title}</h3>
       </div>
@@ -84,7 +84,7 @@ export default function Home() {
         <MarginWrapper>
           <div className="w-full flex flex-col">
             <h1 className="my-5 font-titillium font-bold text-6xl/11 text-aero-dark-blue">FLY. LEARN. COMPETE.</h1>
-            <div className="w-full flex flex-row gap-5 my-2">
+            <div className="w-full flex flex-wrap gap-5 my-2">
               <SolidButton destination="/recruitment" value="JOIN US" color="bg-aero-mid-blue"/>
               <PillButton destination="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112" target="_blank" value="SUPPORT US" color="border-aero-mid-blue text-aero-mid-blue"/>
             </div>
