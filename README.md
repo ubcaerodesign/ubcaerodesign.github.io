@@ -1,8 +1,8 @@
 # React + TypeScript on GitHub Pages (Vite)
 
-A tiny, modern starter that deploys to GitHub Pages using **GitHub Actions**.
+A react website that deploys to GitHub Pages using **GitHub Actions**.
 - ⚡ Vite + React + TypeScript
-- 🔁 `HashRouter` (no 404s on Pages)
+- 🔁 `BrowserRouter` (404 page added for SPA fallback trick)
 - 🚀 Zero-config CI deploy (this repo already contains the workflow)
 
 ---
@@ -52,9 +52,6 @@ The workflow builds with a `BASE_PATH` that matches your repo name so Vite emits
 - Add a `<Route path="/your-page" element={<YourPage/>} />` in `src/App.tsx`
 - Add a link in `src/components/NavBar.tsx`
 
-Because we use `HashRouter`, your URLs look like `https://<user>.github.io/<repo>/#/your-page`.
-This avoids needing server rewrites on GitHub Pages.
-
 ---
 
 ## Troubleshooting
@@ -65,8 +62,6 @@ This avoids needing server rewrites on GitHub Pages.
   you probably have leftover files from Create React App; start from a clean folder.
 - **Blank page after deploy:** Make sure Pages is set to **GitHub Actions**, and the action completed successfully
   (check the Actions tab). Also confirm that assets load from `/<repo>/...` when it's a project site.
-- **Router 404s on refresh:** Use `HashRouter` (already configured). If you switch to `BrowserRouter`, you'll need a `404.html`
-  SPA fallback trick because GitHub Pages can't rewrite requests.
 
 ---
 

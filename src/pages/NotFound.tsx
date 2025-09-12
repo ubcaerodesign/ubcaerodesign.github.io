@@ -1,7 +1,7 @@
 export default function NotFound() {
-    return (
-        <section>
-            <h1>404 Not Found!</h1>
-        </section>
-    );
+  return (
+    <div>
+      Under Construction
+    </div>
+  );
 }
