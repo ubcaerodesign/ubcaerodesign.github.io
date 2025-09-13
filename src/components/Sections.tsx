@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface MarginWrapperProps {
   children?: React.ReactNode;
 }
@@ -31,19 +33,19 @@ export function SectionDivider() {
 interface SideBySideSectionProps {
   title: string;
   image: string;
-  text?: string;
+  reversed?: boolean;
   children?: React.ReactNode;
 }
 
-export function SideBySideSection({title, image, children}: SideBySideSectionProps) {
+export function SideBySideSection({title, image, reversed = false, children}: SideBySideSectionProps) {
   return (
-    <div className="w-full flex flex-col lg:flex-row justify-around items-center gap-10">
+    <div className={clsx("w-full flex flex-col lg:flex-row justify-around items-center gap-10", reversed && "lg:flex-row-reverse")}>
       <div className="w-full max-w-[600px] flex flex-col">
         <h2 className="w-full font-titillium font-bold text-4xl/9 text-aero-dark-blue">{title}</h2>
         {children}
       </div>
       <div className="w-full flex justify-center items-center">
-        <img src={image} alt={title} className="w-full min-w-[250px] max-w-full lg:max-w-[600px] max-h-[400px] box-border object-cover" />
+        <img src={image} alt={title} className="w-full min-w-[250px] max-w-[700px] min-h-[300px] max-h-[300px] box-border object-cover" />
       </div>
     </div>
   );

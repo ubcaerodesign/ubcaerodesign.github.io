@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { PillButton, SolidButton } from "./../components/Buttons";
 import { MarginWrapper, Section, SectionDivider, SideBySideSection } from "./../components/Sections";
 import Banner from "./../assets/images/UBC AeroDesign Homepage Banner.png";
@@ -8,17 +9,17 @@ import FlyIcon from "./../assets/icons/Fly Icon.svg"
 import LearnIcon from "./../assets/icons/Learn Icon.svg"
 import TrophyIcon from "./../assets/icons/Trophy Icon.svg"
 
-interface MissionIconProps {
-  image: string;
+interface MissionStatementProps {
+  icon?: string;
   title: string;
   text: string;
 }
 
-export function MissionIcon({title, image, text}: MissionIconProps) {
+export function MissionStatement({title, icon, text}: MissionStatementProps) {
   return (
     <div className="w-full flex flex-row">
-      <img src={image} alt={title}></img>
-      <div className="w-full flex flex-col p-5">
+      {icon && (<img src={icon} alt={title} className="mr-5"></img>)}
+      <div className="w-full flex flex-col py-5">
         <h3 className="font-bold text-xl/5 text-aero-mid-blue">{title}</h3>
         <p className="text-base/5 text-aero-dark-blue">{text}</p>
       </div>
@@ -64,22 +65,30 @@ export function MemberReview({name, years, program, text}: MemberReviewProps) {
 }
 
 export default function Home() {
-  const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
-    backgroundImage: `url(${image})`,
-  });
+  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = "UBC AeroDesign";
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0
+    });
+  }, [pathname]);
+
+  const bgStyle = (image: string): React.CSSProperties => ({ // Needs Improvement
+    backgroundImage: `url(${image})`,
+  });
+
   return (
     <div>
-      {/* Homepage Banner */}
-      <div className="w-full h-[100svh] max-h-[110vh] 
+      <div className="w-full h-screen 
                       flex items-center
                       -mt-22
                       bg-cover bg-no-repeat bg-[position:26%_50%]" 
-      style={bgStyle(Banner)} // Needs Improvement
+      style={bgStyle(Banner)}
       >
         <MarginWrapper>
           <div className="w-full flex flex-col">
@@ -95,9 +104,9 @@ export default function Home() {
       <MarginWrapper>
         <Section>
           <SideBySideSection title="OUR MISSION" image={TeamImage}>
-            <MissionIcon image={FlyIcon} title="FLY" text="Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation."/>
-            <MissionIcon image={LearnIcon} title="LEARN" text="Education is our bedrock. We're a resource, fostering learning opportunities across diverse engineering fields."/>
-            <MissionIcon image={TrophyIcon} title="COMPETE" text="Competition propels us. We strive for top honors, igniting triumphs across our team."/>
+            <MissionStatement icon={FlyIcon} title="FLY" text="Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation."/>
+            <MissionStatement icon={LearnIcon} title="LEARN" text="Education is our bedrock. We're a resource, fostering learning opportunities across diverse engineering fields."/>
+            <MissionStatement icon={TrophyIcon} title="COMPETE" text="Competition propels us. We strive for top honors, igniting triumphs across our team."/>
           </SideBySideSection>
 
           <div className="w-full flex justify-center items-center">
@@ -124,11 +133,10 @@ export default function Home() {
         </Section>
       </MarginWrapper>
 
-      {/* Homepage CTA */}
-      <div className="w-full h-[100svh] max-h-[100vh] 
+      <div className="w-full h-screen 
                       flex items-center
-                      bg-fixed bg-cover bg-center" 
-      style={bgStyle(HomepageCTA)} // Needs Improvement
+                      lg:bg-fixed bg-cover bg-center" 
+      style={bgStyle(HomepageCTA)}
       >
         <MarginWrapper>
           <div className="w-full flex flex-col justify-center">

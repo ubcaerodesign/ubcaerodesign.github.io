@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
@@ -13,7 +13,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/404NotFound" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404NotFound" replace />} />
       </Routes>
 
       <Footer />
