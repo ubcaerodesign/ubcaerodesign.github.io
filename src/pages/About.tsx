@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { isMobile } from 'react-device-detect';
+import clsx from 'clsx';
 import { MarginWrapper, Section, SectionDivider, SideBySideSection } from './../components/Sections';
 import { MissionStatement } from './Home';
 import { PillButton } from './../components/Buttons';
@@ -91,9 +93,7 @@ export default function About() {
 
       <SectionDivider/>
 
-      <div className="w-full h-[50svh] 
-                      flex items-center
-                      lg:bg-fixed bg-cover bg-center" 
+      <div className={clsx("w-full h-[50svh] flex items-center bg-cover bg-center", !isMobile && "bg-fixed")}
       style={bgStyle(AboutCTA)}
       >
         <MarginWrapper>
