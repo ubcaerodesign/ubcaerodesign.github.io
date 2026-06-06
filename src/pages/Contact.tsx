@@ -17,15 +17,15 @@ function ContactEntry({ label, name, email }: ContactEntryProps) {
   return (
     <div className="group py-8 border-b border-white/10 flex flex-col md:flex-row md:items-center gap-2 md:gap-12">
       <div className="md:w-1/3 shrink-0">
-        <span className="font-titillium font-bold text-lg text-white group-hover:text-aero-light-blue transition-colors tracking-wide">
+        <span className="font-poppins font-semibold text-lg text-white group-hover:text-aero-light-blue transition-colors tracking-wide">
           {label}
         </span>
       </div>
       <div className="md:w-2/3">
-        {name && <p className="font-lato text-white/70 text-sm mb-1">{name}</p>}
+        {name && <p className="font-urbanist text-white/70 text-sm mb-1">{name}</p>}
         <a
           href={`mailto:${email}`}
-          className="font-lato text-aero-yellow hover:text-white transition-colors"
+          className="font-urbanist text-aero-yellow hover:text-white transition-colors"
         >
           {email}
         </a>
@@ -55,17 +55,17 @@ export default function Contact() {
         <MarginWrapper className="relative z-10">
           <div className="max-w-4xl">
             <Reveal direction="up" delay={0.1}>
-              <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-6 flex items-center gap-4">
+              <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-6 flex items-center gap-4">
                 <span className="w-12 h-[1px] bg-aero-yellow" /> Get In Touch
               </p>
             </Reveal>
             <Reveal direction="up" delay={0.2}>
-              <h1 className="font-titillium font-bold text-5xl md:text-7xl text-white leading-tight mb-8 text-glow">
+              <h1 className="font-poppins font-semibold text-5xl md:text-7xl text-white leading-tight mb-8 text-glow">
                 Contact Us
               </h1>
             </Reveal>
             <Reveal direction="up" delay={0.3}>
-              <p className="font-lato text-xl text-white/60 leading-relaxed max-w-2xl border-l-4 border-aero-yellow pl-6">
+              <p className="font-urbanist text-xl text-white/60 leading-relaxed max-w-2xl border-l-4 border-aero-yellow pl-6">
                 If you are interested in becoming a sponsor, interested in working with us, or simply learning more, please do not hesitate to contact us.
               </p>
             </Reveal>
@@ -81,8 +81,8 @@ export default function Contact() {
             <div className="lg:w-3/5">
               <Reveal>
                 <div className="mb-12">
-                  <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">Departments</p>
-                  <h2 className="font-titillium font-bold text-4xl text-white">REACH OUT</h2>
+                  <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">Departments</p>
+                  <h2 className="font-poppins font-semibold text-4xl text-white">REACH OUT</h2>
                 </div>
               </Reveal>
 
@@ -117,9 +117,9 @@ export default function Contact() {
             <div className="lg:w-2/5">
               <Reveal delay={0.15}>
                 <div className="mb-12">
-                  <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">Location</p>
-                  <h3 className="font-titillium font-bold text-2xl text-white mb-6 tracking-wide">MAILING ADDRESS</h3>
-                  <div className="font-lato text-white/55 leading-relaxed">
+                  <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">Location</p>
+                  <h3 className="font-poppins font-semibold text-2xl text-white mb-6 tracking-wide">MAILING ADDRESS</h3>
+                  <div className="font-urbanist text-white/55 leading-relaxed">
                     <p>UBC AeroDesign</p>
                     <p>Dept. of Mechanical Engineering</p>
                     <p>University of British Columbia</p>
@@ -132,7 +132,7 @@ export default function Contact() {
 
               <Reveal delay={0.25}>
                 <div>
-                  <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-6">Follow Us</p>
+                  <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-6">Follow Us</p>
                   <div className="flex gap-4">
                     <a href="https://www.instagram.com/ubcaerodesign/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full glass-panel flex items-center justify-center hover:bg-white/10 transition-all duration-300 group">
                       <img src={InstagramIcon} alt="Instagram" className="w-5 h-5 opacity-70 group-hover:opacity-100 invert" />
@@ -159,8 +159,8 @@ export default function Contact() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#06121f] via-aero-mid-blue/10 to-[#06121f]" />
         <div className="relative z-10 text-center px-6">
           <Reveal direction="up">
-            <h2 className="font-titillium font-bold text-4xl md:text-6xl text-white mb-8 text-glow">WE'D LOVE TO HEAR FROM YOU</h2>
-            <p className="font-lato text-white/50 text-lg">
+            <h2 className="font-poppins font-semibold text-4xl md:text-6xl text-white mb-8 text-glow">WE'D LOVE TO HEAR FROM YOU</h2>
+            <p className="font-urbanist text-white/50 text-lg">
               University of British Columbia · Vancouver, BC, Canada
             </p>
           </Reveal>

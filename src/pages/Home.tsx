@@ -133,12 +133,12 @@ export default function Home() {
                         <Reveal direction="up" delay={0.1}>
                             <div className="inline-flex items-center gap-4 mb-6">
                                 <span className="w-12 h-[1px] bg-aero-yellow"></span>
-                                <span className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-xs">Since 1992</span>
+                                <span className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-xs">Since 1992</span>
                             </div>
                         </Reveal>
 
                         <Reveal direction="up" delay={0.2}>
-                            <h1 className="font-titillium font-bold text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-8 text-glow">
+                            <h1 className="font-poppins font-semibold text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-8 text-glow">
                                 FLY. <br className="hidden md:block" />
                                 LEARN. <br className="hidden md:block" />
                                 COMPETE.
@@ -146,7 +146,7 @@ export default function Home() {
                         </Reveal>
 
                         <Reveal direction="up" delay={0.3}>
-                            <p className="font-lato text-lg md:text-xl text-white/70 max-w-xl mb-12 leading-relaxed">
+                            <p className="font-urbanist text-lg md:text-xl text-white/70 max-w-xl mb-12 leading-relaxed">
                                 Engineering tomorrow's aircraft at the University of British Columbia. We build advanced radio-controlled aircraft and autonomous drones.
                             </p>
                         </Reveal>
@@ -161,7 +161,7 @@ export default function Home() {
                 </MarginWrapper>
 
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
-                    <span className="font-lato text-xs tracking-widest uppercase text-white">Scroll</span>
+                    <span className="font-urbanist text-xs tracking-widest uppercase text-white">Scroll</span>
                     <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
                 </div>
             </section>
@@ -178,20 +178,20 @@ export default function Home() {
                         {/* Right — Heading + Mission Items */}
                         <div className="lg:w-1/2 flex flex-col">
                             <Reveal direction="right">
-                                <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
+                                <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
                                     <span className="w-8 h-[1px] bg-aero-yellow" /> What Drives Us
                                 </p>
-                                <h2 className="font-titillium font-bold text-5xl md:text-6xl text-white leading-tight mb-6">
+                                <h2 className="font-poppins font-semibold text-5xl md:text-6xl text-white leading-tight mb-6">
                                     OUR MISSION
                                 </h2>
                             </Reveal>
 
                             <Reveal delay={0.1}>
-                                <div className="group py-6 border-b border-white/10 flex gap-5 items-start">
-                                    <span className="font-titillium font-bold text-aero-light-blue text-lg mt-0.5 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity">01</span>
+                                <div className="py-6 border-b border-white/10 flex gap-5 items-start">
+                                    <span className="font-poppins font-semibold text-aero-light-blue text-lg mt-0.5 shrink-0 opacity-60">01</span>
                                     <div>
-                                        <h3 className="font-titillium font-bold text-xl text-white tracking-wide mb-1.5 group-hover:text-aero-light-blue transition-colors">FLY</h3>
-                                        <p className="font-lato text-white/55 leading-relaxed">
+                                        <h3 className="font-poppins font-semibold text-xl text-white tracking-wide mb-1.5">FLY</h3>
+                                        <p className="font-urbanist text-white/55 leading-relaxed">
                                             Flight is our forefront. We engineer, build, and fly aircraft and avionics yearly, capturing the essence of aerospace innovation.
                                         </p>
                                     </div>
@@ -199,11 +199,11 @@ export default function Home() {
                             </Reveal>
 
                             <Reveal delay={0.2}>
-                                <div className="group py-6 border-b border-white/10 flex gap-5 items-start">
-                                    <span className="font-titillium font-bold text-aero-light-blue text-lg mt-0.5 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity">02</span>
+                                <div className="py-6 border-b border-white/10 flex gap-5 items-start">
+                                    <span className="font-poppins font-semibold text-aero-light-blue text-lg mt-0.5 shrink-0 opacity-60">02</span>
                                     <div>
-                                        <h3 className="font-titillium font-bold text-xl text-white tracking-wide mb-1.5 group-hover:text-aero-light-blue transition-colors">LEARN</h3>
-                                        <p className="font-lato text-white/55 leading-relaxed">
+                                        <h3 className="font-poppins font-semibold text-xl text-white tracking-wide mb-1.5">LEARN</h3>
+                                        <p className="font-urbanist text-white/55 leading-relaxed">
                                             Education is our bedrock. We're a resource, fostering learning opportunities across diverse engineering fields.
                                         </p>
                                     </div>
@@ -211,11 +211,11 @@ export default function Home() {
                             </Reveal>
 
                             <Reveal delay={0.3}>
-                                <div className="group py-6 flex gap-5 items-start">
-                                    <span className="font-titillium font-bold text-aero-yellow text-lg mt-0.5 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity">03</span>
+                                <div className="py-6 flex gap-5 items-start">
+                                    <span className="font-poppins font-semibold text-aero-yellow text-lg mt-0.5 shrink-0 opacity-60">03</span>
                                     <div>
-                                        <h3 className="font-titillium font-bold text-xl text-white tracking-wide mb-1.5 group-hover:text-aero-light-blue transition-colors">COMPETE</h3>
-                                        <p className="font-lato text-white/55 leading-relaxed">
+                                        <h3 className="font-poppins font-semibold text-xl text-white tracking-wide mb-1.5">COMPETE</h3>
+                                        <p className="font-urbanist text-white/55 leading-relaxed">
                                             Competition propels us. We strive for top honors at the SAE Aero Design competition, igniting triumphs across our team.
                                         </p>
                                     </div>
@@ -240,7 +240,7 @@ export default function Home() {
                             className="w-full h-[500px] object-cover rounded-3xl transform group-hover:scale-105 transition-transform duration-1000 grayscale-[20%] group-hover:grayscale-0"
                         />
                         <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-[#06121f] to-transparent z-20">
-                            <p className="font-titillium font-bold text-2xl text-white">2025 Competition Team</p>
+                            <p className="font-poppins font-semibold text-2xl text-white">2025 Competition Team</p>
                         </div>
                     </Reveal>
                 </MarginWrapper>
@@ -251,7 +251,7 @@ export default function Home() {
 
 {/* ═══════════════ SPONSORS ═══════════════ */}
             <section className="bg-white py-10 overflow-hidden">
-                <p className="font-lato font-bold text-aero-navy/50 tracking-[0.25em] uppercase text-xs mb-8 text-center">
+                <p className="font-poppins font-semibold text-aero-navy/50 tracking-[0.25em] uppercase text-xs mb-8 text-center">
                     Our Partners
                 </p>
                 <div className="overflow-hidden">
@@ -279,7 +279,7 @@ export default function Home() {
 
                 <div className="relative z-10 text-center px-6">
                     <Reveal direction="up">
-                        <h2 className="font-titillium font-bold text-5xl md:text-7xl text-white mb-8 text-glow">READY TO TAKE FLIGHT?</h2>
+                        <h2 className="font-poppins font-semibold text-5xl md:text-7xl text-white mb-8 text-glow">READY TO TAKE FLIGHT?</h2>
                         <Button destination="/team" value="APPLY NOW" variant="yellow" className="text-lg px-12 py-4" />
                     </Reveal>
                 </div>

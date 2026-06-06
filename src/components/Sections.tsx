@@ -61,8 +61,8 @@ export function SideBySideSection({ title, subtitle, image, reversed = false, ch
   return (
     <div className={clsx("flex flex-col lg:flex-row items-center gap-12 lg:gap-24", reversed && "lg:flex-row-reverse")}>
       <Reveal direction={reversed ? 'right' : 'left'} className="flex-1 w-full">
-        {subtitle && <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">{subtitle}</p>}
-        <h2 className="font-titillium font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-tight">
+        {subtitle && <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">{subtitle}</p>}
+        <h2 className="font-poppins font-semibold text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-tight">
           {title}
         </h2>
         {children}

@@ -10,12 +10,12 @@ interface ButtonProps {
 }
 
 export function Button({ destination, target = '', value, variant = 'primary', className }: ButtonProps) {
-  const baseStyles = "inline-flex items-center justify-center font-titillium font-bold tracking-widest text-sm px-8 py-3.5 uppercase transition-all duration-300 backdrop-blur-sm whitespace-nowrap";
+  const baseStyles = "inline-flex items-center justify-center font-poppins font-semibold tracking-widest text-sm px-8 py-3.5 uppercase transition-all duration-300 backdrop-blur-sm whitespace-nowrap";
   
   const variants = {
     primary: "bg-aero-mid-blue/80 text-white border border-aero-light-blue/20 hover:bg-aero-mid-blue hover:scale-105 hover:shadow-[0_0_20px_rgba(0,53,101,0.6)]",
     outline: "bg-transparent text-white border border-white/30 hover:border-white hover:bg-white/10 hover:scale-105",
-    yellow: "bg-aero-yellow text-aero-navy border border-aero-yellow hover:bg-white hover:border-white hover:scale-105 hover:shadow-[0_0_20px_rgba(107,158,200,0.4)]",
+    yellow: "bg-aero-yellow text-aero-navy border border-aero-yellow hover:bg-white/80 hover:border-white/80 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]",
   };
 
   return (

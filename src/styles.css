@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Titillium+Web:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Urbanist:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-lato: "Lato", sans-serif;
-  --font-titillium: "Titillium Web", sans-serif;
+  --font-poppins:   "Poppins", sans-serif;
+  --font-urbanist:  "Urbanist", sans-serif;
 
   --color-aero-mid-blue:   #003565;
   --color-aero-dark-blue:  #11283d;
   --color-aero-light-blue: #c9d6ea;
-  --color-aero-yellow:     #6B9EC8;   /* muted sky blue — aviation-toned accent */
+  --color-aero-yellow:     #ffffff;
   --color-aero-navy:       #06121f;
-  --color-aero-glow:       rgba(0, 112, 243, 0.4);
+  --color-aero-glow:       rgba(255, 255, 255, 0.15);
 }
 
 :root {
@@ -30,6 +30,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: white;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 500;
 }
 
 /* ─── Glass Utilities ─── */
@@ -106,7 +108,7 @@ body {
 .accent-line {
   height: 2px;
   width: 60px;
-  background: #6B9EC8;
+  background: #ffffff;
   display: block;
   margin: 1.5rem 0;
 }

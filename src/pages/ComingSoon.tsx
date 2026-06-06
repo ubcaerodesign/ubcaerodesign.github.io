@@ -25,10 +25,10 @@ export default function ComingSoon({ title }: ComingSoonProps) {
       <MarginWrapper className="relative z-10 text-center">
         <Reveal direction="up">
           <div className="text-6xl mb-8 animate-float">🚀</div>
-          <h1 className="font-titillium font-bold text-5xl md:text-7xl text-white mb-6 text-glow tracking-wide uppercase">
+          <h1 className="font-poppins font-semibold text-5xl md:text-7xl text-white mb-6 text-glow tracking-wide uppercase">
             {title}
           </h1>
-          <p className="font-lato text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="font-urbanist text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
             This section is currently under development. <br /> Check back soon for exciting updates!
           </p>
         </Reveal>

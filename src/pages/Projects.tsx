@@ -14,7 +14,7 @@ export default function Projects() {
 
   return (
     <div className="min-h-screen bg-[#06121f] flex items-center justify-center">
-      <p className="font-titillium font-bold text-white/10 text-[12rem] leading-none select-none">
+      <p className="font-poppins font-semibold text-white/10 text-[12rem] leading-none select-none">
         404
       </p>
     </div>

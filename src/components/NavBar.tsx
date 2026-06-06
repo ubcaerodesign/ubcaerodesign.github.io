@@ -18,7 +18,7 @@ export function NavLink({ destination, value, onClick }: NavLinkProps) {
       to={destination}
       onClick={onClick}
       className={clsx(
-        'font-titillium text-sm tracking-[0.15em] transition-all duration-300 uppercase py-2 relative group',
+        'font-urbanist text-sm tracking-[0.15em] transition-all duration-300 uppercase py-2 relative group',
         isActive ? 'text-white font-bold' : 'text-white/70 hover:text-white'
       )}
     >
@@ -73,7 +73,7 @@ export default function NavBar() {
               to="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 font-titillium font-bold text-xs tracking-widest text-aero-navy bg-aero-yellow px-6 py-2.5 hover:bg-white hover:shadow-[0_0_15px_rgba(107,158,200,0.5)] transition-all duration-300"
+              className="ml-4 font-poppins font-semibold text-xs tracking-widest text-aero-navy bg-aero-yellow px-6 py-2.5 hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300"
             >
               SUPPORT US
             </Link>
@@ -108,7 +108,7 @@ export default function NavBar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-4 font-titillium font-bold text-sm tracking-widest text-aero-navy bg-aero-yellow px-8 py-3"
+            className="mt-4 font-poppins font-semibold text-sm tracking-widest text-aero-navy bg-aero-yellow px-8 py-3"
           >
             SUPPORT US
           </Link>

@@ -12,7 +12,7 @@ interface FooterLinkProps {
 
 function FooterLink({ destination, value }: FooterLinkProps) {
   return (
-    <Link to={destination} className="block font-lato text-sm text-white/50 hover:text-white transition-colors duration-300 py-1.5">
+    <Link to={destination} className="block font-urbanist text-sm text-white/50 hover:text-white transition-colors duration-300 py-1.5">
       {value}
     </Link>
   );
@@ -26,7 +26,7 @@ interface FooterColumnProps {
 function FooterColumn({ title, children }: FooterColumnProps) {
   return (
     <div className="flex flex-col gap-2">
-      <h4 className="font-titillium font-bold text-white tracking-[0.15em] uppercase text-sm mb-4">
+      <h4 className="font-poppins font-semibold text-white tracking-[0.15em] uppercase text-sm mb-4">
         {title}
       </h4>
       {children}
@@ -48,7 +48,7 @@ export default function Footer() {
             <Link to="/">
               <img src={WhiteLogo} alt="UBC AeroDesign" className="w-[180px] mb-6 opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
-            <p className="font-lato text-sm text-white/50 leading-relaxed max-w-sm mb-8">
+            <p className="font-urbanist text-sm text-white/50 leading-relaxed max-w-sm mb-8">
               Engineering the future of flight. UBC AeroDesign builds remotely-piloted aircrafts, autonomous drones, and AI-powered systems.
             </p>
             
@@ -96,12 +96,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-lato text-xs text-white/30">
+          <p className="font-urbanist text-xs text-white/30">
             © {new Date().getFullYear()} UBC AeroDesign. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="font-lato text-xs text-white/30 hover:text-white/70 transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="font-lato text-xs text-white/30 hover:text-white/70 transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="font-urbanist text-xs text-white/30 hover:text-white/70 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="font-urbanist text-xs text-white/30 hover:text-white/70 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

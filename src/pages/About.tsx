@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import clsx from 'clsx';
 import { Button } from './../components/Buttons';
@@ -30,6 +30,38 @@ const LEARNING_SLIDES = [
   },
 ];
 
+function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      observer.disconnect();
+
+      let rafId: number;
+      let startTime: number | null = null;
+      const step = (timestamp: number) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setCount(Math.floor(eased * target));
+        if (progress < 1) rafId = requestAnimationFrame(step);
+      };
+      rafId = requestAnimationFrame(step);
+      return () => cancelAnimationFrame(rafId);
+    }, { threshold: 0.5 });
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
 function LearningCarousel() {
   const [current, setCurrent] = useState(0);
   const total = LEARNING_SLIDES.length;
@@ -53,9 +85,9 @@ function LearningCarousel() {
 
       {/* Info panel — right side */}
       <div className="absolute right-0 top-0 h-full w-72 lg:w-80 bg-aero-mid-blue/90 backdrop-blur-sm z-20 flex flex-col justify-center px-8 py-10">
-        <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-3">Beyond Competition</p>
-        <h3 className="font-titillium font-bold text-xl text-white tracking-wide mb-4 leading-snug">{slide.title}</h3>
-        <p className="font-lato text-white/65 text-sm leading-relaxed">{slide.description}</p>
+        <p className="font-urbanist text-aero-yellow text-xs tracking-widest uppercase mb-3">Beyond Competition</p>
+        <h3 className="font-poppins font-semibold text-xl text-white tracking-wide mb-4 leading-snug">{slide.title}</h3>
+        <p className="font-urbanist text-white/65 text-sm leading-relaxed">{slide.description}</p>
       </div>
 
       {/* Left arrow */}
@@ -121,24 +153,24 @@ export default function About() {
 
         <MarginWrapper className="relative z-10 pb-20">
           <Reveal direction="up" delay={0.1}>
-            <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
+            <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
               <span className="w-10 h-[1px] bg-aero-yellow" /> Since 1992
             </p>
           </Reveal>
           <Reveal direction="up" delay={0.2}>
-            <h1 className="font-titillium font-bold text-6xl md:text-8xl lg:text-9xl text-white leading-none text-glow mb-6">
+            <h1 className="font-poppins font-semibold text-6xl md:text-8xl lg:text-9xl text-white leading-none text-glow mb-6">
               ABOUT US
             </h1>
           </Reveal>
           <Reveal direction="up" delay={0.3}>
-            <p className="font-lato text-lg md:text-xl text-white/60 max-w-xl leading-relaxed">
+            <p className="font-urbanist text-lg md:text-xl text-white/60 max-w-xl leading-relaxed">
               Over three decades of engineering, competing, and pushing the boundaries of student-built aerospace.
             </p>
           </Reveal>
         </MarginWrapper>
 
         <div className="absolute bottom-10 right-12 hidden lg:flex flex-col items-center gap-2 opacity-30">
-          <span className="font-lato text-xs tracking-widest uppercase text-white">Scroll</span>
+          <span className="font-urbanist text-xs tracking-widest uppercase text-white">Scroll</span>
           <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
         </div>
       </section>
@@ -148,16 +180,16 @@ export default function About() {
         <MarginWrapper>
           <div className="grid grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden">
             {[
-              { value: '30+', label: 'Years Active',  color: 'text-white' },
-              { value: '3',   label: 'Divisions',     color: 'text-aero-yellow' },
-              { value: '14',  label: 'Subteams',      color: 'text-aero-light-blue' },
-            ].map(({ value, label, color }, i) => (
+              { target: 30, suffix: '+', label: 'Years Active',  color: 'text-white' },
+              { target: 3,  suffix: '',  label: 'Divisions',     color: 'text-aero-yellow' },
+              { target: 14, suffix: '',  label: 'Subteams',      color: 'text-aero-light-blue' },
+            ].map(({ target, suffix, label, color }, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="bg-[#06121f] py-10 px-8 text-center group hover:bg-aero-dark-blue transition-colors duration-300">
-                  <div className={`font-titillium font-bold text-5xl md:text-6xl ${color} mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                    {value}
+                  <div className={`font-poppins font-semibold text-5xl md:text-6xl ${color} mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                    <CountUp target={target} suffix={suffix} />
                   </div>
-                  <div className="font-lato text-xs text-white/40 tracking-[0.2em] uppercase">{label}</div>
+                  <div className="font-urbanist text-xs text-white/40 tracking-[0.2em] uppercase">{label}</div>
                 </div>
               </Reveal>
             ))}
@@ -171,20 +203,20 @@ export default function About() {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
             <Reveal direction="left" className="lg:w-1/2">
-              <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
+              <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-aero-yellow" /> Our History
               </p>
-              <h2 className="font-titillium font-bold text-4xl md:text-5xl text-white leading-tight mb-8">
+              <h2 className="font-poppins font-semibold text-4xl md:text-5xl text-white leading-tight mb-8">
                 THREE DECADES<br />OF INNOVATION
               </h2>
               <div className="space-y-5">
-                <p className="font-lato text-lg text-white/65 leading-relaxed">
+                <p className="font-urbanist text-lg text-white/65 leading-relaxed">
                   UBC AeroDesign — formerly UBC Heavy Lift — was founded in 1992 by a group of engineering
                   students determined to put their classroom knowledge to the test in the real world.
                   Every year since, the team has designed, built, and flown radio-controlled, fixed-wing
                   aircraft to compete at the SAE Aero Design Series.
                 </p>
-                <p className="font-lato text-lg text-white/65 leading-relaxed">
+                <p className="font-urbanist text-lg text-white/65 leading-relaxed">
                   The SAE competition challenges university teams worldwide to design aircraft capable of
                   fulfilling complex mission profiles — pushing students to balance aerodynamics, structures,
                   propulsion, and autonomy under real competition pressure.
@@ -224,8 +256,8 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#06121f] via-transparent to-[#06121f]/40" />
             <div className="absolute bottom-10 left-0 w-full">
               <MarginWrapper>
-                <p className="font-titillium font-bold text-2xl md:text-3xl text-white">2024 Competition Team</p>
-                <p className="font-lato text-sm text-white/50 mt-1 tracking-widest uppercase">University of British Columbia</p>
+                <p className="font-poppins font-semibold text-2xl md:text-3xl text-white">2024 Competition Team</p>
+                <p className="font-urbanist text-sm text-white/50 mt-1 tracking-widest uppercase">University of British Columbia</p>
               </MarginWrapper>
             </div>
           </div>
@@ -239,10 +271,10 @@ export default function About() {
         <MarginWrapper>
 
           <Reveal direction="left" className="mb-10">
-            <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
+            <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
               <span className="w-8 h-[1px] bg-aero-yellow" /> Annual Challenge
             </p>
-            <h2 className="font-titillium font-bold text-5xl md:text-6xl text-white leading-tight">
+            <h2 className="font-poppins font-semibold text-5xl md:text-6xl text-white leading-tight">
               OUR COMPETITION
             </h2>
           </Reveal>
@@ -266,19 +298,19 @@ export default function About() {
               <Reveal delay={0.1}>
                 <div className="flex gap-0 mb-10">
                   <div className="flex-1 pr-8">
-                    <div className="font-titillium font-bold text-6xl text-aero-yellow mb-2">20+</div>
-                    <div className="font-lato text-xs text-white/45 tracking-[0.2em] uppercase">Top Placements</div>
+                    <div className="font-poppins font-semibold text-6xl text-aero-yellow mb-2">20+</div>
+                    <div className="font-urbanist text-xs text-white/45 tracking-[0.2em] uppercase">Top Placements</div>
                   </div>
                   <div className="w-px bg-white/10 shrink-0" />
                   <div className="flex-1 pl-8">
-                    <div className="font-titillium font-bold text-6xl text-white mb-2">40+</div>
-                    <div className="font-lato text-xs text-white/45 tracking-[0.2em] uppercase">International Teams</div>
+                    <div className="font-poppins font-semibold text-6xl text-white mb-2">40+</div>
+                    <div className="font-urbanist text-xs text-white/45 tracking-[0.2em] uppercase">International Teams</div>
                   </div>
                 </div>
               </Reveal>
 
               <Reveal delay={0.2}>
-                <p className="font-lato text-white/55 text-lg leading-relaxed mb-8">
+                <p className="font-urbanist text-white/55 text-lg leading-relaxed mb-8">
                   Every year we compete at the SAE Aero Design Competition across Micro and Advanced class categories — each presenting a unique aviation challenge that pushes students to find optimal configurations under tight design limitations.
                 </p>
                 <Button
@@ -301,9 +333,9 @@ export default function About() {
         <MarginWrapper>
           <Reveal>
             <div className="max-w-3xl mb-8">
-              <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-3">Competition Classes</p>
-              <h2 className="font-titillium font-bold text-3xl md:text-4xl text-white mb-4">SAE AERODESIGN COMPETITION</h2>
-              <p className="font-lato text-white/55 leading-relaxed">
+              <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-3">Competition Classes</p>
+              <h2 className="font-poppins font-semibold text-3xl md:text-4xl text-white mb-4">SAE AERODESIGN COMPETITION</h2>
+              <p className="font-urbanist text-white/55 leading-relaxed">
                 The two classes — Micro and Advanced — are not ordered by difficulty or seniority. Their only differences are the competition missions and rules.
               </p>
             </div>
@@ -313,9 +345,9 @@ export default function About() {
             <Reveal delay={0.1}>
               <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col group">
                 <div className="p-6">
-                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">μ Micro Class</p>
-                  <h3 className="font-titillium font-bold text-lg text-white tracking-wide mb-2">MICRO CLASS MISSION OBJECTIVES</h3>
-                  <p className="font-lato text-white/55 text-sm leading-relaxed">
+                  <p className="font-urbanist text-aero-yellow text-xs tracking-widest uppercase mb-2">μ Micro Class</p>
+                  <h3 className="font-poppins font-semibold text-lg text-white tracking-wide mb-2">MICRO CLASS MISSION OBJECTIVES</h3>
+                  <p className="font-urbanist text-white/55 text-sm leading-relaxed">
                     Conflicting requirements — such as carrying the highest payload while simultaneously pursuing the lowest empty weight possible.
                   </p>
                 </div>
@@ -326,9 +358,9 @@ export default function About() {
             <Reveal delay={0.2}>
               <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col group">
                 <div className="p-6">
-                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">ADV Advanced Class</p>
-                  <h3 className="font-titillium font-bold text-lg text-white tracking-wide mb-2">ADVANCED CLASS MISSION OBJECTIVES</h3>
-                  <p className="font-lato text-white/55 text-sm leading-relaxed">
+                  <p className="font-urbanist text-aero-yellow text-xs tracking-widest uppercase mb-2">ADV Advanced Class</p>
+                  <h3 className="font-poppins font-semibold text-lg text-white tracking-wide mb-2">ADVANCED CLASS MISSION OBJECTIVES</h3>
+                  <p className="font-urbanist text-white/55 text-sm leading-relaxed">
                     Focuses on system integrations, which involve the Software, Firmware, and Hardware subteams who contribute to the custom-built electronics and avionics system.
                   </p>
                 </div>
@@ -345,13 +377,13 @@ export default function About() {
       <Section id="learning-endeavors">
         <MarginWrapper>
           <Reveal className="mb-10">
-            <p className="font-lato font-bold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
+            <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
               <span className="w-8 h-[1px] bg-aero-yellow" /> Beyond Competition
             </p>
-            <h2 className="font-titillium font-bold text-4xl md:text-5xl text-white leading-tight mb-4">
+            <h2 className="font-poppins font-semibold text-4xl md:text-5xl text-white leading-tight mb-4">
               LEARNING ENDEAVORS
             </h2>
-            <p className="font-lato text-white/55 text-lg leading-relaxed max-w-2xl">
+            <p className="font-urbanist text-white/55 text-lg leading-relaxed max-w-2xl">
               There are many opportunities for members to gain experience — whether through their subteam, facility access, industry tours, networking events, or personal projects.
             </p>
           </Reveal>
