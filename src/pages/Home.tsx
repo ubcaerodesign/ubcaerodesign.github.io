@@ -9,6 +9,9 @@ import TeamImage from './../assets/images/UBC AeroDesign 2025 Competition Team.p
 import FlyingPlane from './../assets/images/25 Adv Plane in Flight.png';
 import Workspace from './../assets/images/Workspace.png';
 import TeamPhoto from './../assets/images/2024 Team Photo.png';
+import OurMission1 from './../assets/images/ourmission1.jpg';
+import OurMission2 from './../assets/images/ourmission2.jpg';
+import OurMission3 from './../assets/images/ourmission3.jpg';
 import SponsorMECH from './../assets/images/sponsors/68c837abdd537cbd43f4bec1_MECH.png';
 import SponsorSolidWorks from './../assets/images/sponsors/68c838e3e475174226102175_SolidWorks.png';
 import SponsorUBCAPSC from './../assets/images/sponsors/68c839a67597540c9c8f1c6b_UBC_APSC.png';
@@ -40,10 +43,9 @@ const SPONSOR_LOGOS = [
 ];
 
 const MISSION_SLIDES = [
-    { src: TeamImage, label: "2025 Competition Team" },
-    { src: FlyingPlane, label: "Advanced Plane in Flight" },
-    { src: Workspace, label: "Engineering Workspace" },
-    { src: TeamPhoto, label: "2024 Team Photo" },
+    { src: OurMission1 },
+    { src: OurMission2 },
+    { src: OurMission3 },
 ];
 
 function MissionCarousel() {
@@ -62,9 +64,7 @@ function MissionCarousel() {
                         i === current ? "opacity-100 z-10" : "opacity-0 z-0"
                     )}
                 >
-                    <img src={slide.src} alt={slide.label} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-aero-navy/70 via-transparent to-transparent" />
-                    <p className="absolute bottom-12 left-4 font-lato text-sm text-white/70 z-10">{slide.label}</p>
+                    <img src={slide.src} alt="Our Mission" className="w-full h-full object-cover" />
                 </div>
             ))}
 

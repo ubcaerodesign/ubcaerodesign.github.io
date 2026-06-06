@@ -4,24 +4,29 @@ import clsx from 'clsx';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import Workspace from './../assets/images/Workspace.png';
+import IndustryTour from './../assets/images/industry tour.png';
+import WindTunnel from './../assets/images/windtunnel.png';
+import HistoryImg from './../assets/images/history.jpg';
 import TeamPhoto from './../assets/images/2024 Team Photo.png';
 import TeamImage from './../assets/images/UBC AeroDesign 2025 Competition Team.png';
-import HeroAboutUs from './../assets/images/hero_aboutus.jpg';
-import FlyingPlane from './../assets/images/25 Adv Plane in Flight.png';
+import HeroAboutUs from './../assets/images/hero_aboutus-Picsart-AiImageEnhancer.jpg';
+import FlyingPlane from './../assets/images/comps.jpg';
 import MicroClass from './../assets/images/microclass.jpg';
 import AdvanceClass from './../assets/images/advance class.jpg';
 import OurComp from './../assets/images/ourcomp.jpg';
 
 const LEARNING_SLIDES = [
   {
-    src: OurComp,
+    src: IndustryTour,
     title: 'INDUSTRY TOURS',
     description: 'Through sponsors, member internships and co-ops, and other connections, we have been invited to tour facilities of leaders in engineering.',
+    objectPosition: 'center top',
   },
   {
-    src: Workspace,
+    src: WindTunnel,
     title: 'WIND TUNNEL TESTING',
     description: 'Wind tunnel testing places airfoil models in controlled airflow to simulate real flight conditions — a crucial step in assessing aerodynamic behavior and refining designs before actual flights.',
+    objectPosition: 'center center',
   },
 ];
 
@@ -42,7 +47,7 @@ function LearningCarousel() {
             i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
           )}
         >
-          <img src={s.src} alt={s.title} className="w-full h-full object-cover" />
+          <img src={s.src} alt={s.title} className="w-full h-full object-cover" style={{ objectPosition: s.objectPosition ?? 'center center' }} />
         </div>
       ))}
 
@@ -192,8 +197,8 @@ export default function About() {
                 <div className="absolute -inset-1 bg-gradient-to-br from-aero-mid-blue/40 to-aero-light-blue/10 rounded-2xl blur-xl" />
                 <div className="relative rounded-2xl overflow-hidden border border-white/10">
                   <img
-                    src={Workspace}
-                    alt="Engineering Workspace"
+                    src={HistoryImg}
+                    alt="UBC AeroDesign History"
                     className="w-full h-[500px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#06121f]/50 to-transparent" />

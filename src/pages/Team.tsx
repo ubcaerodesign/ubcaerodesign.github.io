@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import TeamImage from './../assets/images/UBC AeroDesign 2025 Competition Team.png';
+import WhyAero from './../assets/images/whyaero.jpg';
 import AboutCTA from './../assets/images/About CTA.jpeg';
 import TeamPhoto from './../assets/images/2024 Team Photo.png';
 import TeamBreakdown from './../assets/images/Team Breakdown.svg';
@@ -178,8 +179,8 @@ export default function Team() {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-aero-mid-blue to-aero-light-blue rounded-2xl opacity-20 blur-xl group-hover:opacity-40 transition duration-500"></div>
                 <img
-                  src={TeamImage}
-                  alt="2025 Competition Team"
+                  src={WhyAero}
+                  alt="Why AeroDesign"
                   className="relative w-full rounded-2xl object-cover shadow-2xl border border-white/10 group-hover:border-white/30 transition-all duration-500"
                 />
               </div>
