@@ -1,6 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
+import Team from './pages/Team'
+import Sponsor from './pages/Sponsor'
+import Projects from './pages/Projects'
 import NotFound from './pages/NotFound'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -13,6 +16,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/sponsor" element={<Sponsor />} />
+        <Route path="/projects" element={<Projects />} />
         <Route path="/404NotFound" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404NotFound" replace />} />
       </Routes>
