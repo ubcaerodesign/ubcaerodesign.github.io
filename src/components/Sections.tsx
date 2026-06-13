@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { useEffect, useRef, useState } from "react";
 
 interface MarginWrapperProps {
   children?: React.ReactNode;
@@ -41,9 +42,45 @@ interface RevealProps {
   className?: string;
 }
 
-export function Reveal({ children, className }: RevealProps) {
+export function Reveal({ children, direction = 'up', delay = 0, className }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const transforms = {
+    up: 'translate3d(0, 40px, 0)',
+    left: 'translate3d(-40px, 0, 0)',
+    right: 'translate3d(40px, 0, 0)',
+  };
+
   return (
-    <div className={className}>
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translate3d(0, 0, 0)' : transforms[direction],
+        transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+        willChange: 'opacity, transform',
+      }}
+    >
       {children}
     </div>
   );

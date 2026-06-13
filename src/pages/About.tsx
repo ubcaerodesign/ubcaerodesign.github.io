@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import HistoryImg from './../assets/images/history.jpg';
 import TeamPhoto from './../assets/images/2024 Team Photo.jpg';
-import HeroAboutUs from './../assets/images/hero_aboutus-Picsart-AiImageEnhancer.jpg';
+import HeroAboutUs from './../assets/images/abouthero.JPG';
 
 function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
