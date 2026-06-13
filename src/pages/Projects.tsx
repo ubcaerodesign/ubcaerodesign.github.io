@@ -8,7 +8,7 @@ import MicroClass from './../assets/images/microclass.jpg';
 import AdvanceClass from './../assets/images/advance class.jpg';
 import IndustryTour from './../assets/images/industry tour.jpg';
 import WindTunnel from './../assets/images/windtunnel.jpg';
-import HeroProjects from './../assets/images/projectHero.jpg';
+import HeroProjects from './../assets/images/projectHero.JPG';
 
 const LEARNING_SLIDES = [
   {
@@ -169,10 +169,6 @@ export default function Projects() {
           </div>
         </MarginWrapper>
 
-        <div className="absolute bottom-10 left-12 hidden lg:flex flex-col items-center gap-2 opacity-30">
-          <span className="font-urbanist text-xs tracking-widest uppercase text-white">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
-        </div>
       </section>
 
       <Section id="competition">

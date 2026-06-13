@@ -76,10 +76,6 @@ export default function About() {
           </Reveal>
         </MarginWrapper>
 
-        <div className="absolute bottom-10 right-12 hidden lg:flex flex-col items-center gap-2 opacity-30">
-          <span className="font-urbanist text-xs tracking-widest uppercase text-white">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-white to-transparent" />
-        </div>
       </section>
 
       {/* ═══════════════ IMPACT STATS ═══════════════ */}
