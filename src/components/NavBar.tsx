@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import clsx from 'clsx';
-import WhiteLogo from './../assets/images/UBC AeroDesign 2023 Logo_White Horizontal.svg';
+import WhiteLogo from './../assets/images/logos/UBC AeroDesign 2023 Logo_White Horizontal.svg';
 
 interface NavLinkProps {
   destination: string;
@@ -18,7 +18,7 @@ export function NavLink({ destination, value, onClick }: NavLinkProps) {
       to={destination}
       onClick={onClick}
       className={clsx(
-        'font-urbanist text-sm tracking-[0.15em] transition-all duration-300 uppercase py-2 relative group',
+        'font-lato text-sm tracking-[0.15em] transition-all duration-300 uppercase py-2 relative group',
         isActive ? 'text-white font-bold' : 'text-white/70 hover:text-white'
       )}
     >
@@ -67,15 +67,22 @@ export default function NavBar() {
             <NavLink destination="/about" value="About" />
             <NavLink destination="/projects" value="Projects" />
             <NavLink destination="/team" value="Team" />
+            <NavLink destination="/recruitment" value="Recruitment" />
             <NavLink destination="/sponsor" value="Sponsor" />
             
             <Link
               to="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 font-poppins font-semibold text-xs tracking-widest text-aero-navy bg-aero-yellow px-6 py-2.5 hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300"
+              className="ml-4 font-titillium font-semibold text-xs tracking-widest text-white border border-white/30 px-6 py-2.5 hover:bg-white/10 transition-all duration-300"
             >
               SUPPORT US
+            </Link>
+            <Link
+              to="/contact"
+              className="ml-4 font-titillium font-semibold text-xs tracking-widest text-aero-navy bg-aero-yellow px-6 py-2.5 hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300"
+            >
+              CONTACT US
             </Link>
           </div>
 
@@ -101,6 +108,7 @@ export default function NavBar() {
           <NavLink destination="/about" value="About" onClick={() => setOpen(false)} />
           <NavLink destination="/projects" value="Projects" onClick={() => setOpen(false)} />
           <NavLink destination="/team" value="Team" onClick={() => setOpen(false)} />
+          <NavLink destination="/recruitment" value="Recruitment" onClick={() => setOpen(false)} />
           <NavLink destination="/sponsor" value="Sponsor" onClick={() => setOpen(false)} />
           
           <Link
@@ -108,9 +116,16 @@ export default function NavBar() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
-            className="mt-4 font-poppins font-semibold text-sm tracking-widest text-aero-navy bg-aero-yellow px-8 py-3"
+            className="mt-4 font-titillium font-semibold text-sm tracking-widest text-white border border-white/30 px-8 py-3"
           >
             SUPPORT US
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-4 font-titillium font-semibold text-sm tracking-widest text-aero-navy bg-aero-yellow px-8 py-3"
+          >
+            CONTACT US
           </Link>
         </div>
       </div>

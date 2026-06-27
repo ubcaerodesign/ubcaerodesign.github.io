@@ -4,6 +4,8 @@ import About from './pages/About'
 import Team from './pages/Team'
 import Sponsor from './pages/Sponsor'
 import Projects from './pages/Projects'
+import Recruitment from './pages/Recruitment'
+import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -20,6 +22,8 @@ export default function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/sponsor" element={<Sponsor />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/recruitment" element={<Recruitment />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/404NotFound" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404NotFound" replace />} />
       </Routes>

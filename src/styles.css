@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Urbanist:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Titillium+Web:wght@600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-poppins:   "Poppins", sans-serif;
-  --font-urbanist:  "Urbanist", sans-serif;
+  --font-titillium:   "Titillium Web", sans-serif;
+  --font-lato:        "Lato", sans-serif;
 
   --color-aero-mid-blue:   #003565;
   --color-aero-dark-blue:  #11283d;
@@ -30,8 +30,8 @@ body {
   padding: 0;
   overflow-x: hidden;
   color: white;
-  font-family: "Urbanist", sans-serif;
-  font-weight: 500;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
 }
 
 /* ─── Glass Utilities ─── */
@@ -130,3 +130,9 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* ─── Logo Outline helper ─── */
+.logo-white-outline {
+  filter: drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff) drop-shadow(0 1px 0 #fff) drop-shadow(0 -1px 0 #fff);
+}
+

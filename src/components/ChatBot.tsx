@@ -120,8 +120,8 @@ export default function ChatBot() {
             </svg>
           </div>
           <div>
-            <p className="font-poppins font-semibold text-white text-sm leading-tight">AeroDesign Assistant</p>
-            <p className="font-urbanist text-white/40 text-xs">Ask me anything</p>
+            <p className="font-titillium font-semibold text-white text-sm leading-tight">AeroDesign Assistant</p>
+            <p className="font-lato text-white/40 text-xs">Ask me anything</p>
           </div>
           <div className="ml-auto w-2 h-2 rounded-full bg-green-400" />
         </div>
@@ -131,7 +131,7 @@ export default function ChatBot() {
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div
-                className={`max-w-[85%] px-3 py-2 rounded-xl font-urbanist text-sm leading-relaxed ${
+                className={`max-w-[85%] px-3 py-2 rounded-xl font-lato text-sm leading-relaxed ${
                   msg.role === 'user'
                     ? 'bg-aero-yellow text-aero-navy font-medium rounded-br-sm'
                     : 'bg-white/8 text-white/80 rounded-bl-sm'
@@ -162,7 +162,7 @@ export default function ChatBot() {
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && send()}
             placeholder="Ask a question..."
-            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 font-urbanist text-sm text-white placeholder-white/30 focus:outline-none focus:border-aero-yellow/50 transition-colors"
+            className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 font-lato text-sm text-white placeholder-white/30 focus:outline-none focus:border-aero-yellow/50 transition-colors"
           />
           <button
             onClick={send}

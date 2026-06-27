@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
-import HistoryImg from './../assets/images/history.jpg';
-import TeamPhoto from './../assets/images/2024 Team Photo.jpg';
-import HeroAboutUs from './../assets/images/abouthero.JPG';
+import HistoryImg from './../assets/images/team/history.jpg';
+import TeamPhoto2025 from './../assets/images/team/UBC AeroDesign 2026 Competition Team.JPG';
+import HeroAboutUs from './../assets/images/backgrounds/abouthero.JPG';
 
 function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -60,17 +60,17 @@ export default function About() {
 
         <MarginWrapper className="relative z-10 pb-20">
           <Reveal direction="up" delay={0.1}>
-            <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
+            <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
               <span className="w-10 h-[1px] bg-aero-yellow" /> Since 1992
             </p>
           </Reveal>
           <Reveal direction="up" delay={0.2}>
-            <h1 className="font-poppins font-semibold text-6xl md:text-8xl lg:text-9xl text-white leading-none text-glow mb-6">
+            <h1 className="font-titillium font-semibold text-6xl md:text-8xl lg:text-9xl text-white leading-none text-glow mb-6">
               ABOUT US
             </h1>
           </Reveal>
           <Reveal direction="up" delay={0.3}>
-            <p className="font-urbanist text-lg md:text-xl text-white/60 max-w-xl leading-relaxed">
+            <p className="font-lato text-lg md:text-xl text-white/60 max-w-xl leading-relaxed">
               Over three decades of engineering, competing, and pushing the boundaries of student-built aerospace.
             </p>
           </Reveal>
@@ -84,15 +84,15 @@ export default function About() {
           <div className="grid grid-cols-3 gap-px bg-white/5 rounded-2xl overflow-hidden">
             {[
               { target: 30, suffix: '+', label: 'Years Active',  color: 'text-white' },
-              { target: 3,  suffix: '',  label: 'Divisions',     color: 'text-aero-yellow' },
+              { target: 4,  suffix: '',  label: 'Divisions',     color: 'text-aero-yellow' },
               { target: 14, suffix: '',  label: 'Subteams',      color: 'text-aero-light-blue' },
             ].map(({ target, suffix, label, color }, i) => (
               <Reveal key={i} delay={i * 0.1}>
                 <div className="bg-[#06121f] py-10 px-8 text-center group hover:bg-aero-dark-blue transition-colors duration-300">
-                  <div className={`font-poppins font-semibold text-5xl md:text-6xl ${color} mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`font-titillium font-semibold text-5xl md:text-6xl ${color} mb-3 group-hover:scale-110 transition-transform duration-300`}>
                     <CountUp target={target} suffix={suffix} />
                   </div>
-                  <div className="font-urbanist text-xs text-white/40 tracking-[0.2em] uppercase">{label}</div>
+                  <div className="font-lato text-xs text-white/40 tracking-[0.2em] uppercase">{label}</div>
                 </div>
               </Reveal>
             ))}
@@ -106,20 +106,20 @@ export default function About() {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
             <Reveal direction="left" className="lg:w-1/2">
-              <p className="font-poppins font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
+              <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-aero-yellow" /> Our History
               </p>
-              <h2 className="font-poppins font-semibold text-4xl md:text-5xl text-white leading-tight mb-8">
+              <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-8">
                 THREE DECADES<br />OF INNOVATION
               </h2>
               <div className="space-y-5">
-                <p className="font-urbanist text-lg text-white/65 leading-relaxed">
+                <p className="font-lato text-lg text-white/65 leading-relaxed">
                   UBC AeroDesign — formerly UBC Heavy Lift — was founded in 1992 by a group of engineering
                   students determined to put their classroom knowledge to the test in the real world.
                   Every year since, the team has designed, built, and flown radio-controlled, fixed-wing
                   aircraft to compete at the SAE Aero Design Series.
                 </p>
-                <p className="font-urbanist text-lg text-white/65 leading-relaxed">
+                <p className="font-lato text-lg text-white/65 leading-relaxed">
                   The SAE competition challenges university teams worldwide to design aircraft capable of
                   fulfilling complex mission profiles — pushing students to balance aerodynamics, structures,
                   propulsion, and autonomy under real competition pressure.
@@ -152,15 +152,15 @@ export default function About() {
         <Reveal>
           <div className="relative w-full h-[65vh] group overflow-hidden">
             <img
-              src={TeamPhoto}
-              alt="2024 Team Photo"
+              src={TeamPhoto2025}
+              alt="2025 Team Photo"
               className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#06121f] via-transparent to-[#06121f]/40" />
             <div className="absolute bottom-10 left-0 w-full">
               <MarginWrapper>
-                <p className="font-poppins font-semibold text-2xl md:text-3xl text-white">2024 Competition Team</p>
-                <p className="font-urbanist text-sm text-white/50 mt-1 tracking-widest uppercase">University of British Columbia</p>
+                <p className="font-titillium font-semibold text-2xl md:text-3xl text-white">2025 Competition Team</p>
+                <p className="font-lato text-sm text-white/50 mt-1 tracking-widest uppercase">University of British Columbia</p>
               </MarginWrapper>
             </div>
           </div>

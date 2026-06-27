@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 export function Button({ destination, target = '', value, variant = 'primary', className }: ButtonProps) {
-  const baseStyles = "inline-flex items-center justify-center font-poppins font-semibold tracking-widest text-sm px-8 py-3.5 uppercase transition-all duration-300 backdrop-blur-sm whitespace-nowrap";
+  const baseStyles = "inline-flex items-center justify-center font-titillium font-semibold tracking-widest text-sm px-8 py-3.5 uppercase transition-all duration-300 backdrop-blur-sm whitespace-nowrap";
   
   const variants = {
     primary: "bg-aero-mid-blue/80 text-white border border-aero-light-blue/20 hover:bg-aero-mid-blue hover:scale-105 hover:shadow-[0_0_20px_rgba(0,53,101,0.6)]",
