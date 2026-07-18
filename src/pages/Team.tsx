@@ -26,11 +26,11 @@ const TEAM_SUMMER_2026 = {
   captain: { name: 'Evan Comba', role: 'Captain', photo: MemberEvanComba },
   divisions: [
     {
-      name: 'MCR',
+      name: 'Micro',
       director: { name: 'Colten Rockford', role: 'Director' },
       subteams: [
         {
-          name: 'MCRF',
+          name: 'Micro Structures',
           members: [
             { name: 'Justin Yoon', role: 'Co-lead' },
             { name: 'Elijah Stewart', role: 'Co-lead' },
@@ -41,7 +41,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'MCRA',
+          name: 'Micro Aerodynamics',
           members: [
             { name: 'Gabriel Lee', role: 'Co-lead' },
             { name: 'Rycel Martos', role: 'Co-lead' },
@@ -54,11 +54,11 @@ const TEAM_SUMMER_2026 = {
       ],
     },
     {
-      name: 'ADV',
+      name: 'Advanced',
       director: { name: 'Winston Li', role: 'Director' },
       subteams: [
         {
-          name: 'ADV Fuse',
+          name: 'Advanced Structures',
           members: [
             { name: 'Joseph Estante', role: 'Advisor' },
             { name: 'Quinn Kalheim', role: 'Advisor' },
@@ -73,7 +73,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'ADV Airfoils',
+          name: 'Advanced Aerodynamics',
           members: [
             { name: 'Diana Urbanczyk', role: 'Lead' },
             { name: 'Myron Wiebe', role: 'Lead' },
@@ -89,7 +89,7 @@ const TEAM_SUMMER_2026 = {
       ],
     },
     {
-      name: 'AVI',
+      name: 'Avionics',
       director: { name: 'Ella Yan', role: 'Director', photo: MemberEllaYan },
       subteams: [
         {
@@ -129,16 +129,20 @@ const TEAM_SUMMER_2026 = {
   ],
 };
 
+const SHOW_PHOTOS = false;
+
 const MemberCard = ({ member, isDirector = false }: { member: Member; isDirector?: boolean }) => {
   return (
     <div className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white/5 border border-transparent hover:border-white/10 ${isDirector ? 'bg-white/5 border-white/5' : ''}`}>
-      <div className={`relative shrink-0 overflow-hidden rounded-full ${isDirector ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-14 md:h-14'} bg-white/5 border border-white/10 flex items-center justify-center text-white/50`}>
-        {member.photo ? (
-          <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
-        ) : (
-          <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
-        )}
-      </div>
+      {SHOW_PHOTOS && (
+        <div className={`relative shrink-0 overflow-hidden rounded-full ${isDirector ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-14 md:h-14'} bg-white/5 border border-white/10 flex items-center justify-center text-white/50`}>
+          {member.photo ? (
+            <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+          ) : (
+            <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
+          )}
+        </div>
+      )}
       <div>
         <p className={`font-titillium font-semibold text-white ${isDirector ? 'text-lg md:text-xl' : 'text-sm md:text-base'}`}>{member.name}</p>
         <p className={`font-lato text-aero-yellow uppercase tracking-widest mt-1 ${isDirector ? 'text-xs md:text-sm' : 'text-[10px] md:text-xs'}`}>{member.role}</p>
@@ -276,13 +280,15 @@ export default function Team() {
                   <p className="font-titillium font-semibold text-white/40 tracking-[0.2em] uppercase text-sm mb-8 flex items-center gap-4">
                     <span className="w-8 h-[1px] bg-white/20" /> Leadership <span className="w-8 h-[1px] bg-white/20" />
                   </p>
-                  <div className="relative overflow-hidden rounded-full w-32 h-32 md:w-40 md:h-40 bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                    {TEAM_SUMMER_2026.captain.photo ? (
-                      <img src={TEAM_SUMMER_2026.captain.photo} alt={TEAM_SUMMER_2026.captain.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
-                    )}
-                  </div>
+                  {SHOW_PHOTOS && (
+                    <div className="relative overflow-hidden rounded-full w-32 h-32 md:w-40 md:h-40 bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                      {TEAM_SUMMER_2026.captain.photo ? (
+                        <img src={TEAM_SUMMER_2026.captain.photo} alt={TEAM_SUMMER_2026.captain.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
+                      )}
+                    </div>
+                  )}
                   <h3 className="font-titillium font-semibold text-3xl text-white mb-2">{TEAM_SUMMER_2026.captain.name}</h3>
                   <p className="font-lato text-aero-yellow uppercase tracking-widest">{TEAM_SUMMER_2026.captain.role}</p>
                 </div>
