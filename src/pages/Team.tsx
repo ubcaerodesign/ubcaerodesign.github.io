@@ -30,7 +30,7 @@ const TEAM_SUMMER_2026 = {
       director: { name: 'Colten Rockford', role: 'Director' },
       subteams: [
         {
-          name: 'Micro Structures',
+          name: 'Microclass Fuselage',
           members: [
             { name: 'Justin Yoon', role: 'Co-lead' },
             { name: 'Elijah Stewart', role: 'Co-lead' },
@@ -41,7 +41,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'Micro Aerodynamics',
+          name: 'Microclass Airfoils',
           members: [
             { name: 'Gabriel Lee', role: 'Co-lead' },
             { name: 'Rycel Martos', role: 'Co-lead' },
@@ -58,7 +58,7 @@ const TEAM_SUMMER_2026 = {
       director: { name: 'Winston Li', role: 'Director' },
       subteams: [
         {
-          name: 'Advanced Structures',
+          name: 'Advance Class Fuselage',
           members: [
             { name: 'Joseph Estante', role: 'Advisor' },
             { name: 'Quinn Kalheim', role: 'Advisor' },
@@ -73,7 +73,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'Advanced Aerodynamics',
+          name: 'Advance Class Airfoils',
           members: [
             { name: 'Diana Urbanczyk', role: 'Lead' },
             { name: 'Myron Wiebe', role: 'Lead' },
