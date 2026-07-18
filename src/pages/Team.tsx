@@ -13,15 +13,139 @@ import MemberEllaYan from './../assets/members/ella yan.jpeg';
 import MemberEvanComba from './../assets/members/evan comba.jpeg';
 import MemberJefferson from './../assets/members/jefferson dermawan.jpeg';
 import MemberRadman from './../assets/members/radman.jpeg';
+import MemberPlaceholder from './../assets/members/placeholder.svg';
 
-const MEMBERS = [
-  { src: MemberAndrewYeh,  name: 'Andrew Yeh',          role: 'Hardware Lead' },
-  { src: MemberAroraRolfe, name: 'Arora Rolfe',          role: 'Hardware Member' },
-  { src: MemberEllaYan,    name: 'Ella Yan',             role: 'AeroDesign Avionics Director' },
-  { src: MemberEvanComba,  name: 'Evan Comba',           role: 'Team Captain' },
-  { src: MemberJefferson,  name: 'Jefferson Dermawan',   role: 'Software Developer' },
-  { src: MemberRadman,     name: 'Radman',               role: 'Firmware Lead' },
-];
+type Member = {
+  name: string;
+  role: string;
+  photo?: string;
+};
+
+const TEAM_SUMMER_2026 = {
+  season: 'Summer 2026',
+  captain: { name: 'Evan Comba', role: 'Captain', photo: MemberEvanComba },
+  divisions: [
+    {
+      name: 'MCR',
+      director: { name: 'Colten Rockford', role: 'Director' },
+      subteams: [
+        {
+          name: 'MCRF',
+          members: [
+            { name: 'Justin Yoon', role: 'Co-lead' },
+            { name: 'Elijah Stewart', role: 'Co-lead' },
+            { name: 'Melody Leung', role: 'Member' },
+            { name: 'Benjamin Chen', role: 'Member' },
+            { name: 'Adrian Suhenda', role: 'Member' },
+            { name: 'Ethan Ho', role: 'Member' },
+          ],
+        },
+        {
+          name: 'MCRA',
+          members: [
+            { name: 'Gabriel Lee', role: 'Co-lead' },
+            { name: 'Rycel Martos', role: 'Co-lead' },
+            { name: 'Nathan Ngai', role: 'Member' },
+            { name: 'Winston Lin', role: 'Member' },
+            { name: 'Selina Li', role: 'Member' },
+            { name: 'Prabhnoor Boparai', role: 'Member' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'ADV',
+      director: { name: 'Winston Li', role: 'Director' },
+      subteams: [
+        {
+          name: 'ADV Fuse',
+          members: [
+            { name: 'Joseph Estante', role: 'Advisor' },
+            { name: 'Quinn Kalheim', role: 'Advisor' },
+            { name: 'Leo Lin', role: 'Lead' },
+            { name: 'Isaac Santos', role: 'Lead' },
+            { name: 'Owen Baldwin', role: 'Member' },
+            { name: 'Emma Creelman', role: 'Member' },
+            { name: 'Jerry Wang', role: 'Member' },
+            { name: 'Peter Wang', role: 'Member' },
+            { name: 'Jordan Chong', role: 'Member' },
+            { name: 'Houze Guo', role: 'Member' },
+          ],
+        },
+        {
+          name: 'ADV Airfoils',
+          members: [
+            { name: 'Diana Urbanczyk', role: 'Lead' },
+            { name: 'Myron Wiebe', role: 'Lead' },
+            { name: 'Stefan Dmitrovic', role: 'Member' },
+            { name: 'Yuriel Dimayacyac', role: 'Member' },
+            { name: 'Ethan Dart', role: 'Member' },
+            { name: 'Wilford Liu', role: 'Member' },
+            { name: 'Govind Suresh', role: 'Member' },
+            { name: 'Sandra Zhang', role: 'Member' },
+            { name: 'Amanda Huang', role: 'Member' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'AVI',
+      director: { name: 'Ella Yan', role: 'Director', photo: MemberEllaYan },
+      subteams: [
+        {
+          name: 'Firmware',
+          members: [
+            { name: 'Ayden Nguyen', role: 'Lead' },
+            { name: 'Radman Yaghoobi Vayeghan', role: 'Lead', photo: MemberRadman },
+            { name: 'Sina Mahdavi', role: 'Member' },
+            { name: 'Anas Ahmed', role: 'Member' },
+            { name: 'Sam Salehi', role: 'Member' },
+            { name: 'Ron Kitainik', role: 'Member' },
+            { name: 'Inderveer Sidhu', role: 'Member' },
+            { name: 'Amjad Yaghi', role: 'Member' },
+          ],
+        },
+        {
+          name: 'Software',
+          members: [
+            { name: 'Amanda Yang', role: 'Advisor' },
+            { name: 'Ethan Su', role: 'Lead' },
+            { name: 'Jefferson Abraham Dermawan', role: 'Member', photo: MemberJefferson },
+          ],
+        },
+        {
+          name: 'Hardware',
+          members: [
+            { name: 'Andrew Yeh', role: 'Advisor', photo: MemberAndrewYeh },
+            { name: 'Weymen Koo', role: 'Lead' },
+            { name: 'Matthew Sean Sugiamto', role: 'Lead' },
+            { name: 'Aurora Rolfe', role: 'Lead', photo: MemberAroraRolfe },
+            { name: 'Cody Liu', role: 'Member' },
+            { name: 'Eric Wang', role: 'Member' },
+          ],
+        },
+      ],
+    },
+  ],
+};
+
+const MemberCard = ({ member, isDirector = false }: { member: Member; isDirector?: boolean }) => {
+  return (
+    <div className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:bg-white/5 border border-transparent hover:border-white/10 ${isDirector ? 'bg-white/5 border-white/5' : ''}`}>
+      <div className={`relative shrink-0 overflow-hidden rounded-full ${isDirector ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-14 md:h-14'} bg-white/5 border border-white/10 flex items-center justify-center text-white/50`}>
+        {member.photo ? (
+          <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+        ) : (
+          <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
+        )}
+      </div>
+      <div>
+        <p className={`font-titillium font-semibold text-white ${isDirector ? 'text-lg md:text-xl' : 'text-sm md:text-base'}`}>{member.name}</p>
+        <p className={`font-lato text-aero-yellow uppercase tracking-widest mt-1 ${isDirector ? 'text-xs md:text-sm' : 'text-[10px] md:text-xs'}`}>{member.role}</p>
+      </div>
+    </div>
+  );
+};
 
 /* ── Team Page ──────────────────────────── */
 export default function Team() {
@@ -130,29 +254,83 @@ export default function Team() {
         </MarginWrapper>
       </Section>
 
-      {/* ═══════════════ MEMBERS MARQUEE ═══════════════ */}
-      <section className="py-14 border-y border-white/5 overflow-hidden">
-        <p className="font-titillium font-semibold text-white/40 tracking-[0.25em] uppercase text-xs mb-8 text-center">
-          Meet the minds behind
-        </p>
-        <div className="overflow-hidden">
-          <div className="animate-marquee flex items-center gap-5" style={{ width: 'max-content' }}>
-            {[...MEMBERS, ...MEMBERS, ...MEMBERS].map((member, i) => (
-              <div key={i} className="relative group shrink-0 w-44 h-44 rounded-xl overflow-hidden">
-                <img
-                  src={member.src}
-                  alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-aero-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
-                  <p className="font-titillium font-semibold text-white text-center text-base leading-tight">{member.name}</p>
-                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mt-2 text-center">{member.role}</p>
+      {/* ═══════════════ SUMMER 2026 TEAM ═══════════════ */}
+      <Section id="members" className="pt-24 pb-16">
+        <MarginWrapper>
+          <Reveal>
+            <div className="mb-16 text-center max-w-2xl mx-auto">
+              <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4">
+                Our People
+              </p>
+              <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-6">
+                MEET THE {TEAM_SUMMER_2026.season.toUpperCase()} TEAM
+              </h2>
+            </div>
+          </Reveal>
+
+          {/* Captain */}
+          <Reveal delay={0.1}>
+            <div className="flex justify-center mb-20">
+              <div className="glass-panel p-8 md:p-12 rounded-3xl w-full max-w-2xl">
+                <div className="flex flex-col items-center text-center">
+                  <p className="font-titillium font-semibold text-white/40 tracking-[0.2em] uppercase text-sm mb-8 flex items-center gap-4">
+                    <span className="w-8 h-[1px] bg-white/20" /> Leadership <span className="w-8 h-[1px] bg-white/20" />
+                  </p>
+                  <div className="relative overflow-hidden rounded-full w-32 h-32 md:w-40 md:h-40 bg-white/5 border border-white/10 flex items-center justify-center mb-6">
+                    {TEAM_SUMMER_2026.captain.photo ? (
+                      <img src={TEAM_SUMMER_2026.captain.photo} alt={TEAM_SUMMER_2026.captain.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
+                    )}
+                  </div>
+                  <h3 className="font-titillium font-semibold text-3xl text-white mb-2">{TEAM_SUMMER_2026.captain.name}</h3>
+                  <p className="font-lato text-aero-yellow uppercase tracking-widest">{TEAM_SUMMER_2026.captain.role}</p>
                 </div>
               </div>
+            </div>
+          </Reveal>
+
+          {/* Divisions */}
+          <div className="space-y-24">
+            {TEAM_SUMMER_2026.divisions.map((division, divIdx) => (
+              <Reveal key={division.name} delay={0.1 + divIdx * 0.1}>
+                <div className="relative">
+                  {/* Division Header */}
+                  <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-8 mb-12 gap-6">
+                    <div>
+                      <h3 className="font-titillium font-semibold text-3xl md:text-4xl text-white mb-2">
+                        {division.name} Division
+                      </h3>
+                    </div>
+                    {division.director && (
+                      <div className="md:text-right">
+                        <MemberCard member={division.director} isDirector={true} />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Subteams */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {division.subteams.map((subteam) => (
+                      <div key={subteam.name} className="glass-panel p-8 rounded-2xl">
+                        <h4 className="font-titillium font-semibold text-xl text-white mb-6 flex items-center gap-3">
+                          <span className="w-2 h-2 rounded-full bg-aero-light-blue" />
+                          {subteam.name}
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {subteam.members.map((member) => (
+                            <MemberCard key={member.name} member={member} />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </div>
-      </section>
+        </MarginWrapper>
+      </Section>
 
       <SectionDivider />
 
