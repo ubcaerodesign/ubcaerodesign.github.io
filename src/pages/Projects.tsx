@@ -8,7 +8,7 @@ import MicroClass from './../assets/images/projects/microclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
 import IndustryTour from './../assets/images/projects/industry tour.jpg';
 import WindTunnel from './../assets/images/projects/windtunnel.jpg';
-import HeroProjects from './../assets/images/backgrounds/projectHero.jpg';
+import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
 
 const LEARNING_SLIDES = [
   {
