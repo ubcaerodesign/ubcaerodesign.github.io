@@ -248,7 +248,7 @@ export default function Projects() {
             <Reveal delay={0.1}>
               <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col group">
                 <div className="p-6">
-                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">μ Micro Class</p>
+                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">Micro Class</p>
                   <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MICRO CLASS MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
                     Conflicting requirements — such as carrying the heaviest payload while simultaneously pursuing the smallest wingspan and shortest takeoff distance.
@@ -261,7 +261,7 @@ export default function Projects() {
             <Reveal delay={0.2}>
               <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col group">
                 <div className="p-6">
-                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">ADV Advanced Class</p>
+                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">Advanced Class</p>
                   <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">ADVANCED CLASS MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
                     Focuses on system integrations, which involve the Software, Firmware, Controls, and Hardware subteams who contribute to the custom-built electronics and avionics system.
