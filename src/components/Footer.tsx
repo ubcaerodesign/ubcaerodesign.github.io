@@ -85,6 +85,7 @@ export default function Footer() {
             <FooterLink destination="/team" value="Our Team" />
             <FooterLink destination="/recruitment#why-aerodesign" value="Why AeroDesign" />
             <FooterLink destination="/recruitment#process" value="Recruitment Process" />
+            <FooterLink destination="/recruitment#timeline" value="Recruitment Timeline" />
             <FooterLink destination="/recruitment#faq" value="FAQ" />
           </FooterColumn>
 

@@ -155,7 +155,7 @@ export default function Home() {
 
                         <Reveal direction="up" delay={0.4}>
                             <div className="flex flex-wrap gap-6">
-                                <Button destination="/team" value="Join The Team" variant="primary" />
+                                <Button destination="/recruitment" value="Join The Team" variant="primary" />
                                 <Button destination="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112" target="_blank" value="Support Us" variant="outline" />
                             </div>
                         </Reveal>
@@ -282,7 +282,7 @@ export default function Home() {
                 <div className="relative z-10 text-center px-6">
                     <Reveal direction="up">
                         <h2 className="font-titillium font-semibold text-5xl md:text-7xl text-white mb-8 text-glow">READY TO TAKE FLIGHT?</h2>
-                        <Button destination="/team" value="APPLY NOW" variant="yellow" className="text-lg px-12 py-4" />
+                        <Button destination="/recruitment" value="APPLY NOW" variant="yellow" className="text-lg px-12 py-4" />
                     </Reveal>
                 </div>
             </section>
