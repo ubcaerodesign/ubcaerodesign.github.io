@@ -9,7 +9,6 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
-import ChatBot from './components/ChatBot'
 
 export default function App() {
   return (
@@ -29,7 +28,6 @@ export default function App() {
       </Routes>
 
       <Footer />
-      <ChatBot />
     </div>
   )
 }

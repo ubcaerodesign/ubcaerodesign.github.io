@@ -8,7 +8,7 @@ import MicroClass from './../assets/images/projects/microclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
 import IndustryTour from './../assets/images/projects/industry tour.jpg';
 import WindTunnel from './../assets/images/projects/windtunnel.jpg';
-import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
+import HeroProjects from './../assets/images/backgrounds/projectHero.jpg';
 
 const LEARNING_SLIDES = [
   {
@@ -162,7 +162,7 @@ export default function Projects() {
               </Reveal>
               <Reveal direction="up" delay={0.3}>
                 <p className="font-lato text-lg md:text-xl text-white/60 leading-relaxed">
-                  From competition aircraft to autonomous drones — explore the engineering challenges we tackle every year.
+                  Explore the engineering challenges we tackle every year.
                 </p>
               </Reveal>
             </div>
@@ -251,7 +251,7 @@ export default function Projects() {
                   <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">μ Micro Class</p>
                   <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MICRO CLASS MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
-                    Conflicting requirements — such as carrying the highest payload while simultaneously pursuing the lowest empty weight possible.
+                    Conflicting requirements — such as carrying the heaviest payload while simultaneously pursuing the smallest wingspan and shortest takeoff distance.
                   </p>
                 </div>
                 <img src={MicroClass} alt="Micro Class" className="w-full h-72 object-cover mt-auto group-hover:scale-110 transition-transform duration-500" />
@@ -264,7 +264,7 @@ export default function Projects() {
                   <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">ADV Advanced Class</p>
                   <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">ADVANCED CLASS MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
-                    Focuses on system integrations, which involve the Software, Firmware, and Hardware subteams who contribute to the custom-built electronics and avionics system.
+                    Focuses on system integrations, which involve the Software, Firmware, Controls, and Hardware subteams who contribute to the custom-built electronics and avionics system.
                   </p>
                 </div>
                 <img src={AdvanceClass} alt="Advanced Class" className="w-full h-72 object-cover mt-auto group-hover:scale-110 transition-transform duration-500" />

@@ -49,7 +49,7 @@ export default function Footer() {
               <img src={WhiteLogo} alt="UBC AeroDesign" className="w-[180px] mb-6 opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
             <p className="font-lato text-sm text-white/50 leading-relaxed max-w-sm mb-8">
-              Engineering the future of flight. UBC AeroDesign builds remotely-piloted aircrafts, autonomous drones, and AI-powered systems.
+              Engineering the future of flight. UBC AeroDesign builds remotely-piloted and autonomous aircrafts.
             </p>
             
             <div className="flex gap-4">
@@ -85,6 +85,7 @@ export default function Footer() {
             <FooterLink destination="/team" value="Our Team" />
             <FooterLink destination="/recruitment#why-aerodesign" value="Why AeroDesign" />
             <FooterLink destination="/recruitment#process" value="Recruitment Process" />
+            <FooterLink destination="/recruitment#timeline" value="Recruitment Timeline" />
             <FooterLink destination="/recruitment#faq" value="FAQ" />
           </FooterColumn>
 
