@@ -26,11 +26,11 @@ const TEAM_SUMMER_2026 = {
   captain: { name: 'Evan Comba', role: 'Captain', photo: MemberEvanComba },
   divisions: [
     {
-      name: 'Micro',
+      name: 'Micro Class',
       director: { name: 'Colten Rockford', role: 'Director' },
       subteams: [
         {
-          name: 'Microclass Fuselage',
+          name: 'MCR Fuselage',
           members: [
             { name: 'Justin Yoon', role: 'Co-lead' },
             { name: 'Elijah Stewart', role: 'Co-lead' },
@@ -41,7 +41,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'Microclass Airfoils',
+          name: 'MCR Airfoils',
           members: [
             { name: 'Gabriel Lee', role: 'Co-lead' },
             { name: 'Rycel Martos', role: 'Co-lead' },
@@ -54,11 +54,11 @@ const TEAM_SUMMER_2026 = {
       ],
     },
     {
-      name: 'Advanced',
+      name: 'Advanced Class',
       director: { name: 'Winston Li', role: 'Director' },
       subteams: [
         {
-          name: 'Advance Class Fuselage',
+          name: 'ADV Fuselage',
           members: [
             { name: 'Joseph Estante', role: 'Advisor' },
             { name: 'Quinn Kalheim', role: 'Advisor' },
@@ -73,7 +73,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'Advance Class Airfoils',
+          name: 'ADV Airfoils',
           members: [
             { name: 'Diana Urbanczyk', role: 'Lead' },
             { name: 'Myron Wiebe', role: 'Lead' },
@@ -93,7 +93,7 @@ const TEAM_SUMMER_2026 = {
       director: { name: 'Ella Yan', role: 'Director', photo: MemberEllaYan },
       subteams: [
         {
-          name: 'Firmware',
+          name: 'AVI Firmware',
           members: [
             { name: 'Ayden Nguyen', role: 'Lead' },
             { name: 'Radman Yaghoobi Vayeghan', role: 'Lead', photo: MemberRadman },
@@ -106,7 +106,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'Software',
+          name: 'AVI Software',
           members: [
             { name: 'Amanda Yang', role: 'Advisor' },
             { name: 'Ethan Su', role: 'Lead' },
@@ -114,7 +114,7 @@ const TEAM_SUMMER_2026 = {
           ],
         },
         {
-          name: 'Hardware',
+          name: 'AVI Hardware',
           members: [
             { name: 'Andrew Yeh', role: 'Advisor', photo: MemberAndrewYeh },
             { name: 'Weymen Koo', role: 'Lead' },
@@ -217,13 +217,13 @@ export default function Team() {
               <div className="bg-[#06121f] p-10 group hover:bg-aero-dark-blue transition-colors duration-300">
                 <div className="font-titillium font-semibold text-7xl text-white/10 mb-4 group-hover:text-white/20 transition-colors">4</div>
                 <h3 className="font-titillium font-semibold text-2xl text-white mb-2">Divisions</h3>
-                <p className="font-lato text-sm text-white/45 leading-relaxed">Admin, Advanced, Regular, and Micro — each tackling distinct mission profiles or responsibilities.</p>
+                <p className="font-lato text-sm text-white/45 leading-relaxed">Admin, Micro Mechanical (MCR), Advanced Mechanical (ADV), and Avionics (AVI) — each tackling distinct mission profiles or responsibilities.</p>
               </div>
 
               <div className="bg-[#06121f] p-10 group hover:bg-aero-dark-blue transition-colors duration-300 border-l border-white/5">
                 <div className="font-titillium font-semibold text-7xl text-aero-light-blue/20 mb-4 group-hover:text-aero-light-blue/40 transition-colors">7</div>
                 <h3 className="font-titillium font-semibold text-2xl text-white mb-2">Technical Subteams</h3>
-                <p className="font-lato text-sm text-white/45 leading-relaxed mb-6">Aerodynamics, Structures, Propulsion, Avionics, Software, Manufacturing, and Systems.</p>
+                <p className="font-lato text-sm text-white/45 leading-relaxed mb-6">MCR Airfoils, MCR Fuselage, ADV Airfoils, ADV Fuselage, AVI Firmware, AVI Software, and AVI Hardware.</p>
                 <Button
                   destination="https://docs.google.com/document/d/1FUBzxTxm-hyBCDLBDqJbq7Z5sG9JoTbtcljWGG7ZKJ0/edit?tab=t.0#heading=h.ga3vjcy76juv"
                   target="_blank"
@@ -235,7 +235,7 @@ export default function Team() {
               <div className="bg-[#06121f] p-10 group hover:bg-aero-dark-blue transition-colors duration-300 border-l border-white/5">
                 <div className="font-titillium font-semibold text-7xl text-aero-yellow/20 mb-4 group-hover:text-aero-yellow/40 transition-colors">7</div>
                 <h3 className="font-titillium font-semibold text-2xl text-white mb-2">Admin Subteams</h3>
-                <p className="font-lato text-sm text-white/45 leading-relaxed mb-6">Business, Marketing, Finance, Recruitment, Sponsorship, Events, and Media.</p>
+                <p className="font-lato text-sm text-white/45 leading-relaxed mb-6">Finance, Flight Operations, Marketing, PR & Events, Safety, Sponsorship, and Workspace.</p>
                 <Button
                   destination="https://docs.google.com/document/d/11nuN9A19SKlHK72HhKCBtdl82eV85YTqr5dZ9A6U-kU/edit?tab=t.0#heading=h.gjdgxs"
                   target="_blank"

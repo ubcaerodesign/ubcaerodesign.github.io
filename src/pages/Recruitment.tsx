@@ -13,7 +13,7 @@ import AboutCTA from './../assets/images/backgrounds/About CTA.jpeg';
    ══════════════════════════════════════════════════════════════════════════ */
 
 /** Flip to false between cycles to switch the page back to "applications closed". */
-const APPLICATIONS_OPEN = true;
+const APPLICATIONS_OPEN = false;
 
 /** TODO: replace with the real Google Form link before merging this branch. */
 const APPLICATION_FORM_URL = 'https://forms.gle/REPLACE-WITH-REAL-FORM-ID';
@@ -22,69 +22,49 @@ const APPLICATION_FORM_URL = 'https://forms.gle/REPLACE-WITH-REAL-FORM-ID';
 const APPLICATION_DEADLINE = 'September 14';
 
 /** Shown in the hero while applications are closed. */
-const NEXT_CYCLE = 'August 2027';
+const NEXT_CYCLE = 'August 2026';
 
 const DISCORD_URL = 'https://discord.gg/tW7RZ6atTS';
 
-/**
- * TODO: TEMPLATE DATES — every `date` and `time` below is a placeholder.
- * Replace them with the confirmed dates from the recruitment planning doc
- * before this page goes live. Add or remove rows freely; the layout adapts.
- */
 const TIMELINE = [
   {
-    date: 'August 25',
-    time: '8:00 AM PST',
+    date: 'August 26',
+    time: '8:00 PM PST',
     title: 'APPLICATION FORMS OPEN',
-    desc: 'Applications go live. Submit one form for every subteam you are interested in.',
+    desc: 'Applications go live. Submit one form, answering the questions for every subteam you are interested in.',
   },
   {
-    date: 'August 28',
-    time: '7 – 8 PM PST',
+    date: 'September 4',
+    time: '6:30 – 8:30 PM PST',
+    location: 'CEME 1202',
     title: 'INFO SESSION #1',
-    desc: 'Location: TBD. Meet the leads, hear about each subteam, and ask questions in person.',
+    desc: 'Meet the leads, hear about each subteam, and ask questions in person.',
   },
   {
-    date: 'September 2',
+    date: 'September 8',
     time: '11:30 AM – 5 PM PST',
     title: 'CAMPUS LIFE EXPO — IMAGINE DAY',
     desc: 'Find our booth on Main Mall at UBC’s Campus Life Expo (formerly "Main Event").',
   },
   {
-    date: 'September 4',
-    time: '7 – 8 PM PST',
+    date: 'September 9',
+    time: '6:30 – 8:30 PM PST',
+    location: 'CEME 1203',
     title: 'INFO SESSION #2',
-    desc: 'Location: TBD. Same content as Info Session #1 — come to whichever suits your schedule.',
+    desc: 'Same content as Info Session #1 — come to whichever suits your schedule.',
   },
   {
-    date: 'September 9',
-    time: '6 – 7 PM PST',
-    title: 'WOMEN IN AERO',
-    desc: 'We welcome cis women, trans women, non-binary, and gender-diverse folks to join us for a Q&A session on Zoom.',
+    date: 'September 11',
+    time: 'TBD',
+    location: 'TBD',
+    title: 'WOMEN IN AEROSPACE',
+    desc: 'We welcome cis women, trans women, non-binary, and gender-diverse folks to join us for a Q&A session.',
   },
   {
     date: 'September 14',
     time: '11:59 PM PST',
     title: 'APPLICATIONS CLOSE',
     desc: 'Last call. Offers are released on a rolling basis, so earlier applications have the better odds.',
-  },
-  {
-    date: 'September 17',
-    time: null,
-    title: 'LAST DAY FOR INTERVIEWS',
-    desc: 'Interviews run throughout the application window, one per subteam you applied to.',
-  },
-  {
-    date: 'September 18',
-    time: '11:59 PM PST',
-    title: 'FINAL OFFERS RELEASED',
-    desc: 'Every remaining applicant hears back from us by this date.',
-  },
-  {
-    date: 'September 19',
-    time: '1:00 PM PST',
-    title: 'ONBOARDING DAY',
-    desc: 'Location: TBD. Meet your subteam, get set up with our tools, and start building.',
   },
 ];
 
@@ -333,7 +313,7 @@ export default function Recruitment() {
               RECRUITMENT TIMELINE
             </h2>
             <p className="font-lato text-sm text-white/40 tracking-wide">
-              All times are PST. Dates are subject to change — check our Discord for the latest.
+              All times are PST. Dates and locations are subject to change — check our Discord for the latest information.
             </p>
           </Reveal>
 
@@ -348,6 +328,9 @@ export default function Recruitment() {
                     </p>
                     {item.time && (
                       <p className="font-lato text-xs text-white/35 mt-1 leading-snug">{item.time}</p>
+                    )}
+                    {item.location && (
+                      <p className="font-lato text-xs text-white/35 mt-1 leading-snug">{item.location}</p>
                     )}
                   </div>
 

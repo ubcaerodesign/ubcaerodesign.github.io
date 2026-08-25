@@ -148,8 +148,8 @@ export default function Home() {
                         </Reveal>
 
                         <Reveal direction="up" delay={0.3}>
-                            <p className="font-lato text-lg md:text-xl text-white/70 max-w-xl mb-12 leading-relaxed">
-                                Engineering tomorrow's aircraft at the University of British Columbia. We build advanced radio-controlled aircraft and autonomous drones.
+                            <p className="font-lato text-lg md:text-xl text-white/70 max-w-lg mb-12 leading-relaxed">
+                                Engineering tomorrow's aircraft at the University of British Columbia. Building advanced radio-controlled and autonomous aircraft.
                             </p>
                         </Reveal>
 
