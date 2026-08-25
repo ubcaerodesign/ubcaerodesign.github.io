@@ -14,6 +14,10 @@ import AboutCTA from './../assets/images/backgrounds/About CTA.jpeg';
 
 /** Flip to false between cycles to switch the page back to "applications closed". */
 const APPLICATIONS_OPEN = false;
+const SHOW_APPLICATIONS_OPEN_DATE_TIME = true;
+
+const APPLICATION_OPEN_DATE = "August 26"
+const APPLICATION_OPEN_TIME = "8:00 PM PST"
 
 /** TODO: replace with the real Google Form link before merging this branch. */
 const APPLICATION_FORM_URL = 'https://forms.gle/REPLACE-WITH-REAL-FORM-ID';
@@ -22,7 +26,7 @@ const APPLICATION_FORM_URL = 'https://forms.gle/REPLACE-WITH-REAL-FORM-ID';
 const APPLICATION_DEADLINE = 'September 14';
 
 /** Shown in the hero while applications are closed. */
-const NEXT_CYCLE = 'August 2026';
+const NEXT_CYCLE = 'August 2027';
 
 const DISCORD_URL = 'https://discord.gg/tW7RZ6atTS';
 
@@ -202,11 +206,21 @@ export default function Recruitment() {
           ) : (
             <>
               <Reveal direction="up" delay={0.3}>
-                <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-                  Applications are <span className="text-aero-yellow font-bold">Currently Closed</span>
-                  <br />
-                  Next recruitment cycle begins in {NEXT_CYCLE}.
-                </p>
+                {SHOW_APPLICATIONS_OPEN_DATE_TIME ? (
+                  <>
+                    <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+                      Applications go live on <span className="text-aero-yellow font-bold">{APPLICATION_OPEN_DATE}</span> at <span className="text-aero-yellow font-bold">{APPLICATION_OPEN_TIME}</span>.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+                      Applications are <span className="text-aero-yellow font-bold">Currently Closed</span>
+                      <br />
+                      Next recruitment cycle begins in {NEXT_CYCLE}.
+                    </p>
+                  </>
+                )}
               </Reveal>
               <Reveal direction="up" delay={0.4}>
                 <div className="flex flex-wrap justify-center gap-5">
