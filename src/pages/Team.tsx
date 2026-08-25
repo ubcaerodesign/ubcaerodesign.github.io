@@ -32,8 +32,8 @@ const TEAM_SUMMER_2026 = {
         {
           name: 'MCR Fuselage',
           members: [
-            { name: 'Justin Yoon', role: 'Co-lead' },
-            { name: 'Elijah Stewart', role: 'Co-lead' },
+            { name: 'Justin Yoon', role: 'Lead' },
+            { name: 'Elijah Stewart', role: 'Lead' },
             { name: 'Melody Leung', role: 'Member' },
             { name: 'Benjamin Chen', role: 'Member' },
             { name: 'Adrian Suhenda', role: 'Member' },
@@ -43,8 +43,8 @@ const TEAM_SUMMER_2026 = {
         {
           name: 'MCR Airfoils',
           members: [
-            { name: 'Gabriel Lee', role: 'Co-lead' },
-            { name: 'Rycel Martos', role: 'Co-lead' },
+            { name: 'Gabriel Lee', role: 'Lead' },
+            { name: 'Rycel Martos', role: 'Lead' },
             { name: 'Nathan Ngai', role: 'Member' },
             { name: 'Winston Lin', role: 'Member' },
             { name: 'Selina Li', role: 'Member' },

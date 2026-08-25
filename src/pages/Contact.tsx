@@ -90,7 +90,7 @@ export default function Contact() {
                 <div>
                   <ContactEntry
                     label="General Inquiries"
-                    name="Eric Zhang · Team Captain"
+                    name="Evan Comba · Team Captain"
                     email="captain@ubcaerodesign.com"
                   />
                   <ContactEntry
