@@ -225,7 +225,7 @@ export default function Team() {
                 <h3 className="font-titillium font-semibold text-2xl text-white mb-2">Technical Subteams</h3>
                 <p className="font-lato text-sm text-white/45 leading-relaxed mb-6">MCR Airfoils, MCR Fuselage, ADV Airfoils, ADV Fuselage, AVI Firmware, AVI Software, and AVI Hardware.</p>
                 <Button
-                  destination="https://docs.google.com/document/d/1FUBzxTxm-hyBCDLBDqJbq7Z5sG9JoTbtcljWGG7ZKJ0/edit?tab=t.0#heading=h.ga3vjcy76juv"
+                  destination="https://docs.google.com/document/d/1ahthGpZLPvIFjUyVyWzKAlZ3vAwBbXZmII8U_2bRQhY/edit?tab=t.0"
                   target="_blank"
                   value="View Roles"
                   variant="outline"
@@ -237,7 +237,7 @@ export default function Team() {
                 <h3 className="font-titillium font-semibold text-2xl text-white mb-2">Admin Subteams</h3>
                 <p className="font-lato text-sm text-white/45 leading-relaxed mb-6">Finance, Flight Operations, Marketing, PR & Events, Safety, Sponsorship, and Workspace.</p>
                 <Button
-                  destination="https://docs.google.com/document/d/11nuN9A19SKlHK72HhKCBtdl82eV85YTqr5dZ9A6U-kU/edit?tab=t.0#heading=h.gjdgxs"
+                  destination="https://docs.google.com/document/d/11nuN9A19SKlHK72HhKCBtdl82eV85YTqr5dZ9A6U-kU/edit?tab=t.0"
                   target="_blank"
                   value="View Roles"
                   variant="outline"
