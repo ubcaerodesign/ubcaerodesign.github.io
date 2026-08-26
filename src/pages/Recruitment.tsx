@@ -17,7 +17,7 @@ const APPLICATIONS_OPEN = false;
 const SHOW_APPLICATIONS_OPEN_DATE_TIME = true;
 
 const APPLICATION_OPEN_DATE = "August 26"
-const APPLICATION_OPEN_TIME = "8:00 PM PST"
+const APPLICATION_OPEN_TIME = "8:00 PM PDT"
 
 /** TODO: replace with the real Google Form link before merging this branch. */
 const APPLICATION_FORM_URL = 'https://forms.gle/REPLACE-WITH-REAL-FORM-ID';
@@ -33,40 +33,40 @@ const DISCORD_URL = 'https://discord.gg/tW7RZ6atTS';
 const TIMELINE = [
   {
     date: 'August 26',
-    time: '8:00 PM PST',
+    time: '8:00 PM PDT',
     title: 'APPLICATION FORMS OPEN',
     desc: 'Applications go live. Submit one form, answering the questions for every subteam you are interested in.',
   },
   {
     date: 'September 4',
-    time: '6:30 – 8 PM PST',
+    time: '6:30 – 8 PM PDT',
     location: 'ANGU 243',
     title: 'INFO SESSION #1',
     desc: 'Meet the leads, hear about each subteam, and ask questions in person.',
   },
   {
     date: 'September 8',
-    time: '11:30 AM – 5 PM PST',
+    time: '11:30 AM – 5 PM PDT',
     title: 'CAMPUS LIFE EXPO — IMAGINE DAY',
     desc: 'Find our booth on Main Mall at UBC’s Campus Life Expo (formerly "Main Event").',
   },
   {
     date: 'September 9',
-    time: '6:30 – 8 PM PST',
+    time: '6:30 – 8 PM PDT',
     location: 'TBD',
     title: 'INFO SESSION #2',
     desc: 'Same content as Info Session #1 — come to whichever suits your schedule.',
   },
   {
     date: 'September 11',
-    time: '6:00 PM PST',
+    time: '6:00 PM PDT',
     location: 'TBD',
     title: 'WOMEN IN AEROSPACE',
     desc: 'We welcome cis women, trans women, non-binary, and gender-diverse folks to join us for a Q&A session.',
   },
   {
     date: 'September 14',
-    time: '11:59 PM PST',
+    time: '11:59 PM PDT',
     title: 'APPLICATIONS CLOSE',
     desc: 'Last call. Offers are released on a rolling basis, so earlier applications have the better odds.',
   },
@@ -327,7 +327,7 @@ export default function Recruitment() {
               RECRUITMENT TIMELINE
             </h2>
             <p className="font-lato text-sm text-white/40 tracking-wide">
-              All times are PST. Dates and locations are subject to change — check our Discord for the latest information.
+              All times are PDT. Dates and locations are subject to change — check our Discord for the latest information.
             </p>
           </Reveal>
 
@@ -419,7 +419,7 @@ export default function Recruitment() {
                   READY TO TAKE FLIGHT?
                 </h2>
                 <p className="font-lato text-white/55 text-lg leading-relaxed max-w-xl mx-auto mb-10">
-                  Applications close {APPLICATION_DEADLINE} at 11:59 PM PST. Offers go out on a rolling basis, so the earlier you apply, the better your odds.
+                  Applications close {APPLICATION_DEADLINE} at 11:59 PM PDT. Offers go out on a rolling basis, so the earlier you apply, the better your odds.
                 </p>
                 <div className="flex flex-wrap justify-center gap-5">
                   <Button
