@@ -39,8 +39,8 @@ const TIMELINE = [
   },
   {
     date: 'September 4',
-    time: '6:30 – 8:30 PM PST',
-    location: 'CEME 1202',
+    time: '6:30 – 8 PM PST',
+    location: 'ANGU 243',
     title: 'INFO SESSION #1',
     desc: 'Meet the leads, hear about each subteam, and ask questions in person.',
   },
@@ -52,7 +52,7 @@ const TIMELINE = [
   },
   {
     date: 'September 9',
-    time: '6:30 – 8:30 PM PST',
+    time: '6:30 – 8 PM PST',
     location: 'TBD',
     title: 'INFO SESSION #2',
     desc: 'Same content as Info Session #1 — come to whichever suits your schedule.',
