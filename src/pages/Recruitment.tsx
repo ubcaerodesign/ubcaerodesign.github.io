@@ -13,14 +13,14 @@ import AboutCTA from './../assets/images/backgrounds/About CTA.jpeg';
    ══════════════════════════════════════════════════════════════════════════ */
 
 /** Flip to false between cycles to switch the page back to "applications closed". */
-const APPLICATIONS_OPEN = false;
-const SHOW_APPLICATIONS_OPEN_DATE_TIME = true;
+const APPLICATIONS_OPEN = true;
+const SHOW_APPLICATIONS_OPEN_DATE_TIME = false;
 
 const APPLICATION_OPEN_DATE = "August 26"
 const APPLICATION_OPEN_TIME = "8:00 PM PDT"
 
-/** TODO: replace with the real Google Form link before merging this branch. */
-const APPLICATION_FORM_URL = 'https://forms.gle/REPLACE-WITH-REAL-FORM-ID';
+/** The application form for the current cycle. */
+const APPLICATION_FORM_URL = 'https://forms.gle/ZCQpkJNADqwDm7jd7';
 
 /** Shown in the hero and closing CTA while applications are open. */
 const APPLICATION_DEADLINE = 'September 14';
