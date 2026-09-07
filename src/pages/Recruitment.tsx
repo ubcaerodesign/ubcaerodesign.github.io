@@ -46,7 +46,7 @@ const TIMELINE = [
   },
   {
     date: 'September 8',
-    time: '11:30 AM – 5 PM PDT',
+    time: '1 – 5 PM PDT',
     title: 'CAMPUS LIFE EXPO — IMAGINE DAY',
     desc: 'Find our booth on Main Mall at UBC’s Campus Life Expo (formerly "Main Event").',
   },
