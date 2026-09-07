@@ -53,15 +53,15 @@ const TIMELINE = [
   {
     date: 'September 9',
     time: '6:30 – 8 PM PDT',
-    location: 'CEME 1204',
+    location: 'TBD',
     title: 'INFO SESSION #2',
     desc: 'Same content as Info Session #1 — come to whichever suits your schedule.',
   },
   {
     date: 'September 11',
-    time: '6:00 PM PDT',
-    location: 'TBD',
-    title: 'WOMEN IN AEROSPACE',
+    time: '6:30 – 8 PM PDT',
+    location: 'CEME 1204',
+    title: 'WOMEN IN AEROSPACE DESIGN TEAMS',
     desc: 'We welcome cis women, trans women, non-binary, and gender-diverse folks to join us for a Q&A session.',
   },
   {
