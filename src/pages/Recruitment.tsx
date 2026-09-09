@@ -53,7 +53,7 @@ const TIMELINE = [
   {
     date: 'September 9',
     time: '6:30 – 8 PM PDT',
-    location: 'TBD',
+    location: 'CEME 1202',
     title: 'INFO SESSION #2',
     desc: 'Same content as Info Session #1 — come to whichever suits your schedule.',
   },
