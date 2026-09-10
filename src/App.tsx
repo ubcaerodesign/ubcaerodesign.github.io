@@ -9,10 +9,12 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
+import ScrollManager from './components/ScrollManager'
 
 export default function App() {
   return (
     <div className="app">
+      <ScrollManager />
       <NavBar />
 
       <Routes>

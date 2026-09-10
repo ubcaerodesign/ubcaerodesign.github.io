@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import SponsorPhoto1 from './../assets/images/sponsors/sponsorphoto1.JPG';
@@ -37,15 +36,10 @@ const SPONSOR_LOGOS = [
 ];
 
 export default function Sponsor() {
-  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = 'Sponsor – UBC AeroDesign';
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#06121f]">
