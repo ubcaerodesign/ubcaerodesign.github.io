@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
@@ -141,15 +141,10 @@ function StepLink({ destination, value }: { destination: string; value: string }
 }
 
 export default function Recruitment() {
-  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = 'Recruitment – UBC AeroDesign';
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#06121f]">

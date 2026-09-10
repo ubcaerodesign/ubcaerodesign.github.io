@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import InstagramIcon from './../assets/icons/Instagram.svg';
 import FacebookIcon from './../assets/icons/Facebook.svg';
@@ -36,15 +35,10 @@ function ContactEntry({ label, name, email }: ContactEntryProps) {
 
 /* ── Contact Page ──────────────────────── */
 export default function Contact() {
-  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = 'Contact – UBC AeroDesign';
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#06121f]">

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import TeamImage from './../assets/images/team/UBC AeroDesign 2025 Competition Team.jpg';
@@ -153,15 +152,10 @@ const MemberCard = ({ member, isDirector = false }: { member: Member; isDirector
 
 /* ── Team Page ──────────────────────────── */
 export default function Team() {
-  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = 'Team – UBC AeroDesign';
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#06121f]">

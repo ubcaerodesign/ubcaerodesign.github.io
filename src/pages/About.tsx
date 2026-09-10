@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import HistoryImg from './../assets/images/team/history.jpg';
 import TeamPhoto2025 from './../assets/images/team/UBC AeroDesign 2026 Competition Team.JPG';
@@ -38,15 +37,10 @@ function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suf
 }
 
 export default function About() {
-  const { pathname } = useLocation();
 
   useEffect(() => {
     document.title = 'About – UBC AeroDesign';
   }, []);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-[#06121f]">

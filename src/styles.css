@@ -34,6 +34,21 @@ body {
   font-weight: 400;
 }
 
+/* ─── Anchored Sections ───
+   The navbar is fixed and overlaps the page, so a section targeted by a
+   `#hash` link has to start below it or its heading ends up underneath.
+   Both the browser's built-in fragment scrolling and ScrollManager read this
+   value, which keeps them from fighting each other. */
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+@media (max-width: 767px) {
+  section[id] {
+    scroll-margin-top: 6.5rem;
+  }
+}
+
 /* ─── Glass Utilities ─── */
 .glass-panel {
   background: rgba(17, 40, 61, 0.4);
