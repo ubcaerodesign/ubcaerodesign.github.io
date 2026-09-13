@@ -198,7 +198,7 @@ function TrackToggle({ track, onChange }: { track: Track; onChange: (track: Trac
           aria-pressed={track === key}
           onClick={() => onChange(key)}
           className={clsx(
-            'font-titillium font-semibold text-xs md:text-sm tracking-[0.15em] uppercase px-6 md:px-8 py-2.5 rounded-full transition-colors duration-300',
+            'cursor-pointer font-titillium font-semibold text-xs md:text-sm tracking-[0.15em] uppercase px-6 md:px-8 py-2.5 rounded-full transition-colors duration-300',
             track === key ? 'bg-aero-yellow text-aero-navy' : 'text-white/60 hover:text-white'
           )}
         >
