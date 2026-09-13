@@ -34,12 +34,14 @@ function anchorOffset(el: Element) {
 }
 
 export default function ScrollManager() {
-  const { pathname, hash, key } = useLocation();
+  const { pathname, hash, key, state } = useLocation();
   const previousPathname = useRef<string | null>(null);
 
   useEffect(() => {
     const samePage = previousPathname.current === pathname;
     previousPathname.current = pathname;
+
+    if (samePage && (state as { preserveScroll?: boolean } | null)?.preserveScroll) return;
 
     if (!hash) {
       window.scrollTo({ top: 0, left: 0 });

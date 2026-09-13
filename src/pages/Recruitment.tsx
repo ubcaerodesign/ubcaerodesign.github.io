@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import clsx from 'clsx';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
@@ -12,29 +12,53 @@ import AboutCTA from './../assets/images/backgrounds/About CTA.jpeg';
    needs to be edited here.
    ══════════════════════════════════════════════════════════════════════════ */
 
-/** Flip to false between cycles to switch the page back to "applications closed". */
-const APPLICATIONS_OPEN = true;
-const SHOW_APPLICATIONS_OPEN_DATE_TIME = false;
+type Track = 'technical' | 'marketing';
 
-const APPLICATION_OPEN_DATE = "August 26"
-const APPLICATION_OPEN_TIME = "8:00 PM PDT"
+interface TrackConfig {
+  /** Label on the Technical / Marketing toggle. */
+  label: string;
+  /** Flip to false between cycles to switch this track back to "applications closed". */
+  open: boolean;
+  /** While closed, show the upcoming open date/time instead of "next cycle". */
+  showOpenDateTime: boolean;
+  openDate: string;
+  openTime: string;
+  /** The application form for the current cycle. */
+  formUrl: string;
+  /** Shown in the hero and closing CTA while applications are open. */
+  deadline: string;
+  deadlineTime: string;
+}
 
-/** The application form for the current cycle. */
-const APPLICATION_FORM_URL = 'https://forms.gle/ZCQpkJNADqwDm7jd7';
+const TRACKS: Record<Track, TrackConfig> = {
+  technical: {
+    label: 'Technical',
+    open: true,
+    showOpenDateTime: false,
+    openDate: 'August 26',
+    openTime: '8:00 PM PDT',
+    formUrl: 'https://forms.gle/ZCQpkJNADqwDm7jd7',
+    deadline: 'September 14',
+    deadlineTime: '11:59 PM PDT',
+  },
+  marketing: {
+    label: 'Marketing',
+    open: true,
+    showOpenDateTime: false,
+    openDate: 'September 12',
+    openTime: '3:00 PM PDT',
+    formUrl: 'https://forms.gle/wBwsSRX9JZSHtzxM7',
+    deadline: 'September 23',
+    deadlineTime: '11:59 PM PDT',
+  },
+};
 
-/** Shown in the hero and closing CTA while applications are open. */
-const APPLICATION_DEADLINE = 'September 14';
-
-/** Shown in the hero while applications are closed. */
-const NEXT_CYCLE = 'August 2027';
-
-const DISCORD_URL = 'https://discord.gg/tW7RZ6atTS';
-
+/** Covers both tracks, in chronological order. */
 const TIMELINE = [
   {
     date: 'August 26',
     time: '8:00 PM PDT',
-    title: 'APPLICATION FORMS OPEN',
+    title: 'TECHNICAL APPLICATIONS OPEN',
     desc: 'Applications go live. Submit one form, answering the questions for every subteam you are interested in.',
   },
   {
@@ -65,14 +89,33 @@ const TIMELINE = [
     desc: 'We welcome cis women, trans women, non-binary, and gender-diverse folks to join us for a Q&A session.',
   },
   {
+    date: 'September 12',
+    time: '3:00 PM PDT',
+    title: 'MARKETING APPLICATIONS OPEN',
+    desc: 'Marketing applications go live.',
+  },
+  {
     date: 'September 14',
     time: '11:59 PM PDT',
-    title: 'APPLICATIONS CLOSE',
-    desc: 'Last call. Offers are released on a rolling basis, so earlier applications have the better odds.',
+    title: 'TECHNICAL APPLICATIONS CLOSE',
+    desc: 'Last call for technical subteams. Offers are released on a rolling basis, so earlier applications have the better odds.',
+  },
+  {
+    date: 'September 23',
+    time: '11:59 PM PDT',
+    title: 'MARKETING APPLICATIONS CLOSE',
+    desc: 'Last call for marketing. Offers are released on a rolling basis, so earlier applications have the better odds.',
   },
 ];
 
-const PROCESS_STEPS = [
+const TRACK_ORDER: Track[] = ['technical', 'marketing'];
+
+/** Shown in the hero while applications are closed. */
+const NEXT_CYCLE = 'August 2027';
+
+const DISCORD_URL = 'https://discord.gg/tW7RZ6atTS';
+
+const processSteps = (track: TrackConfig) => [
   {
     title: 'LEARN ABOUT THE TEAM',
     desc: 'Read our website and socials, and come to our info sessions and events.',
@@ -88,8 +131,8 @@ const PROCESS_STEPS = [
   {
     title: 'APPLY',
     desc: 'Submit the form before the deadline. Offers are rolling, so apply ASAP.',
-    linkText: APPLICATIONS_OPEN ? 'Apply Now' : undefined,
-    linkDest: APPLICATIONS_OPEN ? APPLICATION_FORM_URL : undefined,
+    linkText: track.open ? 'Apply Now' : undefined,
+    linkDest: track.open ? track.formUrl : undefined,
   },
   {
     title: 'INTERVIEW',
@@ -140,7 +183,48 @@ function StepLink({ destination, value }: { destination: string; value: string }
   );
 }
 
+/** Technical / Marketing switch in the hero. */
+function TrackToggle({ track, onChange }: { track: Track; onChange: (track: Track) => void }) {
+  return (
+    <div
+      role="group"
+      aria-label="Recruitment track"
+      className="inline-flex p-1 rounded-full border border-white/15 bg-white/5 backdrop-blur-sm"
+    >
+      {TRACK_ORDER.map((key) => (
+        <button
+          key={key}
+          type="button"
+          aria-pressed={track === key}
+          onClick={() => onChange(key)}
+          className={clsx(
+            'font-titillium font-semibold text-xs md:text-sm tracking-[0.15em] uppercase px-6 md:px-8 py-2.5 rounded-full transition-colors duration-300',
+            track === key ? 'bg-aero-yellow text-aero-navy' : 'text-white/60 hover:text-white'
+          )}
+        >
+          {TRACKS[key].label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export default function Recruitment() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const trackKey: Track = searchParams.get('team') === 'marketing' ? 'marketing' : 'technical';
+  const track = TRACKS[trackKey];
+
+  // Kept in the URL (?team=marketing) so each track can be linked to directly.
+  const setTrack = (next: Track) => {
+    setSearchParams(
+      (params) => {
+        if (next === 'technical') params.delete('team');
+        else params.set('team', next);
+        return params;
+      },
+      { replace: true, preventScrollReset: true, state: { preserveScroll: true } }
+    );
+  };
 
   useEffect(() => {
     document.title = 'Recruitment – UBC AeroDesign';
@@ -169,20 +253,25 @@ export default function Recruitment() {
               JOIN THE TEAM
             </h1>
           </Reveal>
+          <Reveal direction="up" delay={0.25}>
+            <div className="mb-8">
+              <TrackToggle track={trackKey} onChange={setTrack} />
+            </div>
+          </Reveal>
 
-          {APPLICATIONS_OPEN ? (
+          {track.open ? (
             <>
               <Reveal direction="up" delay={0.3}>
                 <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-                  Applications are <span className="text-aero-yellow font-bold">Now Open</span>
+                  {track.label} applications are <span className="text-aero-yellow font-bold">Now Open</span>
                   <br />
-                  Submit yours by {APPLICATION_DEADLINE} — offers are released on a rolling basis.
+                  Submit yours by {track.deadline} — offers are released on a rolling basis.
                 </p>
               </Reveal>
               <Reveal direction="up" delay={0.4}>
                 <div className="flex flex-wrap justify-center gap-5">
                   <Button
-                    destination={APPLICATION_FORM_URL}
+                    destination={track.formUrl}
                     target="_blank"
                     value="Apply Now"
                     variant="yellow"
@@ -201,16 +290,16 @@ export default function Recruitment() {
           ) : (
             <>
               <Reveal direction="up" delay={0.3}>
-                {SHOW_APPLICATIONS_OPEN_DATE_TIME ? (
+                {track.showOpenDateTime ? (
                   <>
                     <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-                      Applications go live on <span className="text-aero-yellow font-bold">{APPLICATION_OPEN_DATE}</span> at <span className="text-aero-yellow font-bold">{APPLICATION_OPEN_TIME}</span>.
+                      {track.label} applications go live on <span className="text-aero-yellow font-bold">{track.openDate}</span> at <span className="text-aero-yellow font-bold">{track.openTime}</span>.
                     </p>
                   </>
                 ) : (
                   <>
                     <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-                      Applications are <span className="text-aero-yellow font-bold">Currently Closed</span>
+                      {track.label} applications are <span className="text-aero-yellow font-bold">Currently Closed</span>
                       <br />
                       Next recruitment cycle begins in {NEXT_CYCLE}.
                     </p>
@@ -280,7 +369,7 @@ export default function Recruitment() {
 
           <Reveal delay={0.1}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-white/5 rounded-2xl overflow-hidden">
-              {PROCESS_STEPS.map((step, index) => (
+              {processSteps(track).map((step, index) => (
                 <div
                   key={index}
                   className="bg-[#06121f] p-7 flex flex-col hover:bg-aero-dark-blue transition-colors duration-300"
@@ -405,7 +494,7 @@ export default function Recruitment() {
       </Section>
 
       {/* ═══════════════ CLOSING CTA ═══════════════ */}
-      {APPLICATIONS_OPEN && (
+      {track.open && (
         <Section id="apply" className="bg-[#030a11]">
           <MarginWrapper>
             <Reveal direction="up">
@@ -414,11 +503,11 @@ export default function Recruitment() {
                   READY TO TAKE FLIGHT?
                 </h2>
                 <p className="font-lato text-white/55 text-lg leading-relaxed max-w-xl mx-auto mb-10">
-                  Applications close {APPLICATION_DEADLINE} at 11:59 PM PDT. Offers go out on a rolling basis, so the earlier you apply, the better your odds.
+                  {track.label} applications close {track.deadline} at {track.deadlineTime}. Offers go out on a rolling basis, so the earlier you apply, the better your odds.
                 </p>
                 <div className="flex flex-wrap justify-center gap-5">
                   <Button
-                    destination={APPLICATION_FORM_URL}
+                    destination={track.formUrl}
                     target="_blank"
                     value="Apply Now"
                     variant="yellow"
