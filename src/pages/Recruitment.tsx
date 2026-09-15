@@ -33,11 +33,11 @@ interface TrackConfig {
 const TRACKS: Record<Track, TrackConfig> = {
   technical: {
     label: 'Technical',
-    open: true,
+    open: false,
     showOpenDateTime: false,
     openDate: 'August 26',
     openTime: '8:00 PM PDT',
-    formUrl: 'https://forms.gle/ZCQpkJNADqwDm7jd7',
+    formUrl: 'https://forms.gle/-',
     deadline: 'September 14',
     deadlineTime: '11:59 PM PDT',
   },
