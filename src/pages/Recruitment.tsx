@@ -43,11 +43,11 @@ const TRACKS: Record<Track, TrackConfig> = {
   },
   marketing: {
     label: 'Marketing',
-    open: true,
+    open: false,
     showOpenDateTime: false,
     openDate: 'September 12',
     openTime: '3:00 PM PDT',
-    formUrl: 'https://forms.gle/wBwsSRX9JZSHtzxM7',
+    formUrl: 'https://forms.gle/-',
     deadline: 'September 23',
     deadlineTime: '11:59 PM PDT',
   },
@@ -109,6 +109,8 @@ const TIMELINE = [
 ];
 
 const TRACK_ORDER: Track[] = ['technical', 'marketing'];
+
+const ALL_CLOSED = TRACK_ORDER.every((key) => !TRACKS[key].open && !TRACKS[key].showOpenDateTime);
 
 /** Shown in the hero while applications are closed. */
 const NEXT_CYCLE = 'August 2027';
@@ -253,11 +255,13 @@ export default function Recruitment() {
               JOIN THE TEAM
             </h1>
           </Reveal>
-          <Reveal direction="up" delay={0.25}>
-            <div className="mb-8">
-              <TrackToggle track={trackKey} onChange={setTrack} />
-            </div>
-          </Reveal>
+          {!ALL_CLOSED && (
+            <Reveal direction="up" delay={0.25}>
+              <div className="mb-8">
+                <TrackToggle track={trackKey} onChange={setTrack} />
+              </div>
+            </Reveal>
+          )}
 
           {track.open ? (
             <>
@@ -299,7 +303,7 @@ export default function Recruitment() {
                 ) : (
                   <>
                     <p className="font-lato text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-                      {track.label} applications are <span className="text-aero-yellow font-bold">Currently Closed</span>
+                      {ALL_CLOSED ? 'Applications' : `${track.label} applications`} are <span className="text-aero-yellow font-bold">Currently Closed</span>
                       <br />
                       Next recruitment cycle begins in {NEXT_CYCLE}.
                     </p>
@@ -401,68 +405,72 @@ export default function Recruitment() {
       <SectionDivider />
 
       {/* ═══════════════ TIMELINE ═══════════════ */}
-      <Section id="timeline" className="bg-[#030a11]">
-        <MarginWrapper>
-          <Reveal className="mb-14 text-center">
-            <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center justify-center gap-4">
-              <span className="w-8 h-[1px] bg-aero-yellow" /> Key Dates <span className="w-8 h-[1px] bg-aero-yellow" />
-            </p>
-            <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-4">
-              RECRUITMENT TIMELINE
-            </h2>
-            <p className="font-lato text-sm text-white/40 tracking-wide">
-              All times are PDT. Dates and locations are subject to change — check our Discord for the latest information.
-            </p>
-          </Reveal>
-
-          <div className="max-w-4xl mx-auto">
-            {TIMELINE.map((item, index) => (
-              <Reveal key={index} delay={Math.min(index, 6) * 0.05} direction="up">
-                <div className="group grid grid-cols-[6rem_auto_1fr] md:grid-cols-[11rem_auto_1fr] gap-x-4 md:gap-x-10">
-                  {/* Date */}
-                  <div className="py-5 text-right">
-                    <p className="font-titillium font-semibold text-sm md:text-base text-white/85 leading-snug">
-                      {item.date}
-                    </p>
-                    {item.time && (
-                      <p className="font-lato text-xs text-white/35 mt-1 leading-snug">{item.time}</p>
-                    )}
-                    {item.location && (
-                      <p className="font-lato text-xs text-white/35 mt-1 leading-snug">{item.location}</p>
-                    )}
-                  </div>
-
-                  {/* Rail */}
-                  <div className="flex flex-col items-center">
-                    <span
-                      className={clsx('w-px h-7 flex-none', index === 0 ? 'bg-transparent' : 'bg-white/10')}
-                    />
-                    <span className="w-2.5 h-2.5 flex-none rounded-full bg-white/25 group-hover:bg-aero-yellow group-hover:shadow-[0_0_12px_rgba(255,255,255,0.5)] transition-all duration-300" />
-                    <span
-                      className={clsx(
-                        'w-px flex-1',
-                        index === TIMELINE.length - 1 ? 'bg-transparent' : 'bg-white/10'
-                      )}
-                    />
-                  </div>
-
-                  {/* Event */}
-                  <div className="py-5 min-w-0">
-                    <h3 className="font-titillium font-semibold text-base md:text-lg text-white tracking-wide leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="font-lato text-sm text-white/45 leading-relaxed mt-1.5">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
+      {!ALL_CLOSED && (
+        <>
+          <Section id="timeline" className="bg-[#030a11]">
+            <MarginWrapper>
+              <Reveal className="mb-14 text-center">
+                <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center justify-center gap-4">
+                  <span className="w-8 h-[1px] bg-aero-yellow" /> Key Dates <span className="w-8 h-[1px] bg-aero-yellow" />
+                </p>
+                <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-4">
+                  RECRUITMENT TIMELINE
+                </h2>
+                <p className="font-lato text-sm text-white/40 tracking-wide">
+                  All times are PDT. Dates and locations are subject to change — check our Discord for the latest information.
+                </p>
               </Reveal>
-            ))}
-          </div>
-        </MarginWrapper>
-      </Section>
 
-      <SectionDivider />
+              <div className="max-w-4xl mx-auto">
+                {TIMELINE.map((item, index) => (
+                  <Reveal key={index} delay={Math.min(index, 6) * 0.05} direction="up">
+                    <div className="group grid grid-cols-[6rem_auto_1fr] md:grid-cols-[11rem_auto_1fr] gap-x-4 md:gap-x-10">
+                      {/* Date */}
+                      <div className="py-5 text-right">
+                        <p className="font-titillium font-semibold text-sm md:text-base text-white/85 leading-snug">
+                          {item.date}
+                        </p>
+                        {item.time && (
+                          <p className="font-lato text-xs text-white/35 mt-1 leading-snug">{item.time}</p>
+                        )}
+                        {item.location && (
+                          <p className="font-lato text-xs text-white/35 mt-1 leading-snug">{item.location}</p>
+                        )}
+                      </div>
+
+                      {/* Rail */}
+                      <div className="flex flex-col items-center">
+                        <span
+                          className={clsx('w-px h-7 flex-none', index === 0 ? 'bg-transparent' : 'bg-white/10')}
+                        />
+                        <span className="w-2.5 h-2.5 flex-none rounded-full bg-white/25 group-hover:bg-aero-yellow group-hover:shadow-[0_0_12px_rgba(255,255,255,0.5)] transition-all duration-300" />
+                        <span
+                          className={clsx(
+                            'w-px flex-1',
+                            index === TIMELINE.length - 1 ? 'bg-transparent' : 'bg-white/10'
+                          )}
+                        />
+                      </div>
+
+                      {/* Event */}
+                      <div className="py-5 min-w-0">
+                        <h3 className="font-titillium font-semibold text-base md:text-lg text-white tracking-wide leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="font-lato text-sm text-white/45 leading-relaxed mt-1.5">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </MarginWrapper>
+          </Section>
+
+          <SectionDivider />
+        </>
+      )}
 
       {/* ═══════════════ FAQ ═══════════════ */}
       <Section id="faq">
