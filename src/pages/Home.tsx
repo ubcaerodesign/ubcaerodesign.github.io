@@ -276,7 +276,7 @@ export default function Home() {
                 <div className="relative z-10 text-center px-6">
                     <Reveal direction="up">
                         <h2 className="font-titillium font-semibold text-5xl md:text-7xl text-white mb-8 text-glow">READY TO TAKE FLIGHT?</h2>
-                        <Button destination="/recruitment" value="APPLY NOW" variant="yellow" className="text-lg px-12 py-4" />
+                        <Button destination="/recruitment" value="APPLY" variant="yellow" className="text-lg px-12 py-4" />
                     </Reveal>
                 </div>
             </section>
