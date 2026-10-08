@@ -20,8 +20,8 @@ type Member = {
   photo?: string;
 };
 
-const TEAM_SUMMER_2026 = {
-  season: 'Summer 2026',
+const TEAM_ROSTER = {
+  season: '2026/27',
   captain: { name: 'Evan Comba', role: 'Captain', photo: MemberEvanComba },
   divisions: [
     {
@@ -36,7 +36,10 @@ const TEAM_SUMMER_2026 = {
             { name: 'Melody Leung', role: 'Member' },
             { name: 'Benjamin Chen', role: 'Member' },
             { name: 'Adrian Suhenda', role: 'Member' },
-            { name: 'Ethan Ho', role: 'Member' },
+            { name: 'Arshia Sorourian', role: 'Member' },
+            { name: 'Pasindu Rathnayaka Mudiyanselage', role: 'Member' },
+            { name: 'Maryam Hosseini', role: 'Member' },
+            { name: 'Avery Lee', role: 'Member' },            
           ],
         },
         {
@@ -48,6 +51,9 @@ const TEAM_SUMMER_2026 = {
             { name: 'Winston Lin', role: 'Member' },
             { name: 'Selina Li', role: 'Member' },
             { name: 'Prabhnoor Boparai', role: 'Member' },
+            { name: 'Marvin Chen', role: 'Member' },
+            { name: 'Mckenna White', role: 'Member' },
+            { name: 'Sebastian Forrest', role: 'Member' },
           ],
         },
       ],
@@ -61,6 +67,7 @@ const TEAM_SUMMER_2026 = {
           members: [
             { name: 'Joseph Estante', role: 'Advisor' },
             { name: 'Quinn Kalheim', role: 'Advisor' },
+            { name: 'Japanjot Dhaliwal', role: 'Advisor' },
             { name: 'Leo Lin', role: 'Lead' },
             { name: 'Isaac Santos', role: 'Lead' },
             { name: 'Owen Baldwin', role: 'Member' },
@@ -69,6 +76,7 @@ const TEAM_SUMMER_2026 = {
             { name: 'Peter Wang', role: 'Member' },
             { name: 'Jordan Chong', role: 'Member' },
             { name: 'Houze Guo', role: 'Member' },
+            { name: 'Alex Sung', role: 'Member' },
           ],
         },
         {
@@ -80,47 +88,87 @@ const TEAM_SUMMER_2026 = {
             { name: 'Yuriel Dimayacyac', role: 'Member' },
             { name: 'Ethan Dart', role: 'Member' },
             { name: 'Wilford Liu', role: 'Member' },
-            { name: 'Govind Suresh', role: 'Member' },
             { name: 'Sandra Zhang', role: 'Member' },
             { name: 'Amanda Huang', role: 'Member' },
+            { name: 'Emma Gao', role: 'Member' },
+            { name: 'Tony Xu', role: 'Member' },
+            { name: 'Dipansh Joshi', role: 'Member' },
           ],
         },
       ],
     },
     {
       name: 'Avionics',
-      director: { name: 'Ella Yan', role: 'Director', photo: MemberEllaYan },
+      director: { name: 'Andrew Yeh', role: 'Director', photo: MemberAndrewYeh },
       subteams: [
-        {
-          name: 'AVI Firmware',
-          members: [
-            { name: 'Ayden Nguyen', role: 'Lead' },
-            { name: 'Radman Yaghoobi Vayeghan', role: 'Lead', photo: MemberRadman },
-            { name: 'Sina Mahdavi', role: 'Member' },
-            { name: 'Anas Ahmed', role: 'Member' },
-            { name: 'Sam Salehi', role: 'Member' },
-            { name: 'Ron Kitainik', role: 'Member' },
-            { name: 'Inderveer Sidhu', role: 'Member' },
-            { name: 'Amjad Yaghi', role: 'Member' },
-          ],
-        },
-        {
-          name: 'AVI Software',
-          members: [
-            { name: 'Amanda Yang', role: 'Advisor' },
-            { name: 'Ethan Su', role: 'Lead' },
-            { name: 'Jefferson Abraham Dermawan', role: 'Member', photo: MemberJefferson },
-          ],
-        },
         {
           name: 'AVI Hardware',
           members: [
-            { name: 'Andrew Yeh', role: 'Advisor', photo: MemberAndrewYeh },
+            { name: 'Ella Yan', role: 'Advisor', photo: MemberEllaYan },
             { name: 'Weymen Koo', role: 'Lead' },
             { name: 'Matthew Sean Sugiamto', role: 'Lead' },
             { name: 'Aurora Rolfe', role: 'Lead', photo: MemberAroraRolfe },
             { name: 'Cody Liu', role: 'Member' },
             { name: 'Eric Wang', role: 'Member' },
+            { name: 'Lachlan Biersteker', role: 'Member' },
+            { name: 'Ethan Zhang', role: 'Member' },
+            { name: 'Stephanie Chang', role: 'Member' },
+          ],
+        },
+        {
+          name: 'AVI Flight Software',
+          members: [
+            { name: 'Ayden Nguyen', role: 'Lead' },
+            { name: 'Radman Yaghoobi Vayeghan', role: 'Lead', photo: MemberRadman },
+            { name: 'Sam Salehi', role: 'Lead' },
+            { name: 'Sina Mahdavi', role: 'Member' },
+            { name: 'Govind Suresh', role: 'Member' },
+            { name: 'Ron Kitainik', role: 'Member' },
+            { name: 'Inderveer Sidhu', role: 'Member' },
+            { name: 'Amjad Yaghi', role: 'Member' },
+            { name: 'Youssef Kahil', role: 'Member' },
+            { name: 'Vuk Tacic', role: 'Member' },
+            { name: 'Jasper Wang', role: 'Member' },
+            { name: 'Kyle Shek', role: 'Member' },
+          ],
+        },
+        {
+          name: 'AVI Ground Software',
+          members: [
+            { name: 'Ethan Su', role: 'Lead' },
+            { name: 'Anas Ahmed', role: 'Lead' },
+            { name: 'Jefferson Abraham Dermawan', role: 'Member', photo: MemberJefferson },
+            { name: 'Victor Wu', role: 'Member' },
+            { name: 'Jonathan Chen', role: 'Member' },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'Admin',
+      //director: { name: '', role: 'Director' },
+      subteams: [
+        {
+          name: 'External',
+          members: [
+            { name: 'Tvisha Shrikant', role: 'Lead' },
+            { name: 'Sara Qaimari', role: 'Lead' },
+            { name: 'Amara Gatzke', role: 'Member' },          
+          ],
+        },
+        {
+          name: 'Finance',
+          members: [
+            { name: 'Vansh Sharma', role: 'Lead' },
+            { name: 'Harshit Sethi', role: 'Member' },
+          ],
+        },
+        {
+          name: 'Marketing',
+          members: [
+            { name: 'Amanda Yang', role: 'Advisor' },
+            { name: 'Myra Yu', role: 'Lead' },
+            { name: 'Ryan Xu', role: 'Lead' },
           ],
         },
       ],
@@ -252,7 +300,7 @@ export default function Team() {
         </MarginWrapper>
       </Section>
 
-      {/* ═══════════════ SUMMER 2026 TEAM ═══════════════ */}
+      {/* ═══════════════ 2026/2027 TEAM ═══════════════ */}
       <Section id="members" className="pt-24 pb-16">
         <MarginWrapper>
           <Reveal>
@@ -261,7 +309,7 @@ export default function Team() {
                 Our People
               </p>
               <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-6">
-                MEET THE {TEAM_SUMMER_2026.season.toUpperCase()} TEAM
+                MEET THE {TEAM_ROSTER.season.toUpperCase()} TEAM
               </h2>
             </div>
           </Reveal>
@@ -276,15 +324,15 @@ export default function Team() {
                   </p>
                   {SHOW_PHOTOS && (
                     <div className="relative overflow-hidden rounded-full w-32 h-32 md:w-40 md:h-40 bg-white/5 border border-white/10 flex items-center justify-center mb-6">
-                      {TEAM_SUMMER_2026.captain.photo ? (
-                        <img src={TEAM_SUMMER_2026.captain.photo} alt={TEAM_SUMMER_2026.captain.name} className="w-full h-full object-cover" />
+                      {TEAM_ROSTER.captain.photo ? (
+                        <img src={TEAM_ROSTER.captain.photo} alt={TEAM_ROSTER.captain.name} className="w-full h-full object-cover" />
                       ) : (
                         <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
                       )}
                     </div>
                   )}
-                  <h3 className="font-titillium font-semibold text-3xl text-white mb-2">{TEAM_SUMMER_2026.captain.name}</h3>
-                  <p className="font-lato text-aero-yellow uppercase tracking-widest">{TEAM_SUMMER_2026.captain.role}</p>
+                  <h3 className="font-titillium font-semibold text-3xl text-white mb-2">{TEAM_ROSTER.captain.name}</h3>
+                  <p className="font-lato text-aero-yellow uppercase tracking-widest">{TEAM_ROSTER.captain.role}</p>
                 </div>
               </div>
             </div>
@@ -292,7 +340,7 @@ export default function Team() {
 
           {/* Divisions */}
           <div className="space-y-24">
-            {TEAM_SUMMER_2026.divisions.map((division, divIdx) => (
+            {TEAM_ROSTER.divisions.map((division, divIdx) => (
               <Reveal key={division.name} delay={0.1 + divIdx * 0.1}>
                 <div className="relative">
                   {/* Division Header */}
