@@ -6,13 +6,77 @@ import WhyAero from './../assets/images/team/whyaero.jpg';
 import AboutCTA from './../assets/images/backgrounds/About CTA.jpeg';
 import TeamPhoto from './../assets/images/team/2024 Team Photo.jpg';
 import TeamBreakdown from './../assets/images/team/Team Breakdown.svg';
-import MemberAndrewYeh from './../assets/members/andrew yeh.jpg';
-import MemberAroraRolfe from './../assets/members/arora rolfe.jpeg';
-import MemberEllaYan from './../assets/members/ella yan.jpeg';
-import MemberEvanComba from './../assets/members/evan comba.jpeg';
-import MemberJefferson from './../assets/members/jefferson dermawan.jpeg';
-import MemberRadman from './../assets/members/radman.jpeg';
 import MemberPlaceholder from './../assets/members/placeholder.svg';
+import MemberEvanComba from './../assets/members/evan_comba.jpg';
+import MemberColtenRockford from './../assets/members/colten_rockford.jpg';
+import MemberJustinYoon from './../assets/members/justin_yoon.jpg';
+import MemberElijahStewart from './../assets/members/elijah_stewart.jpg';
+import MemberMelodyLeung from './../assets/members/melody_leung.jpg';
+import MemberBenjaminChen from './../assets/members/benjamin_chen.jpg';
+import MemberAdrianSuhenda from './../assets/members/adrian_suhenda.jpg';
+import MemberArshiaSorourian from './../assets/members/arshia_sorourian.jpg';
+import MemberPasinduRathnayakaMudiyanselage from './../assets/members/pasindu_rathnayaka_mudiyanselage.jpg';
+import MemberMaryamHosseini from './../assets/members/maryam_hosseini.jpg';
+import MemberAveryLee from './../assets/members/avery_lee.jpg';
+import MemberGabrielLee from './../assets/members/gabriel_lee.jpg';
+import MemberRycelMartos from './../assets/members/rycel_martos.jpg';
+import MemberNathanNgai from './../assets/members/nathan_ngai.jpg';
+import MemberWinstonLin from './../assets/members/winston_lin.jpg';
+import MemberSelinaLi from './../assets/members/selina_li.jpg';
+import MemberPrabhnoorBoparai from './../assets/members/prabhnoor_boparai.jpg';
+import MemberMarvinChen from './../assets/members/marvin_chen.jpg';
+import MemberMckennaWhite from './../assets/members/mckenna_white.jpg';
+import MemberSebastianForrest from './../assets/members/sebastian_forrest.jpg';
+import MemberWinstonLi from './../assets/members/winston_li.jpg';
+import memberJosephEstante from './../assets/members/joseph_estante.jpg';
+import memberQuinnKalheim from './../assets/members/quinn_kalheim.jpg';
+import memberJapanjotDhaliwal from './../assets/members/japanjot_dhaliwal.jpg';
+import memberLeoLin from './../assets/members/leo_lin.jpg';
+import memberIsaacSantos from './../assets/members/isaac_santos.jpg';
+import memberOwenBaldwin from './../assets/members/owen_baldwin.jpg';
+import memberJerryWang from './../assets/members/jerry_wang.jpg';
+import memberPeterWang from './../assets/members/peter_wang.jpg';
+import memberJordanChong from './../assets/members/jordan_chong.jpg';
+import memberHouzeGuo from './../assets/members/houze_guo.jpg';
+import memberAlexSung from './../assets/members/alex_sung.jpg';
+import memberDianaUrbanczyk from './../assets/members/diana_urbanczyk.jpg';
+import memberMyronWiebe from './../assets/members/myron_wiebe.jpg';
+import memberStefanDmitrovic from './../assets/members/stefan_dmitrovic.jpg';
+import memberYurielDimayacyac from './../assets/members/yuriel_dimayacyac.jpg';
+import memberEthanDart from './../assets/members/ethan_dart.jpg';
+import memberWilfordLiu from './../assets/members/wilford_liu.jpg';
+import memberSandraZhang from './../assets/members/sandra_zhang.jpg';
+import memberAmandaHuang from './../assets/members/amanda_huang.jpg';
+import memberEmmaGao from './../assets/members/emma_gao.jpg';
+import memberTonyXu from './../assets/members/tony_xu.jpg';
+import memberDipanshJoshi from './../assets/members/dipansh_joshi.jpg';
+import memberAndrewYeh from './../assets/members/andrew_yeh.jpg';
+import memberEllaYan from './../assets/members/ella_yan.jpg';
+import memberWeymenKoo from './../assets/members/weymen_koo.jpg';
+import memberMatthewSeanSugiamto from './../assets/members/matthew_sean_sugiamto.jpg';
+import memberAuroraRolfe from './../assets/members/aurora_rolfe.jpg';
+import memberCodyLiu from './../assets/members/cody_liu.jpg';
+import memberEricWang from './../assets/members/eric_wang.jpg';
+import memberLachlanBiersteker from './../assets/members/lachlan_biersteker.jpg';
+import memberEthanZhang from './../assets/members/ethan_zhang.jpg';
+import memberStephanieChang from './../assets/members/stephanie_chang.jpg';
+import memberAydenNguyen from './../assets/members/ayden_nguyen.jpg';
+import memberRadmanYaghoobiVayeghan from './../assets/members/radman_yaghoobi_vayeghan.jpg';
+import memberSamSalehi from './../assets/members/sam_salehi.jpg';
+import memberSinaMahdavi from './../assets/members/sina_mahdavi.jpg';
+import memberGovindSuresh from './../assets/members/govind_suresh.jpg';
+import memberRonKitainik from './../assets/members/ron_kitainik.jpg';
+import memberInderveerSidhu from './../assets/members/inderveer_sidhu.jpg';
+import memberAmjadYaghi from './../assets/members/amjad_yaghi.jpg';
+import memberYoussefKahil from './../assets/members/youssef_kahil.jpg';
+import memberVukTacic from './../assets/members/vuk_tacic.jpg';
+import memberJasperWang from './../assets/members/jasper_wang.jpg';
+import memberKyleShek from './../assets/members/kyle_shek.jpg';
+import memberEthanSu from './../assets/members/ethan_su.jpg';
+import memberAnasAhmed from './../assets/members/anas_ahmed.jpg';
+import memberJeffersonAbrahamDermawan from './../assets/members/jefferson_abraham_dermawan.jpg';
+import memberVictorWu from './../assets/members/victor_wu.jpg';
+import memberJonathanChen from './../assets/members/jonathan_chen.jpg';
 
 type Member = {
   name: string;
@@ -26,41 +90,41 @@ const TEAM_ROSTER = {
   divisions: [
     {
       name: 'Micro Class',
-      director: { name: 'Colten Rockford', role: 'Director' },
+      director: { name: 'Colten Rockford', role: 'Director', photo: MemberColtenRockford },
       subteams: [
         {
           name: 'MCR Fuselage',
           members: [
-            { name: 'Justin Yoon', role: 'Lead' },
-            { name: 'Elijah Stewart', role: 'Lead' },
-            { name: 'Melody Leung', role: 'Member' },
+            { name: 'Justin Yoon', role: 'Lead', photo: MemberJustinYoon},
+            { name: 'Elijah Stewart', role: 'Lead', photo: MemberElijahStewart},
+            { name: 'Melody Leung', role: 'Member', photo: MemberMelodyLeung},
             { name: 'Benjamin Chen', role: 'Member' },
-            { name: 'Adrian Suhenda', role: 'Member' },
-            { name: 'Arshia Sorourian', role: 'Member' },
-            { name: 'Pasindu Rathnayaka Mudiyanselage', role: 'Member' },
-            { name: 'Maryam Hosseini', role: 'Member' },
-            { name: 'Avery Lee', role: 'Member' },            
+            { name: 'Adrian Suhenda', role: 'Member', photo: MemberAdrianSuhenda},
+            { name: 'Arshia Sorourian', role: 'Member', photo: MemberArshiaSorourian},
+            { name: 'Pasindu Rathnayaka Mudiyanselage', role: 'Member', photo: MemberPasinduRathnayakaMudiyanselage},
+            { name: 'Maryam Hosseini', role: 'Member', photo: MemberMaryamHosseini},
+            { name: 'Avery Lee', role: 'Member', photo: MemberAveryLee},            
           ],
         },
         {
           name: 'MCR Airfoils',
           members: [
-            { name: 'Gabriel Lee', role: 'Lead' },
-            { name: 'Rycel Martos', role: 'Lead' },
-            { name: 'Nathan Ngai', role: 'Member' },
-            { name: 'Winston Lin', role: 'Member' },
-            { name: 'Selina Li', role: 'Member' },
-            { name: 'Prabhnoor Boparai', role: 'Member' },
-            { name: 'Marvin Chen', role: 'Member' },
-            { name: 'Mckenna White', role: 'Member' },
-            { name: 'Sebastian Forrest', role: 'Member' },
+            { name: 'Gabriel Lee', role: 'Lead', photo: MemberGabrielLee},
+            { name: 'Rycel Martos', role: 'Lead', photo: MemberRycelMartos },
+            { name: 'Nathan Ngai', role: 'Member', photo: MemberNathanNgai },
+            { name: 'Winston Lin', role: 'Member', photo: MemberWinstonLin },
+            { name: 'Selina Li', role: 'Member', photo: MemberSelinaLi },
+            { name: 'Prabhnoor Boparai', role: 'Member', photo: MemberPrabhnoorBoparai },
+            { name: 'Marvin Chen', role: 'Member', photo: MemberMarvinChen },
+            { name: 'Mckenna White', role: 'Member', photo: MemberMckennaWhite },
+            { name: 'Sebastian Forrest', role: 'Member', photo: MemberSebastianForrest },
           ],
         },
       ],
     },
     {
       name: 'Advanced Class',
-      director: { name: 'Winston Li', role: 'Director' },
+      director: { name: 'Winston Li', role: 'Director', photo: MemberWinstonLi },
       subteams: [
         {
           name: 'ADV Fuselage',
@@ -68,78 +132,77 @@ const TEAM_ROSTER = {
             { name: 'Joseph Estante', role: 'Advisor' },
             { name: 'Quinn Kalheim', role: 'Advisor' },
             { name: 'Japanjot Dhaliwal', role: 'Advisor' },
-            { name: 'Leo Lin', role: 'Lead' },
-            { name: 'Isaac Santos', role: 'Lead' },
-            { name: 'Owen Baldwin', role: 'Member' },
-            { name: 'Emma Creelman', role: 'Member' },
+            { name: 'Leo Lin', role: 'Lead', photo: memberLeoLin },
+            { name: 'Isaac Santos', role: 'Lead', photo: memberIsaacSantos },
+            { name: 'Owen Baldwin', role: 'Member', photo: memberOwenBaldwin },
             { name: 'Jerry Wang', role: 'Member' },
             { name: 'Peter Wang', role: 'Member' },
-            { name: 'Jordan Chong', role: 'Member' },
-            { name: 'Houze Guo', role: 'Member' },
-            { name: 'Alex Sung', role: 'Member' },
+            { name: 'Jordan Chong', role: 'Member', photo: memberJordanChong },
+            { name: 'Houze Guo', role: 'Member', photo: memberHouzeGuo },
+            { name: 'Alex Sung', role: 'Member', photo: memberAlexSung },
           ],
         },
         {
           name: 'ADV Airfoils',
           members: [
-            { name: 'Diana Urbanczyk', role: 'Lead' },
-            { name: 'Myron Wiebe', role: 'Lead' },
-            { name: 'Stefan Dmitrovic', role: 'Member' },
+            { name: 'Diana Urbanczyk', role: 'Lead', photo: memberDianaUrbanczyk },
+            { name: 'Myron Wiebe', role: 'Lead', photo: memberMyronWiebe },
+            { name: 'Stefan Dmitrovic', role: 'Member', photo: memberStefanDmitrovic },
             { name: 'Yuriel Dimayacyac', role: 'Member' },
-            { name: 'Ethan Dart', role: 'Member' },
-            { name: 'Wilford Liu', role: 'Member' },
-            { name: 'Sandra Zhang', role: 'Member' },
-            { name: 'Amanda Huang', role: 'Member' },
-            { name: 'Emma Gao', role: 'Member' },
-            { name: 'Tony Xu', role: 'Member' },
-            { name: 'Dipansh Joshi', role: 'Member' },
+            { name: 'Ethan Dart', role: 'Member', photo: memberEthanDart },
+            { name: 'Wilford Liu', role: 'Member', photo: memberWilfordLiu },
+            { name: 'Sandra Zhang', role: 'Member', photo: memberSandraZhang },
+            { name: 'Amanda Huang', role: 'Member', photo: memberAmandaHuang },
+            { name: 'Emma Gao', role: 'Member', photo: memberEmmaGao },
+            { name: 'Tony Xu', role: 'Member', photo: memberTonyXu },
+            { name: 'Dipansh Joshi', role: 'Member', photo: memberDipanshJoshi },
           ],
         },
       ],
     },
     {
       name: 'Avionics',
-      director: { name: 'Andrew Yeh', role: 'Director', photo: MemberAndrewYeh },
+      director: { name: 'Andrew Yeh', role: 'Director' },
       subteams: [
         {
           name: 'AVI Hardware',
           members: [
-            { name: 'Ella Yan', role: 'Advisor', photo: MemberEllaYan },
-            { name: 'Weymen Koo', role: 'Lead' },
-            { name: 'Matthew Sean Sugiamto', role: 'Lead' },
-            { name: 'Aurora Rolfe', role: 'Lead', photo: MemberAroraRolfe },
-            { name: 'Cody Liu', role: 'Member' },
-            { name: 'Eric Wang', role: 'Member' },
-            { name: 'Lachlan Biersteker', role: 'Member' },
-            { name: 'Ethan Zhang', role: 'Member' },
-            { name: 'Stephanie Chang', role: 'Member' },
+            { name: 'Ella Yan', role: 'Advisor' },
+            { name: 'Weymen Koo', role: 'Lead', photo: memberWeymenKoo },
+            { name: 'Matthew Sean Sugiamto', role: 'Lead', photo: memberMatthewSeanSugiamto },
+            { name: 'Aurora Rolfe', role: 'Lead', photo: memberAuroraRolfe },
+            { name: 'Cody Liu', role: 'Member', photo: memberCodyLiu },
+            { name: 'Eric Wang', role: 'Member', photo: memberEricWang },
+            { name: 'Lachlan Biersteker', role: 'Member', photo: memberLachlanBiersteker },
+            { name: 'Ethan Zhang', role: 'Member', photo: memberEthanZhang },
+            { name: 'Stephanie Chang', role: 'Member', photo: memberStephanieChang },
           ],
         },
         {
           name: 'AVI Flight Software',
           members: [
-            { name: 'Ayden Nguyen', role: 'Lead' },
-            { name: 'Radman Yaghoobi Vayeghan', role: 'Lead', photo: MemberRadman },
-            { name: 'Sam Salehi', role: 'Lead' },
+            { name: 'Ayden Nguyen', role: 'Lead', photo: memberAydenNguyen },
+            { name: 'Radman Yaghoobi Vayeghan', role: 'Lead', photo: memberRadmanYaghoobiVayeghan },
+            { name: 'Sam Salehi', role: 'Lead', photo: memberSamSalehi },
             { name: 'Sina Mahdavi', role: 'Member' },
             { name: 'Govind Suresh', role: 'Member' },
-            { name: 'Ron Kitainik', role: 'Member' },
-            { name: 'Inderveer Sidhu', role: 'Member' },
-            { name: 'Amjad Yaghi', role: 'Member' },
-            { name: 'Youssef Kahil', role: 'Member' },
-            { name: 'Vuk Tacic', role: 'Member' },
-            { name: 'Jasper Wang', role: 'Member' },
-            { name: 'Kyle Shek', role: 'Member' },
+            { name: 'Ron Kitainik', role: 'Member', photo: memberRonKitainik },
+            { name: 'Inderveer Sidhu', role: 'Member', photo: memberInderveerSidhu },
+            { name: 'Amjad Yaghi', role: 'Member', photo: memberAmjadYaghi },
+            { name: 'Youssef Kahil', role: 'Member', photo: memberYoussefKahil },
+            { name: 'Vuk Tacic', role: 'Member', photo: memberVukTacic },
+            { name: 'Jasper Wang', role: 'Member', photo: memberJasperWang },
+            { name: 'Kyle Shek', role: 'Member', photo: memberKyleShek },
           ],
         },
         {
           name: 'AVI Ground Software',
           members: [
-            { name: 'Ethan Su', role: 'Lead' },
+            { name: 'Ethan Su', role: 'Lead', photo: memberEthanSu },
             { name: 'Anas Ahmed', role: 'Lead' },
-            { name: 'Jefferson Abraham Dermawan', role: 'Member', photo: MemberJefferson },
-            { name: 'Victor Wu', role: 'Member' },
-            { name: 'Jonathan Chen', role: 'Member' },
+            { name: 'Jefferson Abraham Dermawan', role: 'Member' },
+            { name: 'Victor Wu', role: 'Member', photo: memberVictorWu },
+            { name: 'Jonathan Chen', role: 'Member', photo: memberJonathanChen },
           ],
         },
       ],
@@ -176,7 +239,7 @@ const TEAM_ROSTER = {
   ],
 };
 
-const SHOW_PHOTOS = false;
+const SHOW_PHOTOS = true;
 
 const MemberCard = ({ member, isDirector = false }: { member: Member; isDirector?: boolean }) => {
   return (
@@ -184,7 +247,7 @@ const MemberCard = ({ member, isDirector = false }: { member: Member; isDirector
       {SHOW_PHOTOS && (
         <div className={`relative shrink-0 overflow-hidden rounded-full ${isDirector ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-14 md:h-14'} bg-white/5 border border-white/10 flex items-center justify-center text-white/50`}>
           {member.photo ? (
-            <img src={member.photo} alt={member.name} className="w-full h-full object-cover" />
+            <img src={member.photo} alt={member.name} className="w-full h-full object-cover object-[center_30%]" />
           ) : (
             <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
           )}
@@ -325,7 +388,7 @@ export default function Team() {
                   {SHOW_PHOTOS && (
                     <div className="relative overflow-hidden rounded-full w-32 h-32 md:w-40 md:h-40 bg-white/5 border border-white/10 flex items-center justify-center mb-6">
                       {TEAM_ROSTER.captain.photo ? (
-                        <img src={TEAM_ROSTER.captain.photo} alt={TEAM_ROSTER.captain.name} className="w-full h-full object-cover" />
+                        <img src={TEAM_ROSTER.captain.photo} alt={TEAM_ROSTER.captain.name} className="w-full h-full object-cover object-[center_30%]" />
                       ) : (
                         <img src={MemberPlaceholder} alt="Placeholder" className="w-1/2 h-1/2 opacity-50" />
                       )}
