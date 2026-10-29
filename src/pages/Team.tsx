@@ -34,7 +34,7 @@ import MemberWinstonLi from './../assets/members/winston_li.webp';
 import memberLeoLin from './../assets/members/leo_lin.webp';
 import memberIsaacSantos from './../assets/members/isaac_santos.webp';
 import memberOwenBaldwin from './../assets/members/owen_baldwin.webp';
-// import memberJerryWang from './../assets/members/jerry_wang.webp';
+import memberJerryWang from './../assets/members/jerry_wang.webp';
 // import memberPeterWang from './../assets/members/peter_wang.webp';
 import memberJordanChong from './../assets/members/jordan_chong.webp';
 import memberHouzeGuo from './../assets/members/houze_guo.webp';
@@ -135,7 +135,7 @@ const TEAM_ROSTER = {
             { name: 'Leo Lin', role: 'Lead', photo: memberLeoLin },
             { name: 'Isaac Santos', role: 'Lead', photo: memberIsaacSantos },
             { name: 'Owen Baldwin', role: 'Member', photo: memberOwenBaldwin },
-            { name: 'Jerry Wang', role: 'Member' },
+            { name: 'Jerry Wang', role: 'Member', photo: memberJerryWang },
             { name: 'Peter Wang', role: 'Member' },
             { name: 'Jordan Chong', role: 'Member', photo: memberJordanChong },
             { name: 'Houze Guo', role: 'Member', photo: memberHouzeGuo },
