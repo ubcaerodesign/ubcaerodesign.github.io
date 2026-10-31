@@ -56,7 +56,7 @@ export default function NotFound() {
         </Reveal>
 
         <Reveal direction="up" delay={0.3}>
-          <p className="font-lato text-lg md:text-xl text-white/60 max-w-xl mx-auto leading-relaxed mb-6">
+          <p className="font-lato text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-6">
             We couldn't find this page. It may have moved, or the link may be mistyped.
           </p>
           <p className="inline-block max-w-full break-all font-lato text-sm text-aero-yellow bg-white/5 border border-white/10 rounded-full px-5 py-2 mb-12">
