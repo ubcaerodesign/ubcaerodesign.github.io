@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import HistoryImg from './../assets/images/team/history.jpg';
-import TeamPhoto2026 from './../assets/images/team/2026 Team Photo.JPG';
+import TeamPhoto2026 from './../assets/images/team/2026 Team Photo.jpg';
 import HeroAboutUs from './../assets/images/backgrounds/abouthero.JPG';
 
 function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
