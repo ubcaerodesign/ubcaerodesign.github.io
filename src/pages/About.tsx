@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import HistoryImg from './../assets/images/team/history.jpg';
-import TeamPhoto2025 from './../assets/images/team/UBC AeroDesign 2026 Competition Team.JPG';
+import TeamPhoto2026 from './../assets/images/team/2026 Team Photo.JPG';
 import HeroAboutUs from './../assets/images/backgrounds/abouthero.JPG';
 
 function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
@@ -146,14 +146,14 @@ export default function About() {
         <Reveal>
           <div className="relative w-full h-[65vh] group overflow-hidden">
             <img
-              src={TeamPhoto2025}
+              src={TeamPhoto2026}
               alt="2025 Team Photo"
               className="w-full h-full object-cover transform scale-105 group-hover:scale-100 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#06121f] via-transparent to-[#06121f]/40" />
             <div className="absolute bottom-10 left-0 w-full">
               <MarginWrapper>
-                <p className="font-titillium font-semibold text-2xl md:text-3xl text-white">2025 Competition Team</p>
+                <p className="font-titillium font-semibold text-2xl md:text-3xl text-white">2026/27 Team</p>
                 <p className="font-lato text-sm text-white/50 mt-1 tracking-widest uppercase">University of British Columbia</p>
               </MarginWrapper>
             </div>

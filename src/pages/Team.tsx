@@ -4,7 +4,7 @@ import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/
 import TeamImage from './../assets/images/team/UBC AeroDesign 2025 Competition Team.jpg';
 import WhyAero from './../assets/images/team/whyaero.jpg';
 import AboutCTA from './../assets/images/backgrounds/About CTA.jpeg';
-import TeamPhoto from './../assets/images/team/2024 Team Photo.jpg';
+import TeamPhoto from './../assets/images/team/2026 Team Photo.jpg';
 import TeamBreakdown from './../assets/images/team/Team Breakdown.svg';
 import MemberPlaceholder from './../assets/members/placeholder.svg';
 import MemberEvanComba from './../assets/members/evan_comba.webp';
@@ -274,7 +274,7 @@ export default function Team() {
       <section className="relative min-h-screen flex flex-col items-center justify-end overflow-hidden pb-16">
         {/* Full-screen team photo */}
         <div className="absolute inset-0">
-          <img src={TeamPhoto} alt="UBC AeroDesign Team" className="w-full h-full object-cover object-center" />
+          <img src={TeamPhoto} alt="UBC AeroDesign Team" className="w-full h-full object-cover"/>
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #06121f 0%, #06121f 25%, rgba(6,18,31,0.7) 55%, transparent 80%)' }} />
         </div>
 
