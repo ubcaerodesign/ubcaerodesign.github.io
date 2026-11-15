@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { lazy, Suspense, useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
@@ -7,7 +7,12 @@ import MicroClass from './../assets/images/projects/microclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
 import IndustryTour from './../assets/images/projects/industry tour.jpg';
 import WindTunnel from './../assets/images/projects/windtunnel.jpg';
-import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
+import HeroProjects from './../assets/images/backgrounds/projectHero.jpg';
+
+// Loaded on demand so Three.js stays out of the main bundle.
+const ExplodedPlane = lazy(() => import('./../components/ExplodedPlane'));
+
+const PLANE_MODEL_URL = `${import.meta.env.BASE_URL}models/plane.glb`;
 
 const LEARNING_SLIDES = [
   {
@@ -265,6 +270,29 @@ export default function Projects() {
               </div>
             </Reveal>
           </div>
+        </MarginWrapper>
+      </Section>
+
+      <SectionDivider />
+
+      <Section id="aircraft">
+        <MarginWrapper>
+          <Reveal className="mb-10">
+            <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-aero-yellow" /> Inside The Design
+            </p>
+            <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-4">
+              AIRCRAFT ANATOMY
+            </h2>
+            <p className="font-lato text-white/55 text-lg leading-relaxed max-w-2xl">
+              Scroll to pull one of our past aircraft apart and see what goes into it.
+            </p>
+          </Reveal>
+        </MarginWrapper>
+        <MarginWrapper>
+          <Suspense fallback={<div className="h-[60vh]" />}>
+            <ExplodedPlane modelUrl={PLANE_MODEL_URL} />
+          </Suspense>
         </MarginWrapper>
       </Section>
 
