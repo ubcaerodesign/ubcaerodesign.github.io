@@ -72,13 +72,14 @@ export default function Footer() {
           <FooterColumn title="About">
             <FooterLink destination="/about" value="About Us" />
             <FooterLink destination="/about#history" value="History" />
+            <FooterLink destination="/about#learning-endeavors" value="Learning Endeavors" />
             <FooterLink destination="/team#structure" value="Team Structure" />
           </FooterColumn>
 
           <FooterColumn title="Projects">
             <FooterLink destination="/projects#competition" value="Competition" />
             <FooterLink destination="/projects#classes" value="Divisions" />
-            <FooterLink destination="/projects#learning-endeavors" value="Learning Endeavors" />
+            <FooterLink destination="/projects#aircraft" value="Fleet Archive" />
           </FooterColumn>
 
           <FooterColumn title="Team & Recruitment">
