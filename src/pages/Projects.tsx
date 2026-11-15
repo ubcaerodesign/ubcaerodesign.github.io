@@ -1,138 +1,20 @@
-import { useEffect, useState, useRef } from 'react';
-import clsx from 'clsx';
+import { useEffect } from 'react';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
+import FleetTimeline from './../components/FleetTimeline';
+import { AIRCRAFT_FLEET } from './../data/fleet';
 import FlyingPlane from './../assets/images/projects/comps.jpg';
 import MicroClass from './../assets/images/projects/microclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
-import IndustryTour from './../assets/images/projects/industry tour.jpg';
-import WindTunnel from './../assets/images/projects/windtunnel.jpg';
-import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
-
-const LEARNING_SLIDES = [
-  {
-    src: IndustryTour,
-    title: 'INDUSTRY TOURS',
-    description: 'Through sponsors, member internships and co-ops, and other connections, we have been invited to tour facilities of leaders in engineering.',
-    objectPosition: 'center top',
-  },
-  {
-    src: WindTunnel,
-    title: 'WIND TUNNEL TESTING',
-    description: 'Wind tunnel testing places airfoil models in controlled airflow to simulate real flight conditions — a crucial step in assessing aerodynamic behavior and refining designs before actual flights.',
-    objectPosition: 'center center',
-  },
-];
-
-function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      observer.disconnect();
-
-      let rafId: number;
-      let startTime: number | null = null;
-      const step = (timestamp: number) => {
-        if (!startTime) startTime = timestamp;
-        const progress = Math.min((timestamp - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.floor(eased * target));
-        if (progress < 1) rafId = requestAnimationFrame(step);
-      };
-      rafId = requestAnimationFrame(step);
-      return () => cancelAnimationFrame(rafId);
-    }, { threshold: 0.5 });
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target, duration]);
-
-  return <span ref={ref}>{count}{suffix}</span>;
-}
-
-function LearningCarousel() {
-  const [current, setCurrent] = useState(0);
-  const total = LEARNING_SLIDES.length;
-  const prev = () => setCurrent(i => (i - 1 + total) % total);
-  const next = () => setCurrent(i => (i + 1) % total);
-  const slide = LEARNING_SLIDES[current];
-
-  return (
-    <div className="relative w-full h-[420px] overflow-hidden">
-      {LEARNING_SLIDES.map((s, i) => (
-        <div
-          key={i}
-          className={clsx(
-            'absolute inset-0 transition-opacity duration-700',
-            i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          )}
-        >
-          <img src={s.src} alt={s.title} className="w-full h-full object-cover" style={{ objectPosition: s.objectPosition ?? 'center center' }} />
-        </div>
-      ))}
-
-      {/* Info panel — right side */}
-      <div className="absolute right-0 top-0 h-full w-72 lg:w-80 bg-aero-mid-blue/90 backdrop-blur-sm z-20 flex flex-col justify-center px-8 py-10">
-        <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-3">Beyond Competition</p>
-        <h3 className="font-titillium font-semibold text-xl text-white tracking-wide mb-4 leading-snug">{slide.title}</h3>
-        <p className="font-lato text-white/65 text-sm leading-relaxed">{slide.description}</p>
-      </div>
-
-      {/* Left arrow */}
-      <button
-        onClick={prev}
-        aria-label="Previous"
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      </button>
-
-      {/* Right arrow */}
-      <button
-        onClick={next}
-        aria-label="Next"
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      </button>
-
-      {/* Dot indicators — centered in the image area (left of panel) */}
-      <div className="absolute bottom-4 z-20 flex gap-1.5" style={{ left: 'calc(50% - 5rem)' }}>
-        {LEARNING_SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={clsx(
-              'h-1.5 rounded-full transition-all duration-300',
-              i === current ? 'bg-white w-6' : 'bg-white/40 w-1.5 hover:bg-white/70'
-            )}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
+import HeroProjects from './../assets/images/backgrounds/projectHero.jpg';
 
 export default function Projects() {
-
   useEffect(() => {
     document.title = 'Projects – UBC AeroDesign';
   }, []);
 
   return (
     <div className="min-h-screen bg-[#06121f]">
-
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative min-h-[90vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
@@ -162,12 +44,10 @@ export default function Projects() {
             </div>
           </div>
         </MarginWrapper>
-
       </section>
 
       <Section id="competition">
         <MarginWrapper>
-
           <Reveal direction="left" className="mb-10">
             <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
               <span className="w-8 h-[1px] bg-aero-yellow" /> Annual Challenge
@@ -178,8 +58,6 @@ export default function Projects() {
           </Reveal>
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-
-            {/* Left — image */}
             <Reveal direction="left" className="lg:w-1/2">
               <div className="relative rounded-2xl overflow-hidden group">
                 <img
@@ -191,7 +69,6 @@ export default function Projects() {
               </div>
             </Reveal>
 
-            {/* Right — stats + text */}
             <div className="lg:w-1/2 flex flex-col">
               <Reveal delay={0.1}>
                 <div className="flex gap-0 mb-10">
@@ -219,7 +96,6 @@ export default function Projects() {
                 />
               </Reveal>
             </div>
-
           </div>
         </MarginWrapper>
       </Section>
@@ -270,22 +146,22 @@ export default function Projects() {
 
       <SectionDivider />
 
-      <Section id="learning-endeavors">
+      <Section id="aircraft">
         <MarginWrapper>
           <Reveal className="mb-10">
             <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
-              <span className="w-8 h-[1px] bg-aero-yellow" /> Beyond Competition
+              <span className="w-8 h-[1px] bg-aero-yellow" /> Through The Years
             </p>
             <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-4">
-              LEARNING ENDEAVORS
+              FLEET ARCHIVE
             </h2>
             <p className="font-lato text-white/55 text-lg leading-relaxed max-w-2xl">
-              There are many opportunities for members to gain experience — whether through their subteam, facility access, industry tours, networking events, or personal projects.
+              Scrub or drag the timeline to travel back through over three decades of UBC AeroDesign aircraft and browse photos and flight footage from each season.
             </p>
           </Reveal>
         </MarginWrapper>
         <MarginWrapper>
-          <LearningCarousel />
+          <FleetTimeline fleet={AIRCRAFT_FLEET} initialId="2025-2026-toothless" />
         </MarginWrapper>
       </Section>
     </div>

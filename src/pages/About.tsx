@@ -1,8 +1,104 @@
 import { useState, useEffect, useRef } from 'react';
+import clsx from 'clsx';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import HistoryImg from './../assets/images/team/history.jpg';
 import TeamPhoto2026 from './../assets/images/team/2026 Team Photo.jpg';
-import HeroAboutUs from './../assets/images/backgrounds/abouthero.JPG';
+import HeroAboutUs from './../assets/images/backgrounds/abouthero.jpg';
+import IndustryTour from './../assets/images/projects/industry tour.jpg';
+import WindTunnel from './../assets/images/projects/windtunnel.jpg';
+
+const LEARNING_SLIDES = [
+  {
+    src: IndustryTour,
+    title: 'INDUSTRY TOURS',
+    description: 'Through sponsors, member internships and co-ops, and other connections, we have been invited to tour facilities of leaders in engineering.',
+    objectPosition: 'center top',
+  },
+  {
+    src: WindTunnel,
+    title: 'WIND TUNNEL TESTING',
+    description: 'Wind tunnel testing places airfoil models in controlled airflow to simulate real flight conditions — a crucial step in assessing aerodynamic behavior and refining designs before actual flights.',
+    objectPosition: 'center center',
+  },
+];
+
+function LearningCarousel() {
+  const [current, setCurrent] = useState(0);
+  const total = LEARNING_SLIDES.length;
+  const prev = () => setCurrent((i) => (i - 1 + total) % total);
+  const next = () => setCurrent((i) => (i + 1) % total);
+  const slide = LEARNING_SLIDES[current];
+
+  return (
+    <div className="relative w-full rounded-2xl overflow-hidden border border-white/10">
+      <div className="relative h-[300px] md:h-[420px]">
+        {LEARNING_SLIDES.map((s, i) => (
+          <div
+            key={i}
+            className={clsx(
+              'absolute inset-0 transition-opacity duration-700',
+              i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            )}
+          >
+            <img
+              src={s.src}
+              alt={s.title}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: s.objectPosition ?? 'center center' }}
+            />
+          </div>
+        ))}
+
+        {/* Left arrow */}
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous"
+          className="cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        {/* Right arrow */}
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next"
+          className="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/60 transition-colors"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-4 left-1/2 md:left-[calc(50%-9rem)] -translate-x-1/2 z-20 flex gap-1.5">
+          {LEARNING_SLIDES.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setCurrent(i)}
+              aria-label={`Go to slide ${i + 1}`}
+              className={clsx(
+                'cursor-pointer h-1.5 rounded-full transition-all duration-300',
+                i === current ? 'bg-white w-6' : 'bg-white/40 w-1.5 hover:bg-white/70'
+              )}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Info panel */}
+      <div className="md:absolute md:right-0 md:top-0 md:h-full md:w-72 lg:w-80 bg-aero-mid-blue/90 backdrop-blur-sm z-20 flex flex-col justify-center px-6 py-8 md:px-8 md:py-10">
+        <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-3">Beyond Competition</p>
+        <h3 className="font-titillium font-semibold text-xl text-white tracking-wide mb-4 leading-snug">{slide.title}</h3>
+        <p className="font-lato text-white/65 text-sm leading-relaxed">{slide.description}</p>
+      </div>
+    </div>
+  );
+}
 
 function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0);
@@ -37,14 +133,12 @@ function CountUp({ target, suffix = '', duration = 1800 }: { target: number; suf
 }
 
 export default function About() {
-
   useEffect(() => {
     document.title = 'About – UBC AeroDesign';
   }, []);
 
   return (
     <div className="min-h-screen bg-[#06121f]">
-
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative min-h-[90vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
@@ -69,7 +163,6 @@ export default function About() {
             </p>
           </Reveal>
         </MarginWrapper>
-
       </section>
 
       {/* ═══════════════ IMPACT STATS ═══════════════ */}
@@ -98,7 +191,6 @@ export default function About() {
       <Section id="history">
         <MarginWrapper>
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-
             <Reveal direction="left" className="lg:w-1/2">
               <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-5 flex items-center gap-4">
                 <span className="w-8 h-[1px] bg-aero-yellow" /> Our History
@@ -134,8 +226,29 @@ export default function About() {
                 </div>
               </div>
             </Reveal>
-
           </div>
+        </MarginWrapper>
+      </Section>
+
+      <SectionDivider />
+
+      {/* ═══════════════ LEARNING ENDEAVORS ═══════════════ */}
+      <Section id="learning-endeavors">
+        <MarginWrapper>
+          <Reveal className="mb-10">
+            <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-4 flex items-center gap-4">
+              <span className="w-8 h-[1px] bg-aero-yellow" /> Beyond Competition
+            </p>
+            <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight mb-4">
+              LEARNING ENDEAVORS
+            </h2>
+            <p className="font-lato text-white/55 text-lg leading-relaxed max-w-2xl">
+              There are many opportunities for members to gain experience — whether through their subteam, facility access, industry tours, networking events, or personal projects.
+            </p>
+          </Reveal>
+        </MarginWrapper>
+        <MarginWrapper>
+          <LearningCarousel />
         </MarginWrapper>
       </Section>
 
@@ -160,7 +273,6 @@ export default function About() {
           </div>
         </Reveal>
       </section>
-
     </div>
   );
 }
