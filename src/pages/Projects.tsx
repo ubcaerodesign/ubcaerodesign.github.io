@@ -438,6 +438,7 @@ const AIRCRAFT_FLEET: AircraftEntry[] = [
     summary:
       'Barbie was the team’s second Micro aircraft. After Sonic’s risky design, Barbie returned to a much more conventional layout that proved instrumental to her excellent competition performance. Designed to be safe and tough to secure repeated flight scoring, she completed over 30 total flights—more than the cumulative sum of years of prior flying—earning 2nd overall and 1st place Design Report at SAE Aero Design East 2025, while her colour scheme made her a fan favourite.',
     placements: { overall: '2nd', flight: '5th', designReport: '1st', presentation: '8th' },
+    modelUrl: `${import.meta.env.BASE_URL}models/barbie.glb`,
   },
   {
     id: '2024-2025-kuromi',
