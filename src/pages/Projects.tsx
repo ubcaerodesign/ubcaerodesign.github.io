@@ -624,7 +624,7 @@ export default function Projects() {
               AIRCRAFT ANATOMY
             </h2>
             <p className="font-lato text-white/55 text-lg leading-relaxed max-w-2xl">
-              Scroll to pull Toothless apart and watch it reassemble, or drag the timeline scrubber in the corner to travel back through over three decades of UBC AeroDesign aircraft.
+              Scroll to pull Toothless apart, drag to view the aircraft in 3D, or scrub the timeline in the corner to travel back through over three decades of UBC AeroDesign aircraft.
             </p>
           </Reveal>
         </MarginWrapper>

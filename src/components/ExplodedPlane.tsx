@@ -48,43 +48,12 @@ interface ExplodedPlaneProps {
 
 type Status = 'idle' | 'loading' | 'ready' | 'empty' | 'error';
 
-const STAGES = [
-  {
-    label: 'Assembled',
-    title: null as string | null,
-    text: null as string | null,
-  },
-  {
-    label: 'Separating',
-    title: 'EVERY SYSTEM, EXPOSED',
-    text: 'Airframe, wings, empennage, and propulsion separate to reveal how each subsystem fits together.',
-  },
-  {
-    label: 'Exploded',
-    title: 'DESIGNED PART BY PART',
-    text: 'Every structural and avionics component is designed, manufactured, and flight-tested by UBC students.',
-  },
-  {
-    label: 'Reassembling',
-    title: 'COMING BACK TOGETHER',
-    text: 'Every subsystem locks back into its flight-ready configuration before you continue down the page.',
-  },
-];
-
 /** Maps scroll progress `0..1` -> explosion amount `0..1..0` (explode, hold, then reassemble). */
 function getExplodeAmount(p: number): number {
   if (p <= 0 || p >= 1) return 0;
   if (p < 0.42) return p / 0.42;
   if (p <= 0.58) return 1;
   return (1 - p) / 0.42;
-}
-
-function getStageIndex(p: number): number {
-  if (p < 0.08) return 0;
-  if (p < 0.36) return 1;
-  if (p < 0.64) return 2;
-  if (p < 0.94) return 3;
-  return 0;
 }
 
 /* ── Geometry & part extraction helpers ───── */
@@ -455,6 +424,19 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
   const loadCounterRef = useRef(0);
   const firstScrollRef = useRef(true);
 
+  const orbitRef = useRef({
+    targetYaw: 0,
+    targetPitch: 0,
+    currentYaw: 0,
+    currentPitch: 0,
+  });
+  const orbitDragRef = useRef<{
+    pointerId: number;
+    pointerType: string;
+    lastX: number;
+    lastY: number;
+  } | null>(null);
+
   const railDragRef = useRef<{
     pointerId: number;
     startX: number;
@@ -474,13 +456,20 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
   const [activeIndex, setActiveIndex] = useState(defaultIndex);
   const [inView, setInView] = useState(false);
   const [status, setStatus] = useState<Status>('idle');
-  const [stage, setStage] = useState(0);
+  const [isOrbiting, setIsOrbiting] = useState(false);
+  const [hasOrbited, setHasOrbited] = useState(false);
   const [isDraggingRail, setIsDraggingRail] = useState(false);
   const [isScrubbing, setIsScrubbing] = useState(false);
 
   const activeAircraft = fleet[activeIndex] ?? fleet[0];
   const placementBadges = formatPlacementBadges(activeAircraft?.placements);
   const scrubPercent = fleet.length > 1 ? (activeIndex / (fleet.length - 1)) * 100 : 100;
+
+  const resetOrbit = () => {
+    orbitRef.current.targetYaw = 0;
+    orbitRef.current.targetPitch = 0;
+    setHasOrbited(false);
+  };
 
   // Keep the selected plane centered inside the horizontal timeline rail (without scrolling the page).
   useEffect(() => {
@@ -591,7 +580,6 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
 
     let baseDistance = 9;
     let frame = 0;
-    let activeStage = 0;
 
     const renderFrame = () => {
       const p = progressRef.current;
@@ -599,7 +587,9 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
       if (timelineRef.current) {
         timelineRef.current.seek(explode * timelineRef.current.duration);
       }
-      pivot.rotation.y = START_YAW + (END_YAW - START_YAW) * p;
+      const orbit = orbitRef.current;
+      pivot.rotation.y = START_YAW + (END_YAW - START_YAW) * p + orbit.currentYaw;
+      pivot.rotation.x = orbit.currentPitch;
       camera.position.set(0, baseDistance * 0.18, baseDistance * (1 + 0.22 * explode));
       camera.lookAt(0, -0.22, 0);
       renderer.render(scene, camera);
@@ -640,13 +630,18 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
       if (Math.abs(target - current) < 0.0005) current = target;
       progressRef.current = current;
 
-      renderFrame();
-
-      const next = getStageIndex(current);
-      if (next !== activeStage) {
-        activeStage = next;
-        setStage(next);
+      const orbit = orbitRef.current;
+      if (reducedMotion) {
+        orbit.currentYaw = orbit.targetYaw;
+        orbit.currentPitch = orbit.targetPitch;
+      } else {
+        orbit.currentYaw += (orbit.targetYaw - orbit.currentYaw) * 0.16;
+        if (Math.abs(orbit.targetYaw - orbit.currentYaw) < 0.0005) orbit.currentYaw = orbit.targetYaw;
+        orbit.currentPitch += (orbit.targetPitch - orbit.currentPitch) * 0.16;
+        if (Math.abs(orbit.targetPitch - orbit.currentPitch) < 0.0005) orbit.currentPitch = orbit.targetPitch;
       }
+
+      renderFrame();
     };
     tick();
 
@@ -798,9 +793,18 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
     setActiveIndex((prev) => (prev === nextIdx ? prev : nextIdx));
   };
 
+  const endOrbitDrag = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    const drag = orbitDragRef.current;
+    if (!drag || e.pointerId !== drag.pointerId) return;
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
+    orbitDragRef.current = null;
+    setIsOrbiting(false);
+  };
+
   const canGoOlder = activeIndex > 0;
   const canGoNewer = activeIndex < fleet.length - 1;
-  const displayedStage = status === 'ready' ? stage : 0;
 
   return (
     <div ref={wrapperRef} className="relative h-[400vh]">
@@ -810,10 +814,57 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
         <canvas
           ref={canvasRef}
           role="img"
-          aria-label={`Interactive exploded view of ${activeAircraft?.name ?? 'a UBC AeroDesign aircraft'}`}
+          aria-label={`Interactive 3D view of ${activeAircraft?.name ?? 'a UBC AeroDesign aircraft'}`}
+          onPointerDown={(e) => {
+            if (status !== 'ready') return;
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            if (e.pointerType !== 'touch') {
+              e.currentTarget.setPointerCapture(e.pointerId);
+            }
+            orbitDragRef.current = {
+              pointerId: e.pointerId,
+              pointerType: e.pointerType,
+              lastX: e.clientX,
+              lastY: e.clientY,
+            };
+            setIsOrbiting(true);
+          }}
+          onPointerMove={(e) => {
+            const drag = orbitDragRef.current;
+            if (!drag || e.pointerId !== drag.pointerId) return;
+            const dx = e.clientX - drag.lastX;
+            const dy = e.clientY - drag.lastY;
+            drag.lastX = e.clientX;
+            drag.lastY = e.clientY;
+
+            orbitRef.current.targetYaw += dx * 0.008;
+            // Let vertical touch swipes scroll the page; allow full pitch on mouse/pen drag.
+            if (drag.pointerType !== 'touch') {
+              orbitRef.current.targetPitch = THREE.MathUtils.clamp(
+                orbitRef.current.targetPitch + dy * 0.006,
+                -1.05,
+                1.05
+              );
+            }
+
+            if (
+              Math.abs(orbitRef.current.targetYaw) > 0.03 ||
+              Math.abs(orbitRef.current.targetPitch) > 0.03
+            ) {
+              setHasOrbited(true);
+            }
+          }}
+          onPointerUp={endOrbitDrag}
+          onPointerCancel={endOrbitDrag}
+          onPointerLeave={(e) => {
+            if (!e.currentTarget.hasPointerCapture(e.pointerId)) {
+              endOrbitDrag(e);
+            }
+          }}
           className={clsx(
-            'relative block w-full h-full transition-opacity duration-700',
-            status === 'ready' ? 'opacity-100' : 'opacity-0'
+            'relative block w-full h-full touch-pan-y select-none transition-opacity duration-700',
+            status === 'ready' ? 'opacity-100' : 'opacity-0',
+            status === 'ready' && (isOrbiting ? 'cursor-grabbing' : 'cursor-grab')
           )}
         />
 
@@ -867,70 +918,54 @@ export default function ExplodedPlane({ fleet, initialId }: ExplodedPlaneProps) 
           </div>
         )}
 
-        {/* Stage dots (scroll progress) */}
-        {status === 'ready' && (
-          <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 flex-col gap-3 pointer-events-none">
-            {STAGES.map((s, i) => (
-              <span
-                key={s.label}
-                className={clsx(
-                  'w-1.5 rounded-full transition-all duration-300',
-                  i === stage ? 'bg-white h-6' : 'bg-white/30 h-1.5'
-                )}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Bottom Overlay Bar: Captions (Left) + Draggable Timeline Scrubber (Right) */}
+        {/* Bottom Overlay Bar: Aircraft Caption (Left) + Draggable Timeline Scrubber (Right) */}
         <div className="absolute bottom-5 md:bottom-10 inset-x-0 flex flex-col-reverse md:flex-row md:items-end justify-between gap-3 md:gap-6 pointer-events-none">
-          {/* Bottom-Left: Active Aircraft + Explosion Stage Caption */}
+          {/* Bottom-Left: Active Aircraft Caption + Drag-to-View Hint */}
           <div className="pointer-events-auto w-full md:max-w-sm lg:max-w-md">
             <div className="glass-panel rounded-2xl p-4 md:p-7">
               <div className="flex items-center justify-between gap-3 mb-2">
                 <p className="font-lato text-aero-yellow text-[11px] md:text-xs tracking-[0.18em] uppercase">
                   {activeAircraft.year} · {activeAircraft.aircraftClass}
                 </p>
-                <span className="font-lato text-[10px] tracking-widest uppercase text-white/50 border border-white/15 rounded-full px-2.5 py-0.5 shrink-0">
-                  {status === 'ready' ? STAGES[displayedStage].label : 'Archive'}
-                </span>
+                {status === 'ready' ? (
+                  hasOrbited ? (
+                    <button
+                      type="button"
+                      onClick={resetOrbit}
+                      className="cursor-pointer font-lato text-[10px] tracking-widest uppercase text-white/80 hover:text-white border border-white/25 hover:border-white/60 rounded-full px-2.5 py-0.5 shrink-0 transition-colors"
+                    >
+                      Reset view
+                    </button>
+                  ) : (
+                    <span className="font-lato text-[10px] tracking-widest uppercase text-white/55 border border-white/15 rounded-full px-2.5 py-0.5 shrink-0">
+                      Drag to view
+                    </span>
+                  )
+                ) : (
+                  <span className="font-lato text-[10px] tracking-widest uppercase text-white/50 border border-white/15 rounded-full px-2.5 py-0.5 shrink-0">
+                    Archive
+                  </span>
+                )}
               </div>
 
-              <div className="grid">
-                {STAGES.map((s, i) => {
-                  const heading = s.title ?? activeAircraft.name;
-                  const body = s.text ?? activeAircraft.summary;
-                  const isCurrent = i === displayedStage;
-                  return (
-                    <div
-                      key={s.label}
-                      className={clsx(
-                        'col-start-1 row-start-1 transition-opacity duration-500',
-                        isCurrent ? 'opacity-100' : 'opacity-0 pointer-events-none'
-                      )}
+              <h3 className="font-titillium font-semibold text-lg md:text-xl text-white tracking-wide mb-1.5 md:mb-2 leading-snug">
+                {activeAircraft.name}
+              </h3>
+              <p className="font-lato text-white/60 text-xs md:text-sm leading-relaxed max-h-24 md:max-h-36 overflow-y-auto pr-1 [scrollbar-width:thin]">
+                {activeAircraft.summary}
+              </p>
+              {placementBadges.length > 0 && (
+                <div className="hidden md:flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-white/10">
+                  {placementBadges.map((badge) => (
+                    <span
+                      key={badge.label}
+                      className="font-lato text-[10px] tracking-wider uppercase text-white/60 bg-white/5 rounded-md px-2 py-0.5"
                     >
-                      <h3 className="font-titillium font-semibold text-lg md:text-xl text-white tracking-wide mb-1.5 md:mb-2 leading-snug">
-                        {heading}
-                      </h3>
-                      <p className="font-lato text-white/60 text-xs md:text-sm leading-relaxed max-h-24 md:max-h-36 overflow-y-auto pr-1 [scrollbar-width:thin]">
-                        {body}
-                      </p>
-                      {i === 0 && placementBadges.length > 0 && (
-                        <div className="hidden md:flex flex-wrap gap-1.5 mt-3 pt-3 border-t border-white/10">
-                          {placementBadges.map((badge) => (
-                            <span
-                              key={badge.label}
-                              className="font-lato text-[10px] tracking-wider uppercase text-white/60 bg-white/5 rounded-md px-2 py-0.5"
-                            >
-                              {badge.label}: <strong className="text-white/90">{badge.value}</strong>
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+                      {badge.label}: <strong className="text-white/90">{badge.value}</strong>
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
