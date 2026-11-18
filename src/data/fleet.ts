@@ -89,14 +89,14 @@ export function getAircraftMedia(entry: AircraftEntry): AircraftMediaItem[] {
  */
 export const AIRCRAFT_FLEET: AircraftEntry[] = [
   {
-    id: 'dark-ages',
+    id: 'older-history',
     year: '1991–2015',
     shortYear: '1991–15',
-    name: 'Dark Ages',
+    name: 'Older History',
     classCode: 'REG / OPEN',
     aircraftClass: 'Regular & Open Class',
     summary:
-      'Our earliest archival era (1991–2015), spanning UBC Heavy Lift’s 1st-place overall victories in the 1990s through Regular and Open Class campaigns of the 2000s—including a Predator-drone-inspired Open Class entry (2001–02), an Open Class 1st-place overall win (2004–05), and the transition from gas to electric propulsion.',
+      'Our earliest archival era spanning UBC Heavy Lift’s 1st-place overall victories in the 1990s through Regular and Open Class campaigns of the 2000s—including an Open Class 1st-place overall win (2004–05), Thunderbird (2012–13, the plane hanging in the EDC Atrium), and the transition from gas to electric propulsion.',
     placements: {
       overall: '1st (×4)',
       designReport: '1st (1999–00)',
@@ -111,7 +111,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
       { year: '1999–00', aircraftClass: 'REG', result: '3rd Overall · 1st Design Report' },
       { year: '2000–01', aircraftClass: 'REG', result: '7th Overall · 2nd Design Report' },
       { year: '2001–02', aircraftClass: 'REG', result: '7th Overall' },
-      { year: '2001–02', aircraftClass: 'OPEN', result: '4th Overall (Predator-style airframe)' },
+      { year: '2001–02', aircraftClass: 'OPEN', result: '4th Overall' },
       { year: '2002–03', aircraftClass: 'REG', result: '4th Overall' },
       { year: '2002–03', aircraftClass: 'OPEN', result: '3rd Overall' },
       { year: '2003–04', aircraftClass: 'REG', result: '11th Overall' },
@@ -126,9 +126,9 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
       { year: '2009–10', aircraftClass: 'REG', result: '5th Overall · 2nd Design Report' },
       { year: '2010–11', aircraftClass: 'REG', result: '8th Overall' },
       { year: '2011–12', aircraftClass: 'REG', result: '6th Overall' },
-      { year: '2012–13', aircraftClass: 'REG', result: '8th Overall' },
+      { year: '2012–13', aircraftClass: 'REG', result: '8th Overall · Thunderbird (hanging in the EDC Atrium)' },
       { year: '2013–14', aircraftClass: 'REG', result: '20th Overall' },
-      { year: '2014–15', aircraftClass: 'REG', result: '22nd Overall (Gas-to-electric transition)' },
+      { year: '2014–15', aircraftClass: 'REG', result: '22nd Overall (Possibly when the competition switched from gas to electric)' },
     ],
   },
   {
@@ -152,30 +152,30 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     placements: { overall: '3rd', flight: '3rd', designReport: '1st', presentation: '9th' },
   },
   {
-    id: '2017-2018-reg',
+    id: '2017-2018-op18',
     year: '2017–2018',
     shortYear: '2017–18',
-    name: 'Regular Class',
+    name: 'OP18',
     classCode: 'REG',
     aircraftClass: 'Regular Class',
     summary: '2017–2018 Regular Class entry, placing 4th in Presentation.',
     placements: { overall: '11th', designReport: '7th', presentation: '4th' },
   },
   {
-    id: '2018-2019-adv',
+    id: '2018-2019-noot-noot',
     year: '2018–2019',
     shortYear: '2018–19',
-    name: 'First ADV Plane',
+    name: 'Noot-Noot',
     classCode: 'ADV',
     aircraftClass: 'Advanced Class',
     summary: 'UBC AeroDesign’s first-ever Advanced Class aircraft, placing 2nd in Design Report and 5th overall.',
     placements: { overall: '5th', designReport: '2nd' },
   },
   {
-    id: '2018-2019-reg',
+    id: '2018-2019-fin',
     year: '2018–2019',
     shortYear: '2018–19',
-    name: 'Regular Class',
+    name: 'Fin',
     classCode: 'REG',
     aircraftClass: 'Regular Class',
     summary: '2018–2019 Regular Class entry, placing 5th in Design Report.',
@@ -185,7 +185,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     id: '2019-2020-ray',
     year: '2019–2020',
     shortYear: '2019–20',
-    name: 'Ray?',
+    name: 'Ray',
     classCode: 'ADV',
     aircraftClass: 'Advanced Class',
     summary: '2019–2020 Advanced Class aircraft — 3rd overall and 3rd in Presentation (flights cancelled due to COVID-19).',
@@ -281,7 +281,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     classCode: 'ADV',
     aircraftClass: 'Advanced Class',
     summary:
-      'Shadow was the team’s entry to the Advanced Class 2024 SAE Aero Design competition, marking the end of the three-year rules cycle with low-risk, reliable primary and secondary delivery vehicles. Lifting 10 lbs of payload with a 120" blended-wing-body primary aircraft, a 22" flying-wing PADA, and a single-motor RWD GTV, Shadow looped the airfield to locate landing zones before releasing the PADA to navigate and land autonomously.',
+      'Shadow was the team’s entry to the Advanced Class 2024 SAE Aero Design competition. As this year marked the end of the three-year competition rules cycle for Advanced Class, the team focused on creating low-risk and reliable primary and secondary delivery vehicles. The primary aircraft, Shadow, lifts 10 lbs of payload and features a 120” wingspan blended-wing-body design with an extended motor mount, conventional tail mounted on a carbon fiber tube connected to the fuselage, and a tail-dragger landing gear configuration. The PADA has a pusher configuration and features a 22” flying wing with ogival delta wing design and a twin v-stab; with a lifting capacity of 0.2 lb per PADA, it permits us to carry our GTV—a manual single-motor RWD vehicle with a 1 kg lifting capacity per trip—in a maximum of three rounds. During competition, the PADA attaches underneath the primary aircraft and they take off together; Shadow loops the airfield taking photos to calculate landing zone locations before the PADA separates to autonomously navigate and land.',
     placements: { overall: '7th', designReport: '4th', presentation: '3rd' },
   },
   {
@@ -292,7 +292,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     classCode: 'MCR',
     aircraftClass: 'Micro Class',
     summary:
-      'Barbie was the team’s second Micro aircraft. After Sonic’s risky design, Barbie returned to a much more conventional layout that proved instrumental to her excellent competition performance. Designed to be safe and tough to secure repeated flight scoring, she completed over 30 total flights—more than the cumulative sum of years of prior flying—earning 2nd overall and 1st place Design Report at SAE Aero Design East 2025, while her colour scheme made her a fan favourite.',
+      'Barbie was the team’s second Micro aircraft. After Sonic’s risky design, Barbie returned to a much more conventional layout that proved instrumental to her excellent competition performance. Barbie was designed to be safe and tough to secure repeated flight scoring at competition. Owing to her rugged design, she completed over 30 total flights—more than the cumulative sum of years of prior flying. Barbie’s safety secured her excellent competition performance at SAE Aero Design East 2025: 2nd overall, with a 1st-place Design Report. Barbie’s colour scheme made her a fan favourite and continued team icon.',
     placements: { overall: '2nd', flight: '5th', designReport: '1st', presentation: '8th' },
   },
   {
@@ -303,7 +303,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     classCode: 'ADV',
     aircraftClass: 'Advanced Class',
     summary:
-      'Kuromi is UBC AeroDesign’s submission to the Advanced Class 2025 SAE Aero Design competition. As the first year of a new three-year rules cycle, the team focused on a low-risk, reliable payload release and capture aircraft with custom flight controller hardware and software for manual and autonomous flight. Featuring a 60" wingspan, conventional fuselage and tail, autonomous release, and manual capture, Kuromi served as a baseline for future avionics systems.',
+      'Kuromi is UBC AeroDesign’s submission to the Advanced Class 2025 SAE Aero Design competition. As the first year of a new three-year competition rules cycle for Advanced Class, the team focused on creating a low-risk and reliable payload release and capture aircraft that can be built upon in future competitions, including creating a custom flight controller and software designed for both manual and autonomous capabilities. With Kuromi, we tested autopilot flight navigation and payload release for the first time, serving as a baseline for future avionics systems. The aircraft features a 60” wingspan, conventional fuselage, conventional tail, an autonomous release mechanism, and a manually operated capture mechanism.',
     placements: { overall: '6th', flight: '5th', designReport: '5th', presentation: '10th' },
   },
   {
@@ -314,7 +314,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     classCode: 'ADV',
     aircraftClass: 'Advanced Class',
     summary:
-      'Light Fury was the team’s second entry of the three-year ADV ruleset and our first time pursuing a Vertical Take-off and Landing (VTOL) aircraft. With a 45" wingspan, conventional fuselage, U-tail, tail-dragger gear, and a tri-motor tilt-wing/hover configuration, it uses custom in-house hardware and firmware with GNSS and camera localization for autonomous DLZ payload delivery and capture—securing 1st place in flight score and 2nd place overall.',
+      'Light Fury was the team’s second entry of the three-year ADV ruleset and our first time pursuing a Vertical Take-off and Landing (VTOL) aircraft. The aircraft has a 45 in wingspan, conventional fuselage, U-tail, tail-dragger, and tri-motor configuration with two motors attached to the wings that tilt up and down to facilitate transitioning between conventional and VTOL flight, as well as another motor permanently affixed upwards on the tailboom that only turns on during hover. It uses custom in-house hardware and firmware to allow for an autonomous payload delivery and capture system, employing GNSS and a camera system for accurate localization on the Designated Landing Zone (DLZ). At competition, Light Fury achieved several successful autonomous payload deliveries, securing 1st place in flight score and a 2nd-place overall finish.',
     placements: { overall: '2nd', flight: '1st', designReport: '10th', presentation: '8th' },
   },
   {
@@ -325,7 +325,7 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     classCode: 'MCR',
     aircraftClass: 'Micro Class',
     summary:
-      'As the third and final aircraft in the team’s first Micro Class ruleset, Toothless was designed as the culmination of recent experiences in the Micro competition. Toothless featured a blended-wing-body design with a conventional tail, balancing superior weight optimization with improved controllability—achieving 1st place in Presentation, 2nd in Design Report, and 5th overall.',
+      'As the third and final aircraft in the team’s first Micro Class ruleset, Toothless was designed as the culmination of recent experiences in the Micro competition. Toothless featured a blended-wing-body design with a conventional tail, balancing superior weight optimization with improved controllability. Building upon previous lessons, Toothless included numerous features affording it a degree of optimization to potentially improve over Barbie’s flight score by nearly 50%.',
     placements: { overall: '5th', flight: '5th', designReport: '2nd', presentation: '1st' },
   },
 ];
