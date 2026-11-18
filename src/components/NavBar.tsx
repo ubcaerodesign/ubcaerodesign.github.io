@@ -65,7 +65,7 @@ export default function NavBar() {
           <div className="hidden lg:flex items-center gap-8">
             <NavLink destination="/" value="Home" />
             <NavLink destination="/about" value="About" />
-            <NavLink destination="/projects" value="Projects" />
+            <NavLink destination="/aircraft" value="Aircraft" />
             <NavLink destination="/team" value="Team" />
             <NavLink destination="/recruitment" value="Recruitment" />
             <NavLink destination="/sponsor" value="Sponsor" />
@@ -106,7 +106,7 @@ export default function NavBar() {
         <div className="flex flex-col items-center gap-6 text-xl">
           <NavLink destination="/" value="Home" onClick={() => setOpen(false)} />
           <NavLink destination="/about" value="About" onClick={() => setOpen(false)} />
-          <NavLink destination="/projects" value="Projects" onClick={() => setOpen(false)} />
+          <NavLink destination="/aircraft" value="Aircraft" onClick={() => setOpen(false)} />
           <NavLink destination="/team" value="Team" onClick={() => setOpen(false)} />
           <NavLink destination="/recruitment" value="Recruitment" onClick={() => setOpen(false)} />
           <NavLink destination="/sponsor" value="Sponsor" onClick={() => setOpen(false)} />

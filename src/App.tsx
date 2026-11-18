@@ -22,7 +22,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Team />} />
         <Route path="/sponsor" element={<Sponsor />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/aircraft" element={<Projects />} />
+        <Route path="/projects" element={<Navigate to="/aircraft" replace />} />
         <Route path="/recruitment" element={<Recruitment />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/404NotFound" element={<NotFound />} />

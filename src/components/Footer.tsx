@@ -76,10 +76,10 @@ export default function Footer() {
             <FooterLink destination="/team#structure" value="Team Structure" />
           </FooterColumn>
 
-          <FooterColumn title="Projects">
-            <FooterLink destination="/projects#competition" value="Competition" />
-            <FooterLink destination="/projects#classes" value="Divisions" />
-            <FooterLink destination="/projects#aircraft" value="Fleet Archive" />
+          <FooterColumn title="Aircraft">
+            <FooterLink destination="/aircraft#competition" value="Competition" />
+            <FooterLink destination="/aircraft#classes" value="Divisions" />
+            <FooterLink destination="/aircraft#aircraft" value="Fleet Archive" />
           </FooterColumn>
 
           <FooterColumn title="Team & Recruitment">
@@ -92,7 +92,7 @@ export default function Footer() {
 
           <FooterColumn title="More">
             <FooterLink destination="/sponsor" value="Sponsor Us" />
-            <FooterLink destination="/projects" value="All Projects" />
+            <FooterLink destination="/aircraft" value="All Aircraft" />
           </FooterColumn>
 
         </div>

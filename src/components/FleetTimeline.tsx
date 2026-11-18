@@ -12,6 +12,34 @@ interface FleetTimelineProps {
   initialId?: string;
 }
 
+type PodiumTier = 'gold' | 'silver' | 'bronze';
+
+function getPlacementTier(value?: string): PodiumTier | null {
+  if (!value) return null;
+  if (/\b1st\b/i.test(value)) return 'gold';
+  if (/\b2nd\b/i.test(value)) return 'silver';
+  if (/\b3rd\b/i.test(value)) return 'bronze';
+  return null;
+}
+
+const PODIUM_BADGE_STYLES: Record<PodiumTier, { badge: string; value: string }> = {
+  gold: {
+    badge:
+      'text-amber-100/90 bg-amber-400/15 border border-amber-400/45 shadow-[0_0_16px_rgba(251,191,36,0.28)]',
+    value: 'text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.65)]',
+  },
+  silver: {
+    badge:
+      'text-slate-100/90 bg-slate-300/15 border border-slate-300/45 shadow-[0_0_16px_rgba(226,232,240,0.25)]',
+    value: 'text-white drop-shadow-[0_0_8px_rgba(226,232,240,0.65)]',
+  },
+  bronze: {
+    badge:
+      'text-orange-100/90 bg-amber-700/20 border border-amber-600/45 shadow-[0_0_16px_rgba(217,119,6,0.28)]',
+    value: 'text-amber-400 drop-shadow-[0_0_8px_rgba(217,119,6,0.6)]',
+  },
+};
+
 function formatPlacementBadges(placements?: AircraftPlacements): { label: string; value: string }[] {
   if (!placements) return [];
   const items: { label: string; value: string }[] = [];
@@ -94,6 +122,7 @@ export default function FleetTimeline({ fleet, initialId }: FleetTimelineProps) 
   const mediaList = activeAircraft ? getAircraftMedia(activeAircraft) : [];
   const currentMedia = mediaList[mediaIndex] ?? mediaList[0];
   const placementBadges = formatPlacementBadges(activeAircraft?.placements);
+  const overallTier = getPlacementTier(activeAircraft?.placements?.overall);
   const scrubPercent = fleet.length > 1 ? (activeIndex / (fleet.length - 1)) * 100 : 100;
 
   // Reset to the first photo/video whenever the selected year changes.
@@ -171,8 +200,24 @@ export default function FleetTimeline({ fleet, initialId }: FleetTimelineProps) 
   return (
     <div className="space-y-5">
       {/* Main Photo / Video / Placeholder Stage */}
-      <div className="relative h-[340px] sm:h-[440px] lg:h-[540px] w-full rounded-2xl overflow-hidden border border-white/10 bg-[#040d17]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] max-w-full bg-aero-mid-blue/20 blur-[140px] rounded-full pointer-events-none" />
+      <div
+        className={clsx(
+          'relative h-[340px] sm:h-[440px] lg:h-[540px] w-full rounded-2xl overflow-hidden border bg-[#040d17] transition-all duration-500',
+          overallTier === 'gold' && 'border-amber-400/40 shadow-[0_0_45px_rgba(251,191,36,0.16)]',
+          overallTier === 'silver' && 'border-slate-300/40 shadow-[0_0_45px_rgba(226,232,240,0.14)]',
+          overallTier === 'bronze' && 'border-amber-600/45 shadow-[0_0_45px_rgba(217,119,6,0.16)]',
+          !overallTier && 'border-white/10'
+        )}
+      >
+        <div
+          className={clsx(
+            'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] max-w-full blur-[140px] rounded-full pointer-events-none transition-colors duration-500',
+            overallTier === 'gold' && 'bg-amber-400/20',
+            overallTier === 'silver' && 'bg-slate-300/20',
+            overallTier === 'bronze' && 'bg-amber-600/20',
+            !overallTier && 'bg-aero-mid-blue/20'
+          )}
+        />
 
         {currentMedia ? (
           currentMedia.type === 'video' ? (
@@ -278,17 +323,30 @@ export default function FleetTimeline({ fleet, initialId }: FleetTimelineProps) 
 
               {activeAircraft.subEntries && activeAircraft.subEntries.length > 0 && (
                 <div className="pt-2 border-t border-white/10 space-y-1">
-                  {activeAircraft.subEntries.map((entry, idx) => (
-                    <div
-                      key={`${entry.year}-${entry.aircraftClass}-${idx}`}
-                      className="flex items-baseline justify-between gap-3 text-[11px] font-lato"
-                    >
-                      <span className="text-white/75 shrink-0">
-                        {entry.year} · <span className="text-aero-light-blue/80">{entry.aircraftClass}</span>
-                      </span>
-                      <span className="text-white/50 text-right">{entry.result}</span>
-                    </div>
-                  ))}
+                  {activeAircraft.subEntries.map((entry, idx) => {
+                    const tier = getPlacementTier(entry.result);
+                    return (
+                      <div
+                        key={`${entry.year}-${entry.aircraftClass}-${idx}`}
+                        className="flex items-baseline justify-between gap-3 text-[11px] font-lato"
+                      >
+                        <span className="text-white/75 shrink-0">
+                          {entry.year} · <span className="text-aero-light-blue/80">{entry.aircraftClass}</span>
+                        </span>
+                        <span
+                          className={clsx(
+                            'text-right',
+                            tier === 'gold' && 'text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.55)]',
+                            tier === 'silver' && 'text-slate-200 drop-shadow-[0_0_8px_rgba(226,232,240,0.5)]',
+                            tier === 'bronze' && 'text-amber-400 drop-shadow-[0_0_8px_rgba(217,119,6,0.5)]',
+                            !tier && 'text-white/50'
+                          )}
+                        >
+                          {entry.result}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -296,14 +354,25 @@ export default function FleetTimeline({ fleet, initialId }: FleetTimelineProps) 
 
           {placementBadges.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-4 pt-3 border-t border-white/10">
-              {placementBadges.map((badge) => (
-                <span
-                  key={badge.label}
-                  className="font-lato text-[10px] tracking-wider uppercase text-white/60 bg-white/5 rounded-md px-2 py-0.5"
-                >
-                  {badge.label}: <strong className="text-white/90">{badge.value}</strong>
-                </span>
-              ))}
+              {placementBadges.map((badge) => {
+                const tier = getPlacementTier(badge.value);
+                return (
+                  <span
+                    key={badge.label}
+                    className={clsx(
+                      'font-lato text-[10px] tracking-wider uppercase rounded-md px-2 py-0.5 transition-all duration-300',
+                      tier
+                        ? PODIUM_BADGE_STYLES[tier].badge
+                        : 'text-white/60 bg-white/5 border border-transparent'
+                    )}
+                  >
+                    {badge.label}:{' '}
+                    <strong className={tier ? PODIUM_BADGE_STYLES[tier].value : 'text-white/90'}>
+                      {badge.value}
+                    </strong>
+                  </span>
+                );
+              })}
             </div>
           )}
         </div>
