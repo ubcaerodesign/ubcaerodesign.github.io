@@ -10,7 +10,7 @@ import HeroProjects from './../assets/images/backgrounds/projectHero.jpg';
 
 export default function Projects() {
   useEffect(() => {
-    document.title = 'Projects – UBC AeroDesign';
+    document.title = 'Aircraft – UBC AeroDesign';
   }, []);
 
   return (
@@ -33,7 +33,7 @@ export default function Projects() {
               </Reveal>
               <Reveal direction="up" delay={0.2}>
                 <h1 className="font-titillium font-semibold text-6xl md:text-8xl lg:text-9xl text-white leading-none text-glow mb-6">
-                  PROJECTS
+                  AIRCRAFT
                 </h1>
               </Reveal>
               <Reveal direction="up" delay={0.3}>
