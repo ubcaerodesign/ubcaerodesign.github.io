@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import HistoryImg from './../assets/images/team/history.jpg';
 import TeamPhoto2026 from './../assets/images/team/2026 Team Photo.jpg';
-import HeroAboutUs from './../assets/images/backgrounds/abouthero.jpg';
+import HeroAboutUs from './../assets/images/backgrounds/abouthero.JPG';
 import IndustryTour from './../assets/images/projects/industry tour.jpg';
 import WindTunnel from './../assets/images/projects/windtunnel.jpg';
 

@@ -6,7 +6,7 @@ import { AIRCRAFT_FLEET } from './../data/fleet';
 import FlyingPlane from './../assets/images/projects/comps.jpg';
 import MicroClass from './../assets/images/projects/microclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
-import HeroProjects from './../assets/images/backgrounds/projectHero.jpg';
+import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
 
 export default function Projects() {
   useEffect(() => {
