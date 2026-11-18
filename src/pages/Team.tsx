@@ -275,7 +275,13 @@ export default function Team() {
         {/* Full-screen team photo */}
         <div className="absolute inset-0">
           <img src={TeamPhoto} alt="UBC AeroDesign Team" className="w-full h-full object-cover"/>
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, #06121f 0%, #06121f 25%, rgba(6,18,31,0.7) 55%, transparent 80%)' }} />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to top, #06121f 0%, rgba(6,18,31,0.85) 20%, rgba(6,18,31,0.4) 32%, transparent 70%)',
+            }}
+          />
         </div>
 
         {/* Centered bottom text */}

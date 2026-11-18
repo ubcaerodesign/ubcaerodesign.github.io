@@ -208,7 +208,7 @@ export default function Sponsor() {
                 Details involving sponsorship tiers, sponsorship benefits, our 2025–2026 financial plan, and more can be found in our sponsorship package.
               </p>
               <Button
-                destination="https://cdn.prod.website-files.com/64e6fe6da7b788ebae21b130/68d2e0a51806ef02954b79ce_Sponsorship%20Package%202025-26.pdf"
+                destination="/sponsorship-package.pdf"
                 target="_blank"
                 value="View Sponsorship Package"
                 variant="yellow"
