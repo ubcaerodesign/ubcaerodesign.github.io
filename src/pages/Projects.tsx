@@ -3,8 +3,10 @@ import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import FleetTimeline from './../components/FleetTimeline';
 import { AIRCRAFT_FLEET } from './../data/fleet';
+import AircraftPlaceholder from './../assets/aircraft/placeholder.svg';
 import FlyingPlane from './../assets/images/projects/comps.jpg';
 import MicroClass from './../assets/images/projects/microclass.jpg';
+import RegularClass from './../assets/images/projects/regularclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
 import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
 
@@ -109,35 +111,66 @@ export default function Projects() {
               <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-3">Competition Classes</p>
               <h2 className="font-titillium font-semibold text-3xl md:text-4xl text-white mb-4">SAE AERODESIGN COMPETITION</h2>
               <p className="font-lato text-white/55 leading-relaxed">
-                The two classes — Micro and Advanced — are not ordered by difficulty or seniority. Their only differences are the competition missions and rules.
+                The three classes — Micro, Regular, and Advanced — are not ordered by difficulty or seniority. Their only differences are the competition missions and rules.
               </p>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <Reveal delay={0.1}>
-              <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col group">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <Reveal delay={0.1} className="h-full">
+              <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col h-full group">
                 <div className="p-6">
                   <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">Micro Class</p>
-                  <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MICRO CLASS MISSION OBJECTIVES</h3>
+                  <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
                     Conflicting requirements — such as carrying the heaviest payload while simultaneously pursuing the smallest wingspan and shortest takeoff distance.
                   </p>
                 </div>
-                <img src={MicroClass} alt="Micro Class" className="w-full h-72 object-cover mt-auto group-hover:scale-110 transition-transform duration-500" />
+                <div className="mt-auto w-full aspect-[4/3] overflow-hidden">
+                  <img
+                    src={MicroClass}
+                    alt="Micro Class"
+                    className="w-full h-full object-center group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
               </div>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col group">
+            <Reveal delay={0.2} className="h-full">
+              <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col h-full group">
+                <div className="p-6">
+                  <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">Regular Class</p>
+                  <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MISSION OBJECTIVES</h3>
+                  <p className="font-lato text-white/55 text-sm leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                  </p>
+                </div>
+                <div className="mt-auto w-full aspect-[4/3] overflow-hidden relative bg-[#040d17] border-t border-white/10 flex flex-col items-center justify-center p-6 text-center select-none">
+                    <img
+                      src={RegularClass}
+                      alt="Regular Class"
+                      className="w-full h-full object-cover object-center scale-125 group-hover:scale-140 transition-transform duration-500"
+                    />
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.3} className="h-full">
+              <div className="glass-panel rounded-xl overflow-hidden border border-white/10 flex flex-col h-full group">
                 <div className="p-6">
                   <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">Advanced Class</p>
-                  <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">ADVANCED CLASS MISSION OBJECTIVES</h3>
+                  <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
                     Focuses on system integrations, which involve the Software, Firmware, Controls, and Hardware subteams who contribute to the custom-built electronics and avionics system.
                   </p>
                 </div>
-                <img src={AdvanceClass} alt="Advanced Class" className="w-full h-72 object-cover mt-auto group-hover:scale-110 transition-transform duration-500" />
+                <div className="mt-auto w-full aspect-[4/3] overflow-hidden">
+                  <img
+                    src={AdvanceClass}
+                    alt="Advanced Class"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
               </div>
             </Reveal>
           </div>

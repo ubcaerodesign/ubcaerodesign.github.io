@@ -11,8 +11,15 @@ interface FooterLinkProps {
 }
 
 function FooterLink({ destination, value }: FooterLinkProps) {
+  const isExternal = destination.startsWith('http');
+
   return (
-    <Link to={destination} className="block font-lato text-sm text-white/50 hover:text-white transition-colors duration-300 py-1.5">
+    <Link
+      to={destination}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noopener noreferrer' : undefined}
+      className="block font-lato text-sm text-white/50 hover:text-white transition-colors duration-300 py-1.5"
+    >
       {value}
     </Link>
   );
@@ -69,30 +76,36 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <FooterColumn title="About">
+          <FooterColumn title="About & Team">
             <FooterLink destination="/about" value="About Us" />
             <FooterLink destination="/about#history" value="History" />
             <FooterLink destination="/about#learning-endeavors" value="Learning Endeavors" />
+            <FooterLink destination="/team" value="Our Team" />
             <FooterLink destination="/team#structure" value="Team Structure" />
           </FooterColumn>
 
           <FooterColumn title="Aircraft">
+            <FooterLink destination="/aircraft" value="Overview" />
             <FooterLink destination="/aircraft#competition" value="Competition" />
-            <FooterLink destination="/aircraft#classes" value="Divisions" />
+            <FooterLink destination="/aircraft#classes" value="Competition Classes" />
             <FooterLink destination="/aircraft#aircraft" value="Fleet Archive" />
           </FooterColumn>
 
-          <FooterColumn title="Team & Recruitment">
-            <FooterLink destination="/team" value="Our Team" />
+          <FooterColumn title="Recruitment">
+            <FooterLink destination="/recruitment" value="Join the Team" />
             <FooterLink destination="/recruitment#why-aerodesign" value="Why AeroDesign" />
             <FooterLink destination="/recruitment#process" value="Recruitment Process" />
             <FooterLink destination="/recruitment#timeline" value="Recruitment Timeline" />
             <FooterLink destination="/recruitment#faq" value="FAQ" />
           </FooterColumn>
 
-          <FooterColumn title="More">
+          <FooterColumn title="Connect">
             <FooterLink destination="/sponsor" value="Sponsor Us" />
-            <FooterLink destination="/aircraft" value="All Aircraft" />
+            <FooterLink
+              destination="https://donate.give.ubc.ca/page/80953/donate/1?transaction.dirgift=UBC+AeroDesign%20O112"
+              value="Support Us"
+            />
+            <FooterLink destination="/contact" value="Contact Us" />
           </FooterColumn>
 
         </div>

@@ -151,3 +151,61 @@ section[id] {
   filter: drop-shadow(1px 0 0 #fff) drop-shadow(-1px 0 0 #fff) drop-shadow(0 1px 0 #fff) drop-shadow(0 -1px 0 #fff);
 }
 
+/* ─── Custom Scrollbars ─── */
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #06121f;
+  border-left: 1px solid rgba(201, 214, 234, 0.06);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(201, 214, 234, 0.22);
+  border-radius: 9999px;
+  border: 2px solid #06121f;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 214, 234, 0.45);
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.aero-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.aero-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 9999px;
+}
+
+.aero-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(201, 214, 234, 0.28);
+  border-radius: 9999px;
+}
+
+.aero-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 214, 234, 0.55);
+}
+
+.aero-scrollbar::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201, 214, 234, 0.28) #06121f;
+  }
+
+  .aero-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201, 214, 234, 0.35) rgba(255, 255, 255, 0.04);
+  }
+}

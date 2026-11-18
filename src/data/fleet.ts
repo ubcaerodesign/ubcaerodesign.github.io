@@ -307,17 +307,6 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     placements: { overall: '6th', flight: '5th', designReport: '5th', presentation: '10th' },
   },
   {
-    id: '2025-2026-light-fury',
-    year: '2025–2026',
-    shortYear: '2025–26',
-    name: 'Light Fury',
-    classCode: 'ADV',
-    aircraftClass: 'Advanced Class',
-    summary:
-      'Light Fury was the team’s second entry of the three-year ADV ruleset and our first time pursuing a Vertical Take-off and Landing (VTOL) aircraft. The aircraft has a 45 in wingspan, conventional fuselage, U-tail, tail-dragger, and tri-motor configuration with two motors attached to the wings that tilt up and down to facilitate transitioning between conventional and VTOL flight, as well as another motor permanently affixed upwards on the tailboom that only turns on during hover. It uses custom in-house hardware and firmware to allow for an autonomous payload delivery and capture system, employing GNSS and a camera system for accurate localization on the Designated Landing Zone (DLZ). At competition, Light Fury achieved several successful autonomous payload deliveries, securing 1st place in flight score and a 2nd-place overall finish.',
-    placements: { overall: '2nd', flight: '1st', designReport: '10th', presentation: '8th' },
-  },
-  {
     id: '2025-2026-toothless',
     year: '2025–2026',
     shortYear: '2025–26',
@@ -327,5 +316,16 @@ export const AIRCRAFT_FLEET: AircraftEntry[] = [
     summary:
       'As the third and final aircraft in the team’s first Micro Class ruleset, Toothless was designed as the culmination of recent experiences in the Micro competition. Toothless featured a blended-wing-body design with a conventional tail, balancing superior weight optimization with improved controllability. Building upon previous lessons, Toothless included numerous features affording it a degree of optimization to potentially improve over Barbie’s flight score by nearly 50%.',
     placements: { overall: '5th', flight: '5th', designReport: '2nd', presentation: '1st' },
+  },
+  {
+    id: '2025-2026-light-fury',
+    year: '2025–2026',
+    shortYear: '2025–26',
+    name: 'Light Fury',
+    classCode: 'ADV',
+    aircraftClass: 'Advanced Class',
+    summary:
+      'Light Fury was the team’s second entry of the three-year ADV ruleset and our first time pursuing a Vertical Take-off and Landing (VTOL) aircraft. The aircraft has a 45 in wingspan, conventional fuselage, U-tail, tail-dragger, and tri-motor configuration with two motors attached to the wings that tilt up and down to facilitate transitioning between conventional and VTOL flight, as well as another motor permanently affixed upwards on the tailboom that only turns on during hover. It uses custom in-house hardware and firmware to allow for an autonomous payload delivery and capture system, employing GNSS and a camera system for accurate localization on the Designated Landing Zone (DLZ). At competition, Light Fury achieved several successful autonomous payload deliveries, securing 1st place in flight score and a 2nd-place overall finish.',
+    placements: { overall: '2nd', flight: '1st', designReport: '10th', presentation: '8th' },
   },
 ];
