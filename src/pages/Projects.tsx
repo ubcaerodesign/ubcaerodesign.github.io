@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from './../components/Buttons';
 import { MarginWrapper, Section, Reveal, SectionDivider } from './../components/Sections';
 import FleetTimeline from './../components/FleetTimeline';
@@ -9,6 +9,75 @@ import MicroClass from './../assets/images/projects/microclass.jpg';
 import RegularClass from './../assets/images/projects/regularclass.jpg';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
 import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
+
+// SAE Aero Design East 2027: March 5–7, 2027 at Paradise Field, Lakeland, FL (EST = UTC-5)
+const COMPETITION_START_MS = new Date('2027-03-05T08:00:00-05:00').getTime();
+const COMPETITION_END_MS = new Date('2027-03-08T00:00:00-05:00').getTime();
+
+function CompetitionCountdown() {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  const diffMs = Math.max(0, COMPETITION_START_MS - now);
+  const totalSeconds = Math.floor(diffMs / 1000);
+  const weeks = Math.floor(totalSeconds / (7 * 86400));
+  const days = Math.floor((totalSeconds % (7 * 86400)) / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  const isOngoing = now >= COMPETITION_START_MS && now < COMPETITION_END_MS;
+  const isFinished = now >= COMPETITION_END_MS;
+
+  const units = [
+    { key: 'weeks', label: weeks === 1 ? 'Week' : 'Weeks', value: String(weeks) },
+    { key: 'days', label: days === 1 ? 'Day' : 'Days', value: String(days) },
+    { key: 'hours', label: hours === 1 ? 'Hour' : 'Hours', value: String(hours).padStart(2, '0') },
+    { key: 'minutes', label: minutes === 1 ? 'Min' : 'Mins', value: String(minutes).padStart(2, '0') },
+    { key: 'seconds', label: seconds === 1 ? 'Sec' : 'Secs', value: String(seconds).padStart(2, '0') },
+  ];
+
+  return (
+    <div className="glass-panel rounded-2xl border border-white/10 px-6 py-6 md:px-8 md:py-7 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div>
+        <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-xs mb-1.5 flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-aero-yellow animate-pulse" />
+          {isOngoing
+            ? 'Competition Underway'
+            : isFinished
+              ? '2027 Season Complete'
+              : 'Countdown to 2027 Competition'}
+        </p>
+        <p className="font-titillium font-semibold text-xl md:text-2xl text-white tracking-wide">
+          SAE Aero Design East 2027
+        </p>
+        <p className="font-lato text-xs md:text-sm text-white/50 mt-1">
+          March 5 – 7, 2027 · Lakeland, Florida
+        </p>
+      </div>
+
+      <div className="grid grid-cols-5 gap-2 sm:gap-3 lg:shrink-0">
+        {units.map((unit) => (
+          <div
+            key={unit.key}
+            className="rounded-xl bg-white/[0.04] border border-white/10 px-2.5 py-3 sm:px-4 text-center min-w-[54px] sm:min-w-[72px]"
+          >
+            <div className="font-titillium font-semibold text-2xl sm:text-3xl text-white tabular-nums leading-none">
+              {unit.value}
+            </div>
+            <div className="font-lato text-[9px] sm:text-[10px] tracking-[0.18em] uppercase text-white/45 mt-1.5">
+              {unit.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Projects() {
   useEffect(() => {
@@ -99,6 +168,10 @@ export default function Projects() {
               </Reveal>
             </div>
           </div>
+
+          <Reveal delay={0.25} className="mt-12">
+            <CompetitionCountdown />
+          </Reveal>
         </MarginWrapper>
       </Section>
 
