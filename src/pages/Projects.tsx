@@ -142,7 +142,10 @@ export default function Projects() {
                   <p className="font-lato text-aero-yellow text-xs tracking-widest uppercase mb-2">Regular Class</p>
                   <h3 className="font-titillium font-semibold text-lg text-white tracking-wide mb-2">MISSION OBJECTIVES</h3>
                   <p className="font-lato text-white/55 text-sm leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+                    SAE’s heavy-lift category, centered on fundamental aerodynamics and structural efficiency under strict takeoff distance, propulsion, and non-composite construction limits. Regular Class was UBC AeroDesign’s founding division from 1992 to 2023.
+                  </p>
+                  <p className="font-lato text-white/85 text-sm leading-relaxed mt-3 font-bold">
+                    Note: The team no longer participates in Regular Class, competing only in Advanced and Micro Class.
                   </p>
                 </div>
                 <div className="mt-auto w-full aspect-[4/3] overflow-hidden relative bg-[#040d17] border-t border-white/10 flex flex-col items-center justify-center p-6 text-center select-none">

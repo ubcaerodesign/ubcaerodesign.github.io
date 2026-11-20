@@ -228,6 +228,73 @@ export default function Home() {
             {/* ═══════════════ TEAM IMAGE ═══════════════ */}
             <Section>
                 <MarginWrapper>
+                    <Reveal className="mb-10">
+                        <div className="mb-8">
+                            <p className="font-titillium font-semibold text-aero-yellow tracking-[0.2em] uppercase text-sm mb-3 flex items-center gap-4">
+                                <span className="w-8 h-[1px] bg-aero-yellow" /> SAE Aero Design East 2026
+                            </p>
+                            <h2 className="font-titillium font-semibold text-4xl md:text-5xl text-white leading-tight">
+                                2026 PODIUM RESULTS
+                            </h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {/* Advanced Class — Light Fury */}
+                            <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/10 relative overflow-hidden">
+                                <div className="absolute -top-12 -right-12 w-40 h-40 bg-amber-400/10 blur-3xl rounded-full pointer-events-none" />
+                                <div className="flex items-baseline justify-between gap-4 mb-5">
+                                    <span className="font-lato text-xs tracking-[0.2em] uppercase text-white/60">Advanced Class</span>
+                                    <span className="font-titillium font-semibold text-lg text-white tracking-wide">Light Fury</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="rounded-xl p-4 bg-amber-400/10 border border-amber-400/40 shadow-[0_0_24px_rgba(251,191,36,0.16)]">
+                                        <div className="font-titillium font-semibold text-3xl md:text-4xl text-amber-300 drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]">
+                                            1st Place
+                                        </div>
+                                        <div className="font-lato text-xs tracking-[0.18em] uppercase text-amber-100/85 mt-1">
+                                            Flight Score
+                                        </div>
+                                    </div>
+                                    <div className="rounded-xl p-4 bg-slate-300/10 border border-slate-300/40 shadow-[0_0_24px_rgba(226,232,240,0.14)]">
+                                        <div className="font-titillium font-semibold text-3xl md:text-4xl text-white drop-shadow-[0_0_10px_rgba(226,232,240,0.55)]">
+                                            2nd Place
+                                        </div>
+                                        <div className="font-lato text-xs tracking-[0.18em] uppercase text-slate-100/85 mt-1">
+                                            Overall
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Micro Class — Toothless */}
+                            <div className="glass-panel rounded-2xl p-6 md:p-8 border border-white/10 relative overflow-hidden">
+                                <div className="absolute -top-12 -right-12 w-40 h-40 bg-amber-400/10 blur-3xl rounded-full pointer-events-none" />
+                                <div className="flex items-baseline justify-between gap-4 mb-5">
+                                    <span className="font-lato text-xs tracking-[0.2em] uppercase text-white/60">Micro Class</span>
+                                    <span className="font-titillium font-semibold text-lg text-white tracking-wide">Toothless</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="rounded-xl p-4 bg-amber-400/10 border border-amber-400/40 shadow-[0_0_24px_rgba(251,191,36,0.16)]">
+                                        <div className="font-titillium font-semibold text-3xl md:text-4xl text-amber-300 drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]">
+                                            1st Place
+                                        </div>
+                                        <div className="font-lato text-xs tracking-[0.18em] uppercase text-amber-100/85 mt-1">
+                                            Presentation
+                                        </div>
+                                    </div>
+                                    <div className="rounded-xl p-4 bg-slate-300/10 border border-slate-300/40 shadow-[0_0_24px_rgba(226,232,240,0.14)]">
+                                        <div className="font-titillium font-semibold text-3xl md:text-4xl text-white drop-shadow-[0_0_10px_rgba(226,232,240,0.55)]">
+                                            2nd Place
+                                        </div>
+                                        <div className="font-lato text-xs tracking-[0.18em] uppercase text-slate-100/85 mt-1">
+                                            Design Report
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </Reveal>
+
                     <Reveal className="relative group rounded-3xl overflow-hidden">
                         <div className="absolute inset-0 bg-aero-mid-blue mix-blend-overlay opacity-20 group-hover:opacity-0 transition-opacity duration-700 z-10" />
                         <img

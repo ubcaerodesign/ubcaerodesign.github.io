@@ -90,7 +90,7 @@ function formatPlacementBadges(placements?: AircraftPlacements): { label: string
   if (placements.flight) items.push({ label: 'Flight', value: placements.flight });
   if (placements.designReport) items.push({ label: 'Design Report', value: placements.designReport });
   if (placements.presentation) items.push({ label: 'Presentation', value: placements.presentation });
-  return items;
+  return items.filter((item) => getPlacementTier(item.value) !== null);
 }
 
 function groupFleetByYear(fleet: AircraftEntry[]): YearGroup[] {
