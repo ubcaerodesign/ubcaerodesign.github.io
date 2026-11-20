@@ -6,7 +6,7 @@ import { AIRCRAFT_FLEET } from './../data/fleet';
 import AircraftPlaceholder from './../assets/aircraft/placeholder.svg';
 import FlyingPlane from './../assets/images/projects/comps.jpg';
 import MicroClass from './../assets/images/projects/microclass.jpg';
-import RegularClass from './../assets/images/projects/regularclass.jpg';
+import RegularClass from './../assets/images/projects/regularclass.JPG';
 import AdvanceClass from './../assets/images/projects/advance class.jpg';
 import HeroProjects from './../assets/images/backgrounds/projectHero.JPG';
 
